@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Vincent Joed G. Quimanjan — full stack developer in Bacoor, Cavite. Twelve web, Android and Windows systems delivered for schools, small businesses and a government office.">
+<meta name="author" content="Vincent Joed G. Quimanjan">
+<meta property="og:title" content="Vince Quimanjan — Full Stack Developer">
+<meta property="og:description" content="Twelve systems across web, Android and Windows. React, Next.js, PHP, MySQL, Flutter, Electron.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>html{-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Vince Quimanjan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#f4f4ef; --surface:#fffffc; --raise:#ecece4;
+  --ink:#141d1b; --muted:#56635f; --faint:#87938e;
+  --line:rgba(20,29,27,.15); --line2:rgba(20,29,27,.3);
+  --accent:#0b6350; --accent-ink:#ffffff; --accent-soft:#dceae5;
+  --signal:#b9481b; --signal-soft:#f6e2d8;
+  --violet:#4a4fa8; --violet-soft:#e2e3f4;
+  --focus:#0b6350;
+  --shadow:0 1px 2px rgba(20,29,27,.07);
+  --lift:0 10px 30px -12px rgba(11,99,80,.4);
+  --f-disp:"Archivo",system-ui,sans-serif;
+  --f-body:"Public Sans",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --aurora-a:rgba(11,99,80,.22); --aurora-b:rgba(185,72,27,.16); --aurora-c:rgba(74,79,168,.16);
+  --spot:rgba(11,99,80,.13);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0d1413; --surface:#141d1b; --raise:#1b2725;
+  --ink:#e7efec; --muted:#9dada8; --faint:#71827d;
+  --line:rgba(231,239,236,.14); --line2:rgba(231,239,236,.28);
+  --accent:#49cfae; --accent-ink:#06201a; --accent-soft:#12312a;
+  --signal:#f08b5c; --signal-soft:#331d13;
+  --violet:#9ba2f2; --violet-soft:#1d2140;
+  --focus:#49cfae;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+  --lift:0 12px 34px -12px rgba(73,207,174,.34);
+  --aurora-a:rgba(73,207,174,.20); --aurora-b:rgba(240,139,92,.15); --aurora-c:rgba(155,162,242,.16);
+  --spot:rgba(73,207,174,.12);
+}}
+:root[data-theme="dark"]{
+  --ground:#0d1413; --surface:#141d1b; --raise:#1b2725;
+  --ink:#e7efec; --muted:#9dada8; --faint:#71827d;
+  --line:rgba(231,239,236,.14); --line2:rgba(231,239,236,.28);
+  --accent:#49cfae; --accent-ink:#06201a; --accent-soft:#12312a;
+  --signal:#f08b5c; --signal-soft:#331d13;
+  --violet:#9ba2f2; --violet-soft:#1d2140;
+  --focus:#49cfae;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+  --lift:0 12px 34px -12px rgba(73,207,174,.34);
+  --aurora-a:rgba(73,207,174,.20); --aurora-b:rgba(240,139,92,.15); --aurora-c:rgba(155,162,242,.16);
+  --spot:rgba(73,207,174,.12);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:0}
+h1,h2,h3{font-family:var(--f-disp);margin:0;text-wrap:balance;letter-spacing:-.02em}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:3px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.lbl{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+
+/* scroll progress */
+#bar{position:fixed;top:0;left:0;height:3px;width:0%;z-index:50;
+  background:linear-gradient(90deg,var(--accent),var(--signal));transition:width .12s linear}
+
+/* hero + aurora */
+.hero{position:relative;border-bottom:1px solid var(--line2);background:var(--surface);overflow:hidden}
+.aurora{position:absolute;inset:-30% -10%;z-index:0;filter:blur(70px);opacity:.95;pointer-events:none}
+.aurora i{position:absolute;display:block;border-radius:50%;animation:drift 22s ease-in-out infinite}
+.aurora i:nth-child(1){width:52%;height:78%;left:52%;top:-16%;background:var(--aurora-a)}
+.aurora i:nth-child(2){width:44%;height:70%;left:8%;top:22%;background:var(--aurora-b);animation-delay:-7s;animation-duration:27s}
+.aurora i:nth-child(3){width:40%;height:64%;left:70%;top:40%;background:var(--aurora-c);animation-delay:-14s;animation-duration:31s}
+@keyframes drift{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  33%{transform:translate3d(-7%,6%,0) scale(1.12)}
+  66%{transform:translate3d(6%,-5%,0) scale(.94)}
+}
+.spot{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,70%) var(--my,30%),var(--spot),transparent 68%);
+  transition:background .2s ease}
+.hero .page,.meterwrap{position:relative;z-index:1}
+.hero .page{padding-block:56px 42px}
+.kicker{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;margin-bottom:24px}
+.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;
+  box-shadow:0 0 0 0 var(--accent);animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent);opacity:1}
+  70%{box-shadow:0 0 0 9px transparent;opacity:.85}100%{box-shadow:0 0 0 0 transparent;opacity:1}}
+h1{font-size:clamp(2.3rem,6.2vw,3.9rem);line-height:1.02;font-weight:800}
+h1 .g{background:linear-gradient(100deg,var(--accent),var(--violet) 45%,var(--signal));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  background-size:220% 100%;animation:slide 9s ease-in-out infinite}
+@keyframes slide{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.thesis{margin:22px 0 0;font-size:clamp(1.1rem,2.6vw,1.35rem);color:var(--muted);max-width:60ch;line-height:1.5}
+.thesis b{color:var(--ink);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:5px;
+  font-family:var(--f-disp);font-weight:600;font-size:16px;text-decoration:none;border:1px solid var(--line2);
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;overflow:hidden}
+.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.sec{background:transparent;color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri:hover{box-shadow:var(--lift)}
+.btn.sec:hover{background:var(--raise)}
+.btn.pri::after{content:"";position:absolute;inset:0;transform:translateX(-120%);
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.34),transparent)}
+.btn.pri:hover::after{animation:sheen .8s ease}
+@keyframes sheen{to{transform:translateX(120%)}}
+
+.meterwrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+.meters{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border-block:1px solid var(--line);margin-top:40px}
+.meter{background:var(--surface);padding:18px 16px;transition:background .2s ease}
+.meter:hover{background:var(--accent-soft)}
+.meter b{display:block;font-family:var(--f-disp);font-size:1.75rem;line-height:1;font-weight:700;color:var(--accent)}
+.meter span{display:block;margin-top:7px;font-size:13px;color:var(--muted);line-height:1.35}
+@media(max-width:620px){.meters{grid-template-columns:repeat(2,1fr)}}
+
+section{padding-block:52px}
+.head{margin-bottom:26px}
+.head h2{font-size:clamp(1.5rem,3.6vw,2rem);font-weight:700;margin-top:8px;position:relative;display:inline-block}
+.head h2::after{content:"";position:absolute;left:0;bottom:-7px;height:3px;width:100%;
+  background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px}
+.head p{margin:14px 0 0;color:var(--muted);max-width:64ch}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;align-items:center}
+.chip{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.04em;padding:7px 13px;border-radius:999px;
+  border:1px solid var(--line2);background:transparent;color:var(--muted);cursor:pointer;
+  transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease}
+.chip:hover{transform:translateY(-1px);border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
+.count{margin-left:auto;font-family:var(--f-mono);font-size:12.5px;color:var(--faint)}
+
+.reg{display:grid;gap:10px}
+.proj{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  padding:20px 22px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr auto;gap:8px 24px;
+  align-items:start;overflow:hidden;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.proj::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);
+  transform:scaleY(0);transform-origin:top;transition:transform .25s ease}
+.proj:hover{transform:translateY(-3px);box-shadow:var(--lift);border-color:var(--line2)}
+.proj:hover::before{transform:scaleY(1)}
+.proj[hidden]{display:none!important}
+.proj.in{animation:pop .32s ease both}
+@keyframes pop{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.proj h3{font-size:1.24rem;font-weight:700}
+.client{margin:5px 0 0;font-family:var(--f-mono);font-size:12.5px;color:var(--signal);letter-spacing:.02em}
+.proj p.desc{margin:11px 0 0;color:var(--muted);font-size:15.5px;max-width:68ch;line-height:1.5}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;grid-column:1/-1;align-items:center}
+.stack .sl{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);margin-right:4px}
+.tech{font-family:var(--f-mono);font-size:11.5px;padding:4px 9px;border-radius:3px;
+  background:var(--raise);color:var(--muted);border:1px solid var(--line);
+  transition:color .15s ease,border-color .15s ease,background .15s ease}
+.proj:hover .tech{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.tags{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.plat{font-family:var(--f-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  padding:4px 10px;border-radius:3px;background:var(--accent-soft);color:var(--accent);
+  border:1px solid var(--accent);font-weight:500;white-space:nowrap}
+.plat.m{background:var(--signal-soft);color:var(--signal);border-color:var(--signal)}
+.plat.d{background:var(--violet-soft);color:var(--violet);border-color:var(--violet)}
+@media(max-width:600px){
+  .proj{grid-template-columns:1fr}
+  .tags{flex-direction:row;flex-wrap:wrap;align-items:flex-start;order:-1}
+}
+
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.svc{grid-template-columns:1fr}}
+.track{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:26px;
+  border-top:3px solid var(--accent);box-shadow:var(--shadow);
+  transition:transform .2s ease,box-shadow .2s ease}
+.track:hover{transform:translateY(-3px);box-shadow:var(--lift)}
+.track.b{border-top-color:var(--signal)}
+.track h3{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.track>p{margin:0 0 16px;color:var(--muted);font-size:15.5px}
+.track ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.track li{display:flex;gap:11px;font-size:15.5px;color:var(--muted);line-height:1.45}
+.track li::before{content:"";width:6px;height:6px;margin-top:8px;flex:none;
+  background:var(--accent);transform:rotate(45deg)}
+.track.b li::before{background:var(--signal)}
+
+/* full stack table */
+.stackgrid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.row{display:grid;grid-template-columns:180px 1fr;gap:0;background:var(--surface);
+  transition:background .18s ease}
+.row:hover{background:var(--raise)}
+.row .cat{padding:16px 18px;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--signal);border-right:1px solid var(--line);display:flex;align-items:center}
+.row .items{padding:14px 18px;display:flex;flex-wrap:wrap;gap:7px}
+@media(max-width:620px){
+  .row{grid-template-columns:1fr}
+  .row .cat{border-right:none;border-bottom:1px solid var(--line);padding-bottom:10px}
+}
+.cap{font-family:var(--f-mono);font-size:13px;padding:6px 12px;border:1px solid var(--line2);
+  border-radius:4px;background:var(--ground);color:var(--muted);
+  transition:transform .15s ease,color .15s ease,border-color .15s ease,background .15s ease}
+.cap:hover{transform:translateY(-2px);color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.cap.k{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);font-weight:500}
+
+.contact{background:var(--surface);border-top:1px solid var(--line2);position:relative;overflow:hidden}
+.contact .page{padding-block:48px;position:relative;z-index:1}
+.cbox{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end}
+.cbox h2{font-size:clamp(1.5rem,3.6vw,2.05rem);font-weight:700}
+.cbox p{margin:12px 0 0;color:var(--muted);max-width:52ch}
+.links{display:grid;gap:10px;min-width:min(260px,100%)}
+.link{display:flex;align-items:center;gap:12px;padding:13px 17px;border:1px solid var(--line2);
+  border-radius:5px;text-decoration:none;color:var(--ink);background:var(--ground);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.link:hover{transform:translateX(4px);border-color:var(--accent);box-shadow:var(--lift)}
+.link .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);min-width:54px}
+.link .v{font-weight:600;font-size:15.5px;word-break:break-word}
+footer{border-top:1px solid var(--line)}
+footer .page{padding-block:24px 34px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+footer p{margin:0;font-size:13.5px;color:var(--faint)}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .proj::before{transform:scaleY(1)}
+}
+@media print{
+  #bar,.aurora,.spot,.filters{display:none!important}
+  body{background:#fff;color:#141d1b;font-size:10pt}
+  .hero,.contact,.surface{background:#fff}
+  .proj,.track,.row,.meter{break-inside:avoid;box-shadow:none}
+  .proj[hidden]{display:grid!important}
+  section{padding-block:18px}
+  h1{font-size:30pt}
+}
+</style>
+
+<div id="bar"></div>
+
+<header class="hero" id="hero">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="spot" id="spot" aria-hidden="true"></div>
+  <div class="page">
+    <div class="kicker">
+      <span class="dot"></span>
+      <span class="lbl">Vincent Joed G. Quimanjan</span>
+      <span class="lbl">BSIT &middot; Fellowship Baptist College</span>
+      <span class="lbl">Bacoor, Cavite &middot; PH</span>
+    </div>
+    <h1>Twelve systems.<br>Three platforms.<br><span class="g">Real organizations.</span></h1>
+    <p class="thesis">Web applications, Android apps and Windows desktop software for schools, small businesses and government offices &mdash; <b>built end to end</b>, from database design through interface, installer, turnover and staff training.</p>
+    <div class="actions">
+      <a class="btn pri" href="https://www.facebook.com/VinxQui/">Message me on Facebook</a>
+      <a class="btn sec" href="mailto:Quimanjan90@gmail.com">Quimanjan90@gmail.com</a>
+    </div>
+  </div>
+  <div class="meterwrap">
+    <div class="meters">
+      <div class="meter"><b>12</b><span>Systems built and delivered</span></div>
+      <div class="meter"><b>4</b><span>Named client organizations</span></div>
+      <div class="meter"><b>3</b><span>Platforms &mdash; web, Android, Windows</span></div>
+      <div class="meter"><b>25+</b><span>Technologies worked in</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+<section>
+  <div class="head">
+    <span class="lbl">The register</span>
+    <h2>Every system I&rsquo;ve shipped</h2>
+    <p>Real projects for real organizations, not coursework demos &mdash; each with the exact stack it was built on. Filter by platform.</p>
+  </div>
+
+  <div class="filters">
+    <button class="chip" data-f="all" aria-pressed="true">All 12</button>
+    <button class="chip" data-f="web" aria-pressed="false">Web</button>
+    <button class="chip" data-f="mobile" aria-pressed="false">Android / iOS</button>
+    <button class="chip" data-f="desktop" aria-pressed="false">Windows desktop</button>
+    <span class="count" id="count">12 shown</span>
+  </div>
+
+  <div class="reg" id="reg">
+
+    <article class="proj" data-tags="desktop">
+      <div><h3>WE &hearts; CHICKS Scheduling System</h3>
+        <p class="client">Office of the Representative, Sixth District, Negros Occidental</p>
+        <p class="desc">Staff encode invitations and requests; invitations populate a calendar automatically and every record is written to a live Excel workbook in a folder the office picks on first run. Delivered as a packaged Windows installer with a user guide.</p></div>
+      <div class="tags"><span class="plat d">Windows</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Electron</span><span class="tech">Node.js</span><span class="tech">JavaScript</span><span class="tech">HTML5</span><span class="tech">CSS3</span><span class="tech">ExcelJS</span><span class="tech">electron-builder</span></div>
+    </article>
+
+    <article class="proj" data-tags="desktop">
+      <div><h3>2LG&rsquo;s Water Refilling Station</h3>
+        <p class="client">2LG&rsquo;s Water Refilling Station</p>
+        <p class="desc">Refills, deliveries, container tracking and customer records. Data lives in a folder the owner chooses on first run, so the whole business record is portable and backed up by copying one directory.</p></div>
+      <div class="tags"><span class="plat d">Windows</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Electron</span><span class="tech">Node.js</span><span class="tech">JavaScript</span><span class="tech">HTML5</span><span class="tech">CSS3</span><span class="tech">JSON store</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>FBC Scheduling System</h3>
+        <p class="client">Fellowship Baptist College</p>
+        <p class="desc">Automatic scheduling that assigns teachers to classes and students to schedules, replacing the matrix the registrar used to build by hand each term.</p></div>
+      <div class="tags"><span class="plat">Web</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">TypeScript</span><span class="tech">MySQL</span><span class="tech">mysql2</span><span class="tech">Tailwind CSS</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>ESL Company Management System</h3>
+        <p class="desc">Multi-branch management for an English-language school company: admin dashboard, center-manager accounts with role-based access, equipment request workflow, and charted reporting across every centre.</p></div>
+      <div class="tags"><span class="plat">Web</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">MySQL</span><span class="tech">Recharts</span><span class="tech">Tailwind CSS</span><span class="tech">next-themes</span></div>
+    </article>
+
+    <article class="proj" data-tags="web mobile">
+      <div><h3>MS Wordbox Laundry POS</h3>
+        <p class="client">MS Wordbox Laundry Shop</p>
+        <p class="desc">Point-of-sale and sales tracking with QR-code order tracking, so customers check load status from a phone instead of calling the shop. Ships with an Android build alongside the web app.</p></div>
+      <div class="tags"><span class="plat">Web</span><span class="plat m">Android</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">MySQL</span><span class="tech">Tailwind CSS</span><span class="tech">QR codes</span><span class="tech">APK build</span></div>
+    </article>
+
+    <article class="proj" data-tags="mobile">
+      <div><h3>Document Scanner with OCR</h3>
+        <p class="desc">Camera scanning with automatic edge detection and perspective correction, then on-device OCR. Detects whether a page is a table &mdash; an attendance sheet, say &mdash; or plain text, and rebuilds it as an editable grid or paragraph.</p></div>
+      <div class="tags"><span class="plat m">Android</span><span class="plat m">iOS</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">React Native</span><span class="tech">Expo</span><span class="tech">TypeScript</span><span class="tech">Google ML Kit</span><span class="tech">expo-print</span><span class="tech">expo-file-system</span><span class="tech">AsyncStorage</span></div>
+    </article>
+
+    <article class="proj" data-tags="mobile">
+      <div><h3>GCash Notes</h3>
+        <p class="desc">A notebook for recording GCash transactions with daily, monthly and yearly totals. Accounts, transactions and receipt screenshots stay on the phone; the app never connects to GCash.</p></div>
+      <div class="tags"><span class="plat m">Android</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Flutter</span><span class="tech">Dart</span><span class="tech">Material Design</span><span class="tech">Local storage</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>SitePay Construction Payroll</h3>
+        <p class="desc">Payroll for construction firms with a large, rotating crew. Every record is a plain JSON file inside a folder you choose, so the whole payroll is portable, backup-able and can sit directly inside Google Drive.</p></div>
+      <div class="tags"><span class="plat">Web</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">PHP</span><span class="tech">JavaScript</span><span class="tech">HTML5</span><span class="tech">CSS3</span><span class="tech">JSON store</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>Airbnb Operations Manager</h3>
+        <p class="desc">Bookings, expenses and housekeeping records for a small Airbnb. Staff work on the office PC while cleaners use it from their phones over the same Wi-Fi; a nightly package is saved locally, copied to the cloud and emailed.</p></div>
+      <div class="tags"><span class="plat">Web</span><span class="plat">PWA</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">PHP</span><span class="tech">JavaScript</span><span class="tech">Service Workers</span><span class="tech">Web App Manifest</span><span class="tech">Cron</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>OneChurch</h3>
+        <p class="desc">A living map of the local church. Congregations publish their outreaches, services and announcements; anyone can spin the globe, search a place, and see what is happening there.</p></div>
+      <div class="tags"><span class="plat">Web</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">TypeScript</span><span class="tech">Supabase</span><span class="tech">PostgreSQL</span><span class="tech">@supabase/ssr</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>Face-Recognition Attendance</h3>
+        <p class="desc">Attendance capture using face recognition instead of sign-in sheets, with an admin console, user records and an API layer for pulling attendance into other systems.</p></div>
+      <div class="tags"><span class="plat">Web</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">PHP</span><span class="tech">MySQL</span><span class="tech">JavaScript</span><span class="tech">Face recognition</span><span class="tech">REST API</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>Portfolio Platform</h3>
+        <p class="desc">A one-page portfolio site with a working contact form, project records and view/like counters, running in demo mode until a database is connected.</p></div>
+      <div class="tags"><span class="plat">Web</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js 14</span><span class="tech">React</span><span class="tech">Tailwind CSS</span><span class="tech">Framer Motion</span><span class="tech">Supabase</span><span class="tech">Vercel</span></div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <span class="lbl">Full stack</span>
+    <h2>Everything I work in</h2>
+    <p>Highlighted items are what I reach for first.</p>
+  </div>
+  <div class="stackgrid">
+    <div class="row"><div class="cat">Languages</div><div class="items">
+      <span class="cap k">TypeScript</span><span class="cap k">JavaScript</span><span class="cap k">Dart</span>
+      <span class="cap k">PHP</span><span class="cap">SQL</span><span class="cap">HTML5</span><span class="cap">CSS3</span>
+    </div></div>
+    <div class="row"><div class="cat">Web frameworks</div><div class="items">
+      <span class="cap k">React</span><span class="cap k">Next.js</span><span class="cap">Tailwind CSS</span>
+      <span class="cap">Framer Motion</span><span class="cap">next-themes</span><span class="cap">Service Workers</span>
+    </div></div>
+    <div class="row"><div class="cat">Mobile</div><div class="items">
+      <span class="cap k">React Native</span><span class="cap k">Expo</span><span class="cap k">Flutter</span>
+      <span class="cap">Material Design</span><span class="cap">APK / Play builds</span>
+    </div></div>
+    <div class="row"><div class="cat">Desktop</div><div class="items">
+      <span class="cap k">Electron</span><span class="cap">electron-builder</span><span class="cap">Windows installers</span>
+    </div></div>
+    <div class="row"><div class="cat">Backend</div><div class="items">
+      <span class="cap k">Node.js</span><span class="cap k">PHP</span><span class="cap">REST APIs</span>
+      <span class="cap">Apache</span><span class="cap">Cron jobs</span>
+    </div></div>
+    <div class="row"><div class="cat">Databases</div><div class="items">
+      <span class="cap k">MySQL</span><span class="cap">PostgreSQL</span><span class="cap">Supabase</span>
+      <span class="cap">Portable JSON stores</span><span class="cap">AsyncStorage</span>
+    </div></div>
+    <div class="row"><div class="cat">Libraries &amp; APIs</div><div class="items">
+      <span class="cap">Google ML Kit (OCR)</span><span class="cap">Recharts</span><span class="cap">ExcelJS</span>
+      <span class="cap">QR generation</span><span class="cap">Face recognition</span>
+    </div></div>
+    <div class="row"><div class="cat">Tooling</div><div class="items">
+      <span class="cap k">Git</span><span class="cap">XAMPP</span><span class="cap">VS Code</span>
+      <span class="cap">VPS deployment</span><span class="cap">Vercel</span><span class="cap">n8n automation</span>
+    </div></div>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <span class="lbl">What I take on</span>
+    <h2>Two kinds of work</h2>
+  </div>
+  <div class="svc">
+    <div class="track">
+      <h3>Business systems</h3>
+      <p>Software an organization runs on every day.</p>
+      <ul>
+        <li>Point of sale, inventory and sales tracking</li>
+        <li>Payroll, timekeeping and attendance</li>
+        <li>Scheduling, bookings and dispatch</li>
+        <li>Records, reporting and exports to Excel</li>
+        <li>Admin dashboard, user roles and printable reports</li>
+        <li>Installer, setup, turnover and staff training</li>
+      </ul>
+    </div>
+    <div class="track b">
+      <h3>Academic &amp; research consulting</h3>
+      <p>Technical support for students, faculty and research teams.</p>
+      <ul>
+        <li>System prototyping for proposed studies</li>
+        <li>ERD, DFD, UML and data dictionaries</li>
+        <li>Data collection and survey tooling</li>
+        <li>Feasibility and scope review before you commit</li>
+        <li>Code walkthroughs so you can defend every part</li>
+        <li>Deployment that runs reliably on defense day</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="contact">
+  <div class="page">
+    <div class="cbox">
+      <div>
+        <h2>Tell me what your office still does by hand.</h2>
+        <p>Describe the process and I&rsquo;ll scope it, tell you honestly whether software is worth it, and quote it &mdash; free, before you commit to anything. Student-friendly rates.</p>
+      </div>
+      <div class="links">
+        <a class="link" href="https://www.facebook.com/VinxQui/"><span class="k">Facebook</span><span class="v">fb.com/VinxQui</span></a>
+        <a class="link" href="mailto:Quimanjan90@gmail.com"><span class="k">Email</span><span class="v">Quimanjan90@gmail.com</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="page">
+    <p>Vincent Joed G. Quimanjan &mdash; Bacoor, Cavite, Philippines</p>
+    <p class="mono">Available for projects</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  var items=[].slice.call(document.querySelectorAll('.proj'));
+  var count=document.getElementById('count');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function apply(f){
+    var n=0;
+    items.forEach(function(el){
+      var show = f==='all' || (' '+el.getAttribute('data-tags')+' ').indexOf(' '+f+' ')>-1;
+      el.hidden=!show;
+      if(show){
+        n++;
+        if(!reduce){ el.classList.remove('in'); void el.offsetWidth; el.classList.add('in'); }
+      }
+    });
+    count.textContent=n+' shown';
+    chips.forEach(function(c){c.setAttribute('aria-pressed', String(c.getAttribute('data-f')===f));});
+  }
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){apply(c.getAttribute('data-f'));});
+  });
+  apply('all');
+  items.forEach(function(el){el.classList.remove('in');});
+
+  // scroll progress
+  var bar=document.getElementById('bar');
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll); onScroll();
+
+  // hero spotlight
+  var hero=document.getElementById('hero'), spot=document.getElementById('spot');
+  if(hero&&spot&&!reduce){
+    hero.addEventListener('pointermove',function(e){
+      var r=hero.getBoundingClientRect();
+      spot.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      spot.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

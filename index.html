@@ -249,7 +249,7 @@ footer p{margin:0;font-size:13.5px;color:var(--faint)}
       <span class="lbl">BSIT &middot; Fellowship Baptist College</span>
       <span class="lbl">Bacoor, Cavite &middot; PH</span>
     </div>
-    <h1>Fifteen systems.<br>Three platforms.<br><span class="g">Real organizations.</span></h1>
+    <h1>Twenty-one systems.<br>Four platforms.<br><span class="g">Real organizations.</span></h1>
     <p class="thesis">Web applications, Android apps and Windows desktop software for schools, small businesses and government offices &mdash; <b>built end to end</b>, from database design through interface, installer, turnover and staff training.</p>
     <div class="actions">
       <a class="btn pri" href="https://www.facebook.com/VinxQui/">Message me on Facebook</a>
@@ -258,10 +258,10 @@ footer p{margin:0;font-size:13.5px;color:var(--faint)}
   </div>
   <div class="meterwrap">
     <div class="meters">
-      <div class="meter"><b>15</b><span>Systems built and delivered</span></div>
-      <div class="meter"><b>9</b><span>Named client organizations</span></div>
-      <div class="meter"><b>3</b><span>Platforms &mdash; web, Android, Windows</span></div>
-      <div class="meter"><b>25+</b><span>Technologies worked in</span></div>
+      <div class="meter"><b>21</b><span>Systems built and delivered</span></div>
+      <div class="meter"><b>11</b><span>Named client organizations</span></div>
+      <div class="meter"><b>4</b><span>Web, Android, Windows, Linux</span></div>
+      <div class="meter"><b>30+</b><span>Technologies worked in</span></div>
     </div>
   </div>
 </header>
@@ -276,14 +276,60 @@ footer p{margin:0;font-size:13.5px;color:var(--faint)}
   </div>
 
   <div class="filters">
-    <button class="chip" data-f="all" aria-pressed="true">All 15</button>
+    <button class="chip" data-f="all" aria-pressed="true">All 21</button>
     <button class="chip" data-f="web" aria-pressed="false">Web</button>
     <button class="chip" data-f="mobile" aria-pressed="false">Android / iOS</button>
     <button class="chip" data-f="desktop" aria-pressed="false">Windows desktop</button>
-    <span class="count" id="count">15 shown</span>
+    <span class="count" id="count">21 shown</span>
   </div>
 
   <div class="reg" id="reg">
+
+    <article class="proj" data-tags="mobile">
+      <div><h3>Bistro de Ysabelle &mdash; Tablet POS</h3>
+        <p class="client">Bistro de Ysabelle &middot; Amron</p>
+        <p class="desc">Offline fast-food point of sale built for an Android tablet, with a <b>77-item priced catalogue</b> including size variants. Opens straight to the order screen &mdash; the large Add Transaction button sits above all navigation on every screen, because at a counter the next tap is always a sale. Shipped as a signed Android build.</p></div>
+      <div class="tags"><span class="plat m">Android tablet</span><span class="plat">Offline</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">JavaScript</span><span class="tech">Node.js</span><span class="tech">Android build</span><span class="tech">Local storage</span><span class="tech">Service workers</span></div>
+    </article>
+
+    <article class="proj" data-tags="mobile">
+      <div><h3>Moon Bean Caf&eacute; &mdash; Tablet POS</h3>
+        <p class="client">Moon Bean Caf&eacute;</p>
+        <p class="desc">Tablet caf&eacute; POS running fully offline. Six primary actions &mdash; transactions, orders, products, inventory, expenses and reports &mdash; over <b>IndexedDB</b>, with the File System Access API writing to a folder the owner picks on desktop and JSON backup exports on Android. A service worker caches the app so it opens with no connection at all.</p></div>
+      <div class="tags"><span class="plat m">Android tablet</span><span class="plat">PWA</span><span class="plat">Offline</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">JavaScript</span><span class="tech">IndexedDB</span><span class="tech">File System Access API</span><span class="tech">Service workers</span><span class="tech">Android build</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>Court &amp; Pitch</h3>
+        <p class="client">Live at sport.eslph.tech</p>
+        <p class="desc">Pickleball and soccer news platform with reader accounts, a personalised feed, saved articles, profiles and live scores. <b>Deployed and running in production</b> on my own Ubuntu VPS behind PM2, with hashed credentials and a documented MySQL schema.</p></div>
+      <div class="tags"><span class="plat">Web</span><span class="plat">Live</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">MySQL</span><span class="tech">bcryptjs</span><span class="tech">PM2</span><span class="tech">Ubuntu VPS</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>AI Checker &amp; Humanizer</h3>
+        <p class="desc">Scores a document sentence by sentence and sorts each one into four confidence bands, then offers a rewrite pass. Built on the <b>Anthropic API</b> behind a PHP service layer, with a minimum word count enforced because short samples cannot be judged honestly.</p></div>
+      <div class="tags"><span class="plat">Web</span><span class="plat m">AI API</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">PHP</span><span class="tech">Composer</span><span class="tech">Anthropic SDK</span><span class="tech">JavaScript</span></div>
+    </article>
+
+    <article class="proj" data-tags="desktop">
+      <div><h3>VPS Service Monitoring Suite</h3>
+        <p class="client">Ubuntu 24.04 LTS &middot; eslph.tech</p>
+        <p class="desc">Three Bash scripts running from <code>/opt/svc-checks/</code> on my production VPS: a service health check covering systemd units, PM2 apps, network, HTTPS and resource use; a disk guard reporting inode usage and forecasting growth; and an SSL/DNS check validating records, certificate expiry, redirects and the renewal timer. Scheduled by cron with a systemd unit as a safe test target.</p></div>
+      <div class="tags"><span class="plat d">Linux</span><span class="plat">Automation</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Bash</span><span class="tech">systemd</span><span class="tech">cron</span><span class="tech">PM2</span><span class="tech">Ubuntu 24.04</span><span class="tech">OpenSSL</span></div>
+    </article>
+
+    <article class="proj" data-tags="web">
+      <div><h3>The Last Night of the Fiesta</h3>
+        <p class="desc">A Filipino story game that runs in the browser, shipped in <b>two engines from one script</b>: a low-poly 3D world you walk through in Three.js, and a pixel-art visual novel for weaker devices. Five endings, bilingual English and Filipino, with its own art, audio and narrative modules.</p></div>
+      <div class="tags"><span class="plat">Web</span><span class="plat m">3D &middot; Three.js</span></div>
+      <div class="stack"><span class="sl">Stack</span><span class="tech">Three.js</span><span class="tech">JavaScript</span><span class="tech">WebGL</span><span class="tech">Canvas</span><span class="tech">i18n</span></div>
+    </article>
 
     <article class="proj" data-tags="web">
       <div><h3>BantayBuhay</h3>

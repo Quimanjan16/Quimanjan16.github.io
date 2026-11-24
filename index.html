@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Vincent Joed G. Quimanjan — full stack developer in Bacoor, Cavite. Twenty-two systems delivered across web, Android, Windows and Linux.">
+<meta name="description" content="Vincent Joed G. Quimanjan — systems developer in Bacoor, Cavite. Twenty-two systems in daily use across web, Android, Windows and Linux.">
 <meta name="author" content="Vincent Joed G. Quimanjan">
-<meta name="theme-color" content="#070b22">
+<meta name="theme-color" content="#08090b">
 <link rel="icon" href="logo.png">
-<meta property="og:title" content="Vince Quimanjan — Full Stack Developer">
-<meta property="og:description" content="Twenty-two systems across web, Android, Windows and Linux. React, Next.js, Flutter, Electron, PHP, Python.">
+<meta property="og:title" content="Vince Quimanjan — Systems Developer">
+<meta property="og:description" content="Software that offices actually run on. Twenty-two systems across web, Android, Windows and Linux.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <style>html{-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -17,655 +17,587 @@
 <title>Vince Quimanjan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Public+Sans:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Public+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --night:#070b22; --sky:#0a1030; --sky2:#16205a; --deep:#040716;
-  --brick:#2b3672; --brick2:#1d2552; --panel:#111a44; --panel2:#182257;
-  --ink:#f2f5ff; --muted:#9aa8d8; --faint:#6c7aa8;
-  --line:rgba(154,168,216,.22); --line2:rgba(154,168,216,.42);
-  --coin:#ffcf3f; --coin2:#ff9e2c; --cyan:#4de8ff; --pipe:#3ddc84; --fire:#ff5e5b;
-  --px:"Press Start 2P",monospace; --b:"Public Sans",system-ui,sans-serif; --t:"VT323",monospace;
+  --ink:#08090b; --ink2:#0b0d10; --surface:#101318; --raise:#161a21; --line:rgba(244,242,238,.09);
+  --line2:rgba(244,242,238,.2); --fg:#f4f2ee; --muted:#9b9890; --faint:#6b6861;
+  --gold:#c9a961; --gold2:#e6d2a0; --gold-dim:rgba(201,169,97,.14);
+  --s:"Instrument Serif",Georgia,serif; --b:"Public Sans",system-ui,sans-serif;
+  --m:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--night);color:var(--ink);font-family:var(--b);
-  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{image-rendering:pixelated}
-a{color:var(--cyan);text-decoration:none}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--b);font-weight:300;
+  font-size:17px;line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{margin:0;font-family:var(--s);font-weight:400;letter-spacing:-.015em;line-height:1.05}
+a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
-:focus-visible{outline:3px solid var(--coin);outline-offset:3px}
-.page{max-width:1180px;margin:0 auto;padding-inline:24px}
-h1,h2,h3{margin:0;font-family:var(--px);line-height:1.35;letter-spacing:0}
-.px{font-family:var(--px)}
-/* a deliberately single-world night palette — no light variant */
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:40px}
+@media(max-width:700px){.wrap{padding-inline:22px}}
+.lbl{font-family:var(--m);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.rule{height:1px;background:var(--line)}
 
-/* ── pixel frame helper ── */
-.frame{position:relative;background:var(--panel);
-  box-shadow:0 -4px 0 0 var(--brick),0 4px 0 0 var(--brick),-4px 0 0 0 var(--brick),4px 0 0 0 var(--brick),
-             0 0 0 4px var(--brick2)}
-
-/* ── scanlines + vignette ── */
-#scan{position:fixed;inset:0;z-index:90;pointer-events:none;
-  background:repeating-linear-gradient(180deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px);
-  mix-blend-mode:multiply;opacity:.55}
-.vig{position:fixed;inset:0;z-index:1;pointer-events:none;background-color:rgba(7,11,34,.55);
-  background-image:radial-gradient(1200px 700px at 50% 0%,transparent 30%,rgba(4,7,22,.8))}
-
-/* ── starfield ── */
-.stars{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.stars i{position:absolute;width:3px;height:3px;background:#fff;opacity:.5;
-  animation:tw 3.4s steps(2) infinite}
-@keyframes tw{0%,100%{opacity:.18}50%{opacity:.85}}
-#bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+/* grain + ambient */
+#grain{position:fixed;inset:0;z-index:95;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.38}
 @media(max-width:860px){#bg{opacity:.22}}
-main,header,footer,#hud,#ground{position:relative;z-index:3}
+.halo{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(800px 500px at 72% 8%,rgba(201,169,97,.07),transparent 60%),
+             radial-gradient(700px 500px at 10% 92%,rgba(244,242,238,.035),transparent 60%)}
+main,header,footer,nav{position:relative;z-index:2}
 
-/* ── HUD ── */
-#hud{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(4,7,22,.92);
-  border-bottom:4px solid var(--brick);backdrop-filter:blur(4px)}
-#hud .in{max-width:1180px;margin:0 auto;padding:11px 24px;display:flex;flex-wrap:wrap;
-  gap:10px 26px;align-items:center;font-family:var(--px);font-size:9.5px;color:var(--ink)}
-#hud .k{color:var(--faint);margin-right:7px}
-#hud .coin{display:inline-block;width:11px;height:11px;background:var(--coin);
-  box-shadow:0 -2px 0 var(--coin2),0 2px 0 var(--coin2),-2px 0 0 var(--coin2),2px 0 0 var(--coin2);
-  vertical-align:-1px;margin-right:7px;animation:spin 1.2s steps(4) infinite}
-@keyframes spin{0%,100%{transform:scaleX(1)}25%{transform:scaleX(.3)}50%{transform:scaleX(1)}75%{transform:scaleX(.3)}}
-#hud .go{margin-left:auto;color:var(--coin)}
-@media(max-width:700px){#hud .in{font-size:8px;gap:8px 16px}#hud .go{display:none}}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:70;transition:background .5s var(--ease),border-color .5s}
+nav.solid{background:rgba(8,9,11,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .in{max-width:1240px;margin:0 auto;padding:22px 40px;display:flex;align-items:center;gap:30px}
+@media(max-width:700px){nav .in{padding:16px 22px;gap:18px}}
+nav .nm{font-family:var(--s);font-size:21px;letter-spacing:-.01em}
+nav .nm i{font-style:italic;color:var(--gold)}
+nav .links{margin-left:auto;display:flex;gap:30px}
+nav .links a{font-family:var(--m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);transition:color .3s}
+nav .links a:hover{color:var(--fg)}
+@media(max-width:860px){nav .links{display:none}}
+.avail{display:flex;align-items:center;gap:9px;font-family:var(--m);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+nav .links+.avail{margin-left:0}
+.avail i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:block;
+  box-shadow:0 0 0 0 var(--gold);animation:halo 2.8s var(--ease) infinite}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(201,169,97,.55)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@media(max-width:520px){.avail span{display:none}}
 
-/* ── ground strip + runner ── */
-#ground{position:fixed;left:0;right:0;bottom:0;height:54px;z-index:70;pointer-events:none}
-#ground .turf{position:absolute;inset:0;background:
-  repeating-linear-gradient(90deg,var(--brick) 0 26px,var(--brick2) 26px 28px),
-  linear-gradient(180deg,#36428a 0 4px,transparent 4px);
-  border-top:4px solid #4a58a8;opacity:.96}
-#runner{position:absolute;bottom:40px;width:52px;height:52px;will-change:transform;
-  transition:left .1s linear}
-#runner img{width:100%;height:100%;display:block;animation:hop .46s steps(2) infinite}
-@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-#runner .dust{position:absolute;left:-10px;bottom:2px;width:9px;height:9px;background:var(--faint);
-  opacity:.5;animation:dust .46s steps(3) infinite}
-@keyframes dust{0%{opacity:.5;transform:translate(0,0)}100%{opacity:0;transform:translate(-16px,-9px)}}
-#flag{position:absolute;right:26px;bottom:40px;width:8px;height:118px;background:var(--pipe);
-  box-shadow:4px 0 0 #2aa865}
-#flag::after{content:"";position:absolute;left:8px;top:8px;width:0;height:0;
-  border-left:26px solid var(--coin);border-top:13px solid transparent;border-bottom:13px solid transparent}
-@media(max-width:860px){#ground{height:40px}#runner{width:38px;height:38px;bottom:30px}#flag{height:84px;bottom:30px}}
+/* hero */
+.hero{padding-block:188px 118px}
+.hero .grid{display:grid;grid-template-columns:1fr 330px;gap:72px;align-items:end}
+@media(max-width:980px){.hero .grid{grid-template-columns:1fr;gap:48px}.hero{padding-block:140px 86px}}
+h1{font-size:clamp(3.2rem,8.4vw,7.4rem)}
+h1 em{font-style:italic;color:var(--gold)}
+.sub{margin-top:36px;font-size:clamp(1.08rem,1.9vw,1.32rem);color:var(--muted);max-width:52ch;
+  font-weight:300;line-height:1.62}
+.sub b{color:var(--fg);font-weight:500}
+.meta{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px 34px}
+.meta div{display:grid;gap:6px}
+.meta dt{font-family:var(--m);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.meta dd{margin:0;font-size:15px;color:var(--muted)}
 
-/* ── hero ── */
-.hero{padding-block:124px 108px}
-.world{display:inline-block;font-family:var(--px);font-size:10px;color:var(--night);
-  background:var(--coin);padding:9px 14px;letter-spacing:1px;
-  box-shadow:0 -4px 0 var(--coin2),0 4px 0 var(--coin2),-4px 0 0 var(--coin2),4px 0 0 var(--coin2)}
-h1{font-size:clamp(17px,3.6vw,34px);margin-top:34px;line-height:1.5}
-h1 .c{color:var(--coin);text-shadow:0 4px 0 #a8701a}
-h1 .y{color:var(--cyan);text-shadow:0 4px 0 #1a6f85}
-.thesis{margin-top:30px;font-size:clamp(1.05rem,2.3vw,1.3rem);color:var(--muted);
-  max-width:60ch;line-height:1.62}
-.thesis b{color:var(--ink);font-weight:600}
-.cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;font-family:var(--px);
-  font-size:10.5px;letter-spacing:.5px;background:var(--panel2);color:var(--ink);
-  box-shadow:0 -4px 0 var(--brick),0 4px 0 var(--brick),-4px 0 0 var(--brick),4px 0 0 var(--brick),0 0 0 4px var(--brick2);
-  transition:transform .09s steps(2)}
-.btn:hover{transform:translateY(-5px)}
-.btn:active{transform:translateY(2px)}
-.btn.pri{background:var(--coin);color:#2a1a00;
-  box-shadow:0 -4px 0 var(--coin2),0 4px 0 var(--coin2),-4px 0 0 var(--coin2),4px 0 0 var(--coin2),0 0 0 4px #7a4d06}
+.portrait{position:relative}
+.portrait .f{position:relative;overflow:hidden;background:var(--surface);aspect-ratio:3/4;
+  border:1px solid var(--line)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(1) contrast(1.08) brightness(.96);transition:filter .9s var(--ease),transform 1.1s var(--ease)}
+.portrait:hover img{filter:grayscale(.15) contrast(1.04);transform:scale(1.035)}
+.portrait .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(201,169,97,.1),transparent 45%,rgba(8,9,11,.6));
+  pointer-events:none}
+.portrait .cap{margin-top:16px;display:flex;justify-content:space-between;gap:14px;
+  font-family:var(--m);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--faint)}
 
-/* question blocks = stats */
-.blocks{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:62px}
-@media(max-width:760px){.blocks{grid-template-columns:repeat(2,1fr)}}
-.qb{background:var(--coin);padding:20px 16px;text-align:center;cursor:default;
-  box-shadow:0 -5px 0 var(--coin2),0 5px 0 var(--coin2),-5px 0 0 var(--coin2),5px 0 0 var(--coin2),0 0 0 5px #7a4d06;
-  transition:transform .1s steps(2)}
-.qb:hover{transform:translateY(-8px)}
-.qb b{display:block;font-family:var(--px);font-size:22px;color:#2a1a00;line-height:1}
-.qb span{display:block;margin-top:12px;font-family:var(--px);font-size:7.5px;color:#5c3d08;
-  line-height:1.8;letter-spacing:.3px}
+/* figures */
+.figs{margin-top:104px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:760px){.figs{grid-template-columns:repeat(2,1fr)}
+  .figs div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.figs div{padding:34px 28px 34px 0;position:relative}
+.figs div+div{padding-left:28px;border-left:1px solid var(--line)}
+.figs b{display:block;font-family:var(--s);font-size:clamp(2.4rem,4.4vw,3.6rem);font-weight:400;
+  line-height:1;letter-spacing:-.02em}
+.figs span{display:block;margin-top:12px;font-family:var(--m);font-size:10px;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--faint);line-height:1.8}
 
-/* ── sections ── */
-section{padding-block:92px}
-.head{margin-bottom:44px}
-.head h2{font-size:clamp(14px,2.8vw,24px);margin-top:20px;color:var(--ink)}
-.head p{margin-top:20px;color:var(--muted);max-width:64ch}
-.head p b{color:var(--ink)}
+/* sections */
+section{padding-block:124px}
+.sh{display:flex;align-items:baseline;gap:22px;margin-bottom:12px}
+.sh .no{font-family:var(--m);font-size:11px;letter-spacing:.2em;color:var(--gold)}
+.sh .ln{flex:1;height:1px;background:var(--line)}
+h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin-top:26px}
+.lede{margin-top:22px;color:var(--muted);max-width:58ch;font-weight:300}
+.lede b{color:var(--fg);font-weight:500}
 
-/* ── filters ── */
-.filters{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:30px;align-items:center}
-.chip{font-family:var(--px);font-size:8.5px;padding:11px 14px;letter-spacing:.4px;
-  background:var(--panel);color:var(--muted);
-  box-shadow:0 -3px 0 var(--brick),0 3px 0 var(--brick),-3px 0 0 var(--brick),3px 0 0 var(--brick);
-  transition:transform .09s steps(2)}
-.chip:hover{transform:translateY(-3px);color:var(--ink)}
-.chip[aria-pressed="true"]{background:var(--coin);color:#2a1a00;
-  box-shadow:0 -3px 0 var(--coin2),0 3px 0 var(--coin2),-3px 0 0 var(--coin2),3px 0 0 var(--coin2)}
-.count{margin-left:auto;font-family:var(--t);font-size:19px;color:var(--coin);letter-spacing:1px}
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:26px;margin:48px 0 10px;align-items:center;
+  padding-bottom:20px;border-bottom:1px solid var(--line)}
+.fl{font-family:var(--m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--faint);position:relative;padding-bottom:4px;transition:color .3s}
+.fl:hover{color:var(--muted)}
+.fl[aria-pressed="true"]{color:var(--gold)}
+.fl[aria-pressed="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-21px;height:1px;background:var(--gold)}
+.tally{margin-left:auto;font-family:var(--m);font-size:11px;letter-spacing:.16em;color:var(--faint)}
 
-/* ── project blocks ── */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:660px){.grid{grid-template-columns:1fr}}
-.card{position:relative;background:var(--panel);text-align:left;width:100%;
-  display:flex;flex-direction:column;cursor:pointer;
-  box-shadow:0 -5px 0 var(--brick),0 5px 0 var(--brick),-5px 0 0 var(--brick),5px 0 0 var(--brick),0 0 0 5px var(--brick2);
-  transition:transform .1s steps(2)}
-.card[hidden]{display:none!important}
-.card:hover{transform:translateY(-9px)}
-.card:active{transform:translateY(0)}
-.card .shot{aspect-ratio:16/10;background:var(--deep);overflow:hidden;position:relative;flex:none;
-  border-bottom:4px solid var(--brick)}
-.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;
-  image-rendering:auto;transition:transform .4s steps(6)}
-.card:hover .shot img{transform:scale(1.07)}
-.card .shot.none{display:flex;align-items:center;justify-content:center;
-  background:repeating-linear-gradient(45deg,var(--brick2) 0 14px,var(--panel) 14px 28px)}
-.card .shot.none span{font-family:var(--px);font-size:8px;color:var(--faint);letter-spacing:1px}
-.card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
-.card h3{font-size:11px;line-height:1.6;color:var(--ink)}
-.card .cl{margin-top:13px;font-family:var(--t);font-size:18px;color:var(--coin);line-height:1.25}
-.card .sum{margin-top:13px;font-size:14.5px;color:var(--muted);line-height:1.55}
-.card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
-.tag{font-family:var(--px);font-size:7px;padding:6px 8px;letter-spacing:.4px;
-  background:var(--brick2);color:#b9c6f5;box-shadow:0 0 0 2px var(--brick)}
-.tag.c{background:#123a52;color:#8de9ff;box-shadow:0 0 0 2px #1d5d7e}
-.tag.g{background:#4a3708;color:var(--coin);box-shadow:0 0 0 2px #7a5c10}
-.card .more{margin-top:auto;padding-top:20px;font-family:var(--px);font-size:7.5px;
-  color:var(--coin);letter-spacing:.6px}
-.card .more i{font-style:normal;display:inline-block;animation:nudge .9s steps(2) infinite}
-@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
-.live{position:absolute;top:12px;right:12px;z-index:2;font-family:var(--px);font-size:7px;
-  padding:6px 9px;background:var(--pipe);color:#06281a;box-shadow:0 0 0 3px #2aa865;letter-spacing:.5px}
+/* index list */
+.idx{display:grid}
+.item{display:grid;grid-template-columns:62px 1fr 190px 112px;gap:26px;align-items:center;
+  padding:30px 8px;border-bottom:1px solid var(--line);text-align:left;width:100%;
+  transition:padding-left .55s var(--ease),background .55s var(--ease)}
+.item[hidden]{display:none!important}
+.item:hover{padding-left:24px;background:linear-gradient(90deg,rgba(201,169,97,.05),transparent 70%)}
+.item .no{font-family:var(--m);font-size:11px;color:var(--faint);letter-spacing:.1em;transition:color .4s}
+.item:hover .no{color:var(--gold)}
+.item .t{font-family:var(--s);font-size:clamp(1.3rem,2.5vw,1.95rem);line-height:1.15;
+  transition:color .4s;min-width:0}
+.item:hover .t{color:var(--gold2)}
+.item .c{font-size:13.5px;color:var(--faint);line-height:1.45}
+.item .y{font-family:var(--m);font-size:11px;color:var(--faint);letter-spacing:.1em;text-align:right;
+  display:flex;align-items:center;justify-content:flex-end;gap:10px}
+.item .y em{font-style:normal;width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none}
+.item .ar{font-family:var(--m);font-size:14px;color:var(--faint);opacity:0;transform:translateX(-8px);
+  transition:all .45s var(--ease)}
+.item:hover .ar{opacity:1;transform:none;color:var(--gold)}
+@media(max-width:900px){
+  .item{grid-template-columns:40px 1fr auto;gap:16px;padding:24px 4px}
+  .item .c{display:none}.item .y{font-size:10px}
+}
 
-/* ── stack rows ── */
-.rows{display:grid;gap:5px}
-.row{display:grid;grid-template-columns:200px 1fr;background:var(--panel);
-  box-shadow:0 0 0 4px var(--brick2)}
-.row .k{padding:20px 20px;font-family:var(--px);font-size:8px;color:var(--coin);
-  letter-spacing:.5px;display:flex;align-items:center;border-right:4px solid var(--brick2)}
-.row .v{padding:17px 20px;display:flex;flex-wrap:wrap;gap:9px}
-@media(max-width:700px){.row{grid-template-columns:1fr}
-  .row .k{border-right:none;border-bottom:4px solid var(--brick2)}}
-.pill{font-family:var(--t);font-size:19px;letter-spacing:.6px;padding:5px 12px;
-  background:var(--brick2);color:#c4cff5;box-shadow:0 0 0 2px var(--brick);
-  transition:transform .09s steps(2)}
-.pill:hover{transform:translateY(-4px);color:var(--coin)}
-.pill.k{background:#4a3708;color:var(--coin);box-shadow:0 0 0 2px #7a5c10}
+/* cursor preview */
+#peek{position:fixed;z-index:60;width:380px;aspect-ratio:16/10;pointer-events:none;opacity:0;
+  transform:translate(-50%,-50%) scale(.94) rotate(-2deg);transition:opacity .4s var(--ease),transform .5s var(--ease);
+  border:1px solid var(--line2);box-shadow:0 36px 80px -28px rgba(0,0,0,.9);overflow:hidden;background:var(--ink2)}
+#peek.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}
+#peek img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+#peek .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--m);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
+  background:repeating-linear-gradient(135deg,var(--surface) 0 10px,var(--ink2) 10px 20px)}
+@media(max-width:980px){#peek{display:none}}
 
-/* ── process ── */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.steps{grid-template-columns:1fr}}
-.step{background:var(--panel);padding:26px 22px;
-  box-shadow:0 -4px 0 var(--brick),0 4px 0 var(--brick),-4px 0 0 var(--brick),4px 0 0 var(--brick),0 0 0 4px var(--brick2);
-  transition:transform .1s steps(2)}
-.step:hover{transform:translateY(-7px)}
-.step .n{font-family:var(--px);font-size:8px;color:var(--coin);letter-spacing:.6px}
-.step h3{font-size:11px;margin:16px 0 12px;color:var(--ink)}
-.step p{font-size:14.5px;color:var(--muted);line-height:1.55}
+/* stack */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:56px}
+@media(max-width:860px){.cols{grid-template-columns:1fr}}
+.col{background:var(--ink);padding:34px 30px}
+.col h3{font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:500}
+.col ul{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:11px}
+.col li{font-size:15px;color:var(--muted);font-weight:300;transition:color .3s,transform .3s var(--ease)}
+.col li:hover{color:var(--fg);transform:translateX(5px)}
+.col li.k{color:var(--fg);font-weight:400}
+.col li.k::after{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;
+  background:var(--gold);margin-left:9px;vertical-align:3px}
 
-/* ── footer ── */
-footer{border-top:5px solid var(--brick);background:linear-gradient(180deg,transparent,rgba(43,54,114,.3))}
-footer .page{padding-block:84px 120px}
-.fin{display:flex;flex-wrap:wrap;gap:44px;justify-content:space-between;align-items:flex-end}
-.fin h2{font-size:clamp(13px,2.6vw,20px);max-width:22ch;line-height:1.6}
-.fin p{margin-top:22px;color:var(--muted);max-width:46ch}
-.links{display:grid;gap:12px;min-width:min(310px,100%)}
-.link{display:flex;align-items:center;gap:15px;padding:17px 19px;background:var(--panel);
-  box-shadow:0 0 0 4px var(--brick2);transition:transform .09s steps(2)}
-.link:hover{transform:translateX(7px)}
-.link .k{font-family:var(--px);font-size:7.5px;color:var(--faint);min-width:72px;letter-spacing:.4px}
-.link .v{font-family:var(--t);font-size:21px;color:var(--ink);word-break:break-word;letter-spacing:.5px}
-.sig{margin-top:58px;padding-top:28px;border-top:4px solid var(--brick2);
-  display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
-  font-family:var(--px);font-size:7.5px;color:var(--faint);letter-spacing:.4px;line-height:2}
+/* process */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:56px}
+@media(max-width:900px){.flow{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.flow{grid-template-columns:1fr}}
+.fs{background:var(--ink);padding:38px 30px;transition:background .55s var(--ease)}
+.fs:hover{background:var(--ink2)}
+.fs .n{font-family:var(--m);font-size:10.5px;letter-spacing:.2em;color:var(--gold)}
+.fs h3{font-family:var(--s);font-size:1.65rem;margin:20px 0 14px}
+.fs p{font-size:14.5px;color:var(--muted);font-weight:300;line-height:1.6}
 
-/* ── modal ── */
-#modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
-  padding:24px;background:rgba(4,7,22,.93)}
-#modal.on{display:flex}
-.sheet{background:var(--panel);max-width:1020px;width:100%;max-height:88vh;overflow-y:auto;
-  box-shadow:0 0 0 5px var(--brick),0 0 0 10px var(--brick2);animation:pop .16s steps(3) both}
-@keyframes pop{from{transform:scale(.9)}}
-.sheet .x{position:sticky;float:right;top:14px;right:14px;z-index:3;width:42px;height:42px;
-  background:var(--fire);color:#2a0a08;font-family:var(--px);font-size:12px;
-  box-shadow:0 0 0 4px #a63430;margin:16px 16px 0 0;display:flex;align-items:center;justify-content:center}
-.sheet .x:hover{transform:translateY(-3px)}
-.sheet .pic{width:100%;aspect-ratio:16/10;background:var(--deep);overflow:hidden;
-  border-bottom:5px solid var(--brick)}
-.sheet .pic img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;image-rendering:auto}
-.sheet .in{padding:34px 38px 40px}
-@media(max-width:640px){.sheet .in{padding:24px 20px 30px}}
-.sheet h3{font-size:clamp(12px,2.6vw,17px);line-height:1.6}
-.sheet .cl{margin-top:16px;font-family:var(--t);font-size:22px;color:var(--coin);letter-spacing:.5px}
-.sheet .d{margin-top:22px;color:var(--muted);font-size:16px;line-height:1.68}
-.sheet ul{margin:24px 0 0;padding:0;list-style:none;display:grid;gap:13px}
-.sheet li{display:flex;gap:14px;font-size:15px;color:var(--muted);line-height:1.55}
-.sheet li::before{content:"";width:10px;height:10px;margin-top:7px;flex:none;background:var(--coin);
-  box-shadow:0 0 0 2px var(--coin2)}
-.sheet li b{color:var(--ink);font-weight:600}
-.sheet .st{margin-top:30px;padding-top:24px;border-top:4px solid var(--brick2);
-  display:flex;flex-wrap:wrap;gap:9px}
-.sheet .go{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:15px 22px;
-  font-family:var(--px);font-size:10px;background:var(--pipe);color:#06281a;letter-spacing:.5px;
-  box-shadow:0 -4px 0 #2aa865,0 4px 0 #2aa865,-4px 0 0 #2aa865,4px 0 0 #2aa865,0 0 0 4px #16693f}
-.sheet .go:hover{transform:translateY(-4px)}
+/* footer */
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:124px 56px}
+.cta h2{max-width:16ch}
+.cta p{margin-top:24px;color:var(--muted);max-width:46ch;font-weight:300}
+.rows{margin-top:60px;display:grid;border-top:1px solid var(--line)}
+.r{display:flex;align-items:center;gap:28px;padding:26px 8px;border-bottom:1px solid var(--line);
+  transition:padding-left .55s var(--ease),background .55s var(--ease)}
+.r:hover{padding-left:24px;background:linear-gradient(90deg,rgba(201,169,97,.05),transparent 70%)}
+.r .k{font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--faint);min-width:116px}
+.r .v{font-family:var(--s);font-size:clamp(1.15rem,2.2vw,1.6rem);transition:color .4s}
+.r:hover .v{color:var(--gold2)}
+.r .ar{margin-left:auto;font-family:var(--m);font-size:14px;color:var(--faint);
+  opacity:0;transform:translateX(-8px);transition:all .45s var(--ease)}
+.r:hover .ar{opacity:1;transform:none;color:var(--gold)}
+.foot{margin-top:72px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
+  font-family:var(--m);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
 
-/* ── reveal ── */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .4s steps(4),transform .4s steps(4)}
-.rv.in{opacity:1;transform:none}
+/* case study */
+#case{position:fixed;inset:0;z-index:100;display:none;background:rgba(5,6,8,.9);
+  backdrop-filter:blur(16px);overflow-y:auto}
+#case.on{display:block;animation:fi .45s var(--ease) both}
+@keyframes fi{from{opacity:0}}
+.doc{max-width:980px;margin:0 auto;padding:92px 40px 110px;animation:up .6s var(--ease) both}
+@keyframes up{from{transform:translateY(28px);opacity:0}}
+@media(max-width:700px){.doc{padding:78px 22px 86px}}
+.doc .x{position:fixed;top:26px;right:34px;font-family:var(--m);font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);padding:12px 18px;border:1px solid var(--line2);
+  background:rgba(8,9,11,.8);backdrop-filter:blur(8px);transition:all .35s var(--ease);z-index:3}
+.doc .x:hover{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+.doc .no{font-family:var(--m);font-size:11px;letter-spacing:.2em;color:var(--gold)}
+.doc h3{font-family:var(--s);font-size:clamp(2.2rem,5.2vw,3.8rem);margin-top:22px;line-height:1.04}
+.doc .cl{margin-top:20px;font-family:var(--m);font-size:12px;letter-spacing:.14em;color:var(--muted)}
+.doc .shot{margin-top:52px;border:1px solid var(--line);overflow:hidden;background:var(--ink2)}
+.doc .shot img{width:100%;display:block}
+.doc .shot.none{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(135deg,var(--surface) 0 14px,var(--ink2) 14px 28px);
+  font-family:var(--m);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.doc .d{margin-top:52px;font-size:19px;line-height:1.72;color:var(--muted);font-weight:300;max-width:62ch}
+.doc .d b{color:var(--fg);font-weight:500}
+.doc .hl{margin-top:54px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.doc .hl div{background:var(--ink);padding:24px 28px;font-size:15.5px;color:var(--muted);font-weight:300}
+.doc .hl div b{color:var(--fg);font-weight:500}
+.doc .st{margin-top:54px;padding-top:30px;border-top:1px solid var(--line)}
+.doc .st .lbl{display:block;margin-bottom:20px}
+.doc .st .ch{display:flex;flex-wrap:wrap;gap:10px}
+.doc .st span.p{font-family:var(--m);font-size:12px;padding:9px 15px;border:1px solid var(--line);
+  color:var(--muted);transition:all .35s var(--ease)}
+.doc .st span.p:hover{border-color:var(--gold);color:var(--gold)}
+.doc .go{display:inline-flex;align-items:center;gap:12px;margin-top:46px;padding:18px 32px;
+  background:var(--gold);color:var(--ink);font-family:var(--m);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;transition:all .4s var(--ease)}
+.doc .go:hover{background:var(--gold2);transform:translateY(-3px)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(30px)}
+.rv.in{opacity:1;transform:none;transition:opacity 1s var(--ease),transform 1s var(--ease)}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .rv{opacity:1;transform:none}
-  #bg,#scan{display:none}
+  .rv{opacity:1;transform:none}#bg,#grain{display:none}
 }
 </style>
 
-<div id="scan"></div>
 <canvas id="bg"></canvas>
-<div class="stars" id="stars"></div>
-<div class="vig"></div>
+<div class="halo"></div>
+<div id="grain"></div>
+<div id="peek"></div>
 
-<div id="hud"><div class="in">
-  <span><span class="k">PLAYER</span>VINCE Q.</span>
-  <span><span class="coin"></span><span id="coins">00</span>/22</span>
-  <span><span class="k">WORLD</span><span id="world">1-1</span></span>
-  <span><span class="k">CLIENTS</span>12</span>
-  <span class="go" id="goal">PRESS ↓ TO START</span>
-</div></div>
+<nav id="nav"><div class="in">
+  <a class="nm" href="#top">Vince <i>Quimanjan</i></a>
+  <div class="links">
+    <a href="#work">Work</a><a href="#capability">Capability</a><a href="#method">Method</a><a href="#contact">Contact</a>
+  </div>
+  <div class="avail"><i></i><span>Available for projects</span></div>
+</div></nav>
 
-<div id="ground">
-  <div class="turf"></div>
-  <div id="runner"><span class="dust"></span><img src="sprite.png" alt=""></div>
-  <div id="flag"></div>
-</div>
-
-<header class="hero">
-  <div class="page">
-    <span class="world rv">WORLD 1-1 &nbsp;START</span>
-    <h1 class="rv">TWENTY-TWO SYSTEMS.<br><span class="c">FOUR PLATFORMS.</span><br><span class="y">REAL ORGANIZATIONS.</span></h1>
-    <p class="thesis rv">Web applications, Android apps, Windows software and the Linux that runs them &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
-    <div class="cta rv">
-      <a class="btn pri" href="#work">▶ START &mdash; SEE THE WORK</a>
-      <a class="btn" href="mailto:Quimanjan90@gmail.com">✉ CONTACT</a>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="lbl rv">Systems developer &mdash; Bacoor, Cavite</span>
+        <h1 class="rv">Software that<br>offices actually<br><em>run on.</em></h1>
+        <p class="sub rv">Twenty-two systems in daily use by a district representative&rsquo;s office, a private college and small businesses &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
+        <div class="meta rv">
+          <div><dt class="lbl">Discipline</dt><dd>Web &middot; Android &middot; Windows &middot; Linux</dd></div>
+          <div><dt class="lbl">Education</dt><dd>BSIT, Fellowship Baptist College</dd></div>
+        </div>
+      </div>
+      <div class="portrait rv">
+        <div class="f"><img src="photo.jpg" alt="Vincent Joed G. Quimanjan"><span class="tint"></span></div>
+        <div class="cap"><span>Vincent Joed G. Quimanjan</span><span>PH</span></div>
+      </div>
     </div>
-    <div class="blocks rv">
-      <div class="qb"><b data-to="22">0</b><span>SYSTEMS<br>SHIPPED</span></div>
-      <div class="qb"><b data-to="12">0</b><span>NAMED<br>CLIENTS</span></div>
-      <div class="qb"><b data-to="4">0</b><span>PLATFORMS</span></div>
-      <div class="qb"><b data-to="30" data-suffix="+">0</b><span>TECHNOLOGIES</span></div>
+    <div class="figs rv">
+      <div><b data-to="22">0</b><span>Systems<br>delivered</span></div>
+      <div><b data-to="12">0</b><span>Named client<br>organizations</span></div>
+      <div><b data-to="4">0</b><span>Platforms<br>shipped on</span></div>
+      <div><b data-to="30" data-suffix="+">0</b><span>Technologies<br>worked in</span></div>
     </div>
   </div>
 </header>
 
 <main>
 <section id="work">
-  <div class="page">
-    <div class="head rv">
-      <span class="world">WORLD 1-1 &nbsp;THE WORK</span>
-      <h2>EVERY SYSTEM I'VE SHIPPED</h2>
-      <p>Real projects for real organizations, not coursework demos. <b>Hit any block</b> to open the interface and the full stack behind it.</p>
-    </div>
+  <div class="wrap">
+    <div class="sh rv"><span class="no">01</span><span class="ln"></span><span class="lbl">Selected work</span></div>
+    <h2 class="rv">The register</h2>
+    <p class="lede rv">Every system below is in real use. <b>Select any line</b> to open the case study, the interface and the full stack behind it.</p>
     <div class="filters rv">
-      <button class="chip" data-f="all" aria-pressed="true">ALL 22</button>
-      <button class="chip" data-f="web" aria-pressed="false">WEB</button>
-      <button class="chip" data-f="mobile" aria-pressed="false">ANDROID</button>
-      <button class="chip" data-f="desktop" aria-pressed="false">WINDOWS</button>
-      <button class="chip" data-f="linux" aria-pressed="false">LINUX</button>
-      <button class="chip" data-f="ai" aria-pressed="false">AI / ML</button>
-      <span class="count" id="count">22 SHOWN</span>
+      <button class="fl" data-f="all" aria-pressed="true">All</button>
+      <button class="fl" data-f="web" aria-pressed="false">Web</button>
+      <button class="fl" data-f="mobile" aria-pressed="false">Mobile</button>
+      <button class="fl" data-f="desktop" aria-pressed="false">Desktop</button>
+      <button class="fl" data-f="linux" aria-pressed="false">Infrastructure</button>
+      <button class="fl" data-f="ai" aria-pressed="false">AI &amp; ML</button>
+      <span class="tally" id="tally">22 projects</span>
     </div>
-    <div class="grid" id="grid"></div>
+    <div class="idx" id="idx"></div>
   </div>
 </section>
 
-<section id="stack">
-  <div class="page">
-    <div class="head rv">
-      <span class="world">WORLD 1-2 &nbsp;INVENTORY</span>
-      <h2>EVERYTHING I WORK IN</h2>
-      <p>Highlighted items are what I reach for first.</p>
-    </div>
-    <div class="rows rv" id="rows"></div>
+<section id="capability">
+  <div class="wrap">
+    <div class="sh rv"><span class="no">02</span><span class="ln"></span><span class="lbl">Capability</span></div>
+    <h2 class="rv">What I build with</h2>
+    <p class="lede rv">Marked items are what I reach for first.</p>
+    <div class="cols rv" id="cols"></div>
   </div>
 </section>
 
-<section id="how">
-  <div class="page">
-    <div class="head rv">
-      <span class="world">WORLD 1-3 &nbsp;HOW IT RUNS</span>
-      <h2>HOW A PROJECT RUNS</h2>
-    </div>
-    <div class="steps rv">
-      <div class="step"><div class="n">01</div><h3>CONSULT</h3><p>A free scoping conversation about the process you run today &mdash; and an honest answer on whether software is worth building at all.</p></div>
-      <div class="step"><div class="n">02</div><h3>PLAN</h3><p>Written scope, timeline and deliverables agreed before any code, so nothing is a surprise later.</p></div>
-      <div class="step"><div class="n">03</div><h3>BUILD</h3><p>Weekly check-ins with something you can click, not a black box that appears at the end.</p></div>
-      <div class="step"><div class="n">04</div><h3>TURN OVER</h3><p>Installer or deployment, written documentation, and training for the staff who will actually use it.</p></div>
+<section id="method">
+  <div class="wrap">
+    <div class="sh rv"><span class="no">03</span><span class="ln"></span><span class="lbl">Method</span></div>
+    <h2 class="rv">How a project runs</h2>
+    <div class="flow rv">
+      <div class="fs"><div class="n">01</div><h3>Consult</h3><p>A free scoping conversation about the process you run today — and an honest answer on whether software is worth building at all.</p></div>
+      <div class="fs"><div class="n">02</div><h3>Plan</h3><p>Written scope, timeline and deliverables agreed before any code, so nothing is a surprise later.</p></div>
+      <div class="fs"><div class="n">03</div><h3>Build</h3><p>Weekly check-ins with something you can click, not a black box that appears at the end.</p></div>
+      <div class="fs"><div class="n">04</div><h3>Turn over</h3><p>Installer or deployment, written documentation, and training for the staff who will actually use it.</p></div>
     </div>
   </div>
 </section>
 </main>
 
 <footer id="contact">
-  <div class="page">
-    <div class="fin rv">
-      <div>
-        <span class="world">WORLD 1-4 &nbsp;FINISH</span>
-        <h2 style="margin-top:22px">TELL ME WHAT YOUR OFFICE STILL DOES BY HAND.</h2>
-        <p>Describe the process and I&rsquo;ll scope it, tell you honestly whether software is worth it, and quote it &mdash; free, before you commit to anything.</p>
-      </div>
-      <div class="links">
-        <a class="link" href="mailto:Quimanjan90@gmail.com"><span class="k">EMAIL</span><span class="v">Quimanjan90@gmail.com</span></a>
-        <a class="link" href="https://www.facebook.com/VinxQui/"><span class="k">FACEBOOK</span><span class="v">fb.com/VinxQui</span></a>
-        <a class="link" href="https://github.com/Quimanjan16"><span class="k">GITHUB</span><span class="v">github.com/Quimanjan16</span></a>
-      </div>
+  <div class="wrap">
+    <div class="sh rv"><span class="no">04</span><span class="ln"></span><span class="lbl">Contact</span></div>
+    <div class="cta rv">
+      <h2>Tell me what your office still does by hand.</h2>
+      <p>Describe the process and I&rsquo;ll scope it, tell you honestly whether software is worth it, and quote it — free, before you commit to anything.</p>
     </div>
-    <div class="sig">
-      <span>VINCENT JOED G. QUIMANJAN &mdash; BACOOR, CAVITE, PH</span>
-      <span>AVAILABLE FOR PROJECTS</span>
+    <div class="rows rv">
+      <a class="r" href="mailto:Quimanjan90@gmail.com"><span class="k">Email</span><span class="v">Quimanjan90@gmail.com</span><span class="ar">&rarr;</span></a>
+      <a class="r" href="https://github.com/Quimanjan16"><span class="k">GitHub</span><span class="v">github.com/Quimanjan16</span><span class="ar">&rarr;</span></a>
+      <a class="r" href="https://www.facebook.com/VinxQui/"><span class="k">Facebook</span><span class="v">fb.com/VinxQui</span><span class="ar">&rarr;</span></a>
+    </div>
+    <div class="foot">
+      <span>Vincent Joed G. Quimanjan &mdash; Bacoor, Cavite, Philippines</span>
+      <span>&copy; 2026</span>
     </div>
   </div>
 </footer>
 
-<div id="modal" role="dialog" aria-modal="true" aria-labelledby="mt"></div>
+<div id="case" role="dialog" aria-modal="true" aria-labelledby="ct"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const P = [
-{id:'bantaybuhay',n:'BANTAYBUHAY',c:'Real-time computer-vision emergency response',t:['web','ai'],
- shot:'shots/bantaybuhay.jpg',link:null,tags:['Web','Python ML','Real-time'],
- sum:'Live camera feeds watched by three Python recognition services that dispatch responders on their own.',
+{n:'BantayBuhay',c:'Real-time computer-vision emergency response',y:'2026',t:['web','ai'],
+ shot:'shots/bantaybuhay.jpg',link:null,
  d:'Emergency-response platform connecting three Python recognition services — facial recognition, gesture recognition and face registration — to a web application over REST. Incidents are recorded, matched to a location, dispatched to the nearest responder through a notification endpoint, and summarised in an analytics view.',
- b:['Three Python inference services behind one REST API','Documented public API with authenticated access','Incident to responder dispatch in a single flow'],
+ b:['Three Python inference services behind a single REST API','Documented public API with authenticated access','Incident to responder dispatch in one continuous flow'],
  s:['Next.js','React','TypeScript','Python','REST API','SQL','Radix UI','Recharts','Zod']},
 
-{id:'fbc',n:'SCHEDPLUS — FBC SCHEDULING',c:'Fellowship Baptist College',t:['web'],
- shot:'shots/fbc.jpg',link:null,tags:['Web','Constraint solver'],
- sum:'Places an entire semester — 896 subjects, 1,717 weekly meetings — with zero double bookings.',
- d:'A scheduling engine that reads every approved teacher-and-subject request for a term and places the whole semester: every section, every room, every teacher. The registrar used to build this matrix by hand each term. One click now does it, and nobody is ever booked in two places at once.',
- b:['<b>896 of 896</b> subjects placed, <b>1,717</b> class meetings a week','<b>Zero</b> teacher, room or section double bookings','<b>48,287</b> student enrollments generated automatically','61 rooms across 4 buildings · 89 sections · 1,999 students','Scores each option for balanced weeks, few idle gaps and walking distance','bcrypt hashing, HTTP-only sessions, role-checked API routes'],
+{n:'SchedPlus',c:'Fellowship Baptist College',y:'2026',t:['web'],shot:'shots/fbc.jpg',link:null,
+ d:'A scheduling engine that reads every approved teacher-and-subject request for a term and places the whole semester: every section, every room, every teacher. The registrar used to build this matrix by hand each term. <b>One click now does it, and nobody is ever booked in two places at once.</b>',
+ b:['<b>896 of 896</b> subjects placed · <b>1,717</b> class meetings a week','<b>Zero</b> teacher, room or section double bookings','<b>48,287</b> student enrollments generated automatically','61 rooms across 4 buildings · 89 sections · 1,999 students','Each option scored for balanced weeks, idle gaps and walking distance','bcrypt hashing, HTTP-only sessions, role-checked API routes'],
  s:['Next.js','React','TypeScript','MySQL','Tailwind CSS','bcrypt']},
 
-{id:'wechicks',n:'WE ♥ CHICKS SCHEDULING',c:'Office of the Representative, Sixth District, Negros Occidental',t:['desktop'],
- shot:'shots/wechicks.jpg',link:null,tags:['Windows','Offline'],
- sum:'A calendar that writes its own Excel workbook — no server, no internet, no database engine.',
+{n:'WE ♥ CHICKS Scheduling',c:'Office of the Representative, Sixth District, Negros Occidental',y:'2026',
+ t:['desktop'],shot:'shots/wechicks.jpg',link:null,
  d:'Staff encode invitations and requests. Invitations populate a calendar automatically and every record is written to a live Excel workbook in a folder the office picks on first run. Delivered as a packaged Windows installer with a user guide.',
- b:['Runs with no internet, no server and no database engine','Live Excel workbook in a format the office already reads','Packaged Windows installer with written user guide'],
+ b:['Runs with no internet, no server and no database engine','A live Excel workbook in a format the office already reads','Packaged Windows installer with written documentation'],
  s:['Electron','Node.js','JavaScript','ExcelJS','electron-builder']},
 
-{id:'esl',n:'ESL COMPANY MANAGEMENT',c:'Multi-branch language school',t:['web'],
- shot:'shots/esl.jpg',link:null,tags:['Web','Role-based'],
- sum:'Head office sees every centre at once; each branch manager sees only their own.',
+{n:'ESL Company Management',c:'Multi-branch language school',y:'2026',t:['web'],shot:'shots/esl.jpg',link:null,
  d:'Multi-branch back-office platform: an administrator dashboard across every centre, centre-manager accounts with role-based access control, an equipment request and approval workflow, and charted reporting aggregated over all branches.',
  b:['Role-based access separating head office from branches','Equipment request and approval workflow','Charted reporting aggregated across every centre'],
  s:['Next.js','React','MySQL','Recharts','Tailwind CSS','next-themes']},
 
-{id:'esl-branches',n:'ESL BRANCH NETWORK',c:'iTeach · MS Wordbox · SmartTalk · South Negros · TeachStation',t:['web'],
- shot:'shots/esl-branches.jpg',link:null,tags:['Web','Multi-tenant'],
- sum:'One codebase, five separate tutorial centres, five isolated live deployments.',
+{n:'ESL Branch Network',c:'iTeach · MS Wordbox · SmartTalk · South Negros · TeachStation',y:'2026',
+ t:['web'],shot:'shots/esl-branches.jpg',link:null,
  d:'The management platform packaged and deployed for five separate tutorial centres, each with its own branding, database and staff. Same engine, isolated data, independent release versions.',
- b:['Five live tenants, each on its own isolated database','Per-tenant branding and deployment bundles','One codebase to maintain, five businesses served'],
+ b:['Five live tenants, each on an isolated database','Per-tenant branding and deployment bundles','One codebase to maintain, five businesses served'],
  s:['Next.js','React','MySQL','Tailwind CSS','Deploy bundles']},
 
-{id:'laundry',n:'MS WORDBOX LAUNDRY POS',c:'MS Wordbox Laundry Shop',t:['web','mobile'],
- shot:'shots/laundry.jpg',link:null,tags:['Web','Android','QR'],
- sum:'A QR code on the receipt, so customers stop phoning the shop to ask if it is done.',
- d:'Point-of-sale and sales tracking with QR-code order lookup, letting customers check load status from a phone instead of calling. Ships with an Android build alongside the web application.',
- b:['QR order tracking customers check from their own phone','Daily sales reporting for the owner','Signed Android build alongside the web app'],
+{n:'MS Wordbox Laundry POS',c:'MS Wordbox Laundry Shop',y:'2026',t:['web','mobile'],
+ shot:'shots/laundry.jpg',link:null,
+ d:'Point-of-sale and sales tracking with QR-code order lookup, letting customers check load status from a phone instead of calling the shop. Ships with an Android build alongside the web application.',
+ b:['QR order tracking customers check from their own phone','Daily sales reporting for the owner','Signed Android build alongside the web application'],
  s:['Next.js','React','MySQL','Tailwind CSS','QR codes','APK build']},
 
-{id:'scanner',n:'DOCUMENT SCANNER WITH OCR',c:'On-device, no API keys',t:['mobile','ai'],
- shot:'shots/scanner.jpg',link:null,tags:['Android','iOS','Offline AI'],
- sum:'Photograph an attendance sheet, get back an editable spreadsheet — entirely on the phone.',
+{n:'Document Scanner with OCR',c:'On-device recognition, no API keys',y:'2026',t:['mobile','ai'],
+ shot:'shots/scanner.jpg',link:null,
  d:'Camera scanning with automatic edge detection and perspective correction, then OCR that runs entirely on the device. It classifies the page as a table or prose and reconstructs it into an editable grid — turning paper records into data a system can consume.',
- b:['Table detection rebuilds attendance sheets as editable grids','OCR runs on-device — no API keys, no usage limits, no per-scan cost','Multi-page capture into a single document'],
+ b:['Table detection rebuilds attendance sheets as editable grids','OCR runs on-device — no API keys, no limits, no per-scan cost','Multi-page capture into a single document'],
  s:['React Native','Expo','TypeScript','Google ML Kit','expo-print','AsyncStorage']},
 
-{id:'bistro',n:'BISTRO DE YSABELLE POS',c:'Bistro de Ysabelle · Amron',t:['mobile'],
- shot:null,link:null,tags:['Android tablet','Offline'],
- sum:'Offline fast-food POS on an Android tablet, in burgundy and gold, with 77 priced items.',
- d:'Tablet point of sale for a fast-food kitchen, built offline-first in a deep burgundy and gold palette with a 77-item catalogue including size variants. It opens straight to the order screen, with the Add Transaction button placed above all navigation on every screen — because at a counter the next tap is always a sale.',
+{n:'Bistro de Ysabelle POS',c:'Bistro de Ysabelle · Amron',y:'2026',t:['mobile'],shot:null,link:null,
+ d:'Tablet point of sale for a fast-food kitchen, built offline-first in a deep burgundy and gold palette with a 77-item catalogue including size variants. It opens straight to the order screen, with the Add Transaction button above all navigation on every screen — because at a counter the next tap is always a sale.',
  b:['77 priced items and size variants','Opens directly to the order screen, no dashboard in the way','Shipped as a signed Android build for tablets'],
  s:['JavaScript','Node.js','Android build','Local storage','Service workers']},
 
-{id:'moonbean',n:'MOON BEAN CAFÉ POS',c:'Moon Bean Café',t:['mobile'],
- shot:null,link:null,tags:['Android tablet','PWA','Offline'],
- sum:'A café till in cream, caramel and espresso that works with the Wi-Fi off.',
+{n:'Moon Bean Café POS',c:'Moon Bean Café',y:'2026',t:['mobile'],shot:null,link:null,
  d:'Tablet café POS running fully offline over IndexedDB, in Moon Bean’s own cream, caramel and espresso palette. The File System Access API writes to a folder the owner picks on desktop, with JSON backup exports on Android, and a service worker caches the app so it opens with no connection at all.',
- b:['Six primary actions: transactions, orders, products, inventory, expenses, reports','IndexedDB storage with File System Access API folder saves','Service-worker cached — opens offline'],
+ b:['Six primary actions: transactions, orders, products, inventory, expenses, reports','IndexedDB storage with File System Access API folder saves','Service-worker cached — opens with no connection'],
  s:['JavaScript','IndexedDB','File System Access API','Service workers','Android build']},
 
-{id:'pahangin',n:'PAHANGIN RESTO BAR POS',c:'Pahangin Resto Bar',t:['mobile'],
- shot:null,link:null,tags:['Android tablet','Offline'],
- sum:'The third tablet POS — a resto bar, in espresso and antique gold.',
+{n:'Pahangin Resto Bar POS',c:'Pahangin Resto Bar',y:'2026',t:['mobile'],shot:null,link:null,
  d:'Tablet point of sale for a resto bar, built on the same offline-first engine as the café and fast-food tills but restyled in its own espresso and antique-gold palette. Orders, inventory, expenses and reports, all held on the tablet.',
- b:['Third paying deployment of the same tablet POS engine','Own espresso and antique-gold identity','Offline-first — the till does not stop when the Wi-Fi does'],
+ b:['Third paying deployment of the same tablet POS engine','Its own espresso and antique-gold identity','Offline-first — the till does not stop when the Wi-Fi does'],
  s:['JavaScript','IndexedDB','Service workers','Android build','Local storage']},
 
-{id:'sport',n:'COURT & PITCH',c:'Live at sport.eslph.tech',t:['web'],
- shot:null,link:'https://sport.eslph.tech',tags:['Web','Live in production'],
- sum:'A pickleball and soccer news platform, deployed and running on my own VPS.',
- d:'News platform with reader accounts, a personalised feed, saved articles, profiles and live scores. Deployed and running in production on my own Ubuntu VPS behind PM2, with hashed credentials and a documented MySQL schema.',
- b:['Live in production — not a demo','Reader accounts with bcrypt-hashed credentials','Running behind PM2 on an Ubuntu VPS I administer'],
+{n:'Court & Pitch',c:'Live at sport.eslph.tech',y:'2026',t:['web'],shot:null,link:'https://sport.eslph.tech',
+ d:'News platform with reader accounts, a personalised feed, saved articles, profiles and live scores. <b>Deployed and running in production</b> on my own Ubuntu VPS behind PM2, with hashed credentials and a documented MySQL schema.',
+ b:['Live in production — not a demonstration','Reader accounts with bcrypt-hashed credentials','Running behind PM2 on an Ubuntu VPS I administer'],
  s:['Next.js','React','MySQL','bcryptjs','PM2','Ubuntu VPS']},
 
-{id:'aichecker',n:'AI CHECKER & HUMANIZER',c:'Built on the Anthropic API',t:['web','ai'],
- shot:null,link:null,tags:['Web','AI API'],
- sum:'Scores a document sentence by sentence, then offers a rewrite pass.',
+{n:'AI Checker & Humanizer',c:'Built on the Anthropic API',y:'2026',t:['web','ai'],shot:null,link:null,
  d:'Sorts every sentence of a document into four confidence bands, then offers a humanising rewrite. Built on the Anthropic API behind a PHP service layer, with a minimum word count enforced because short samples cannot be judged honestly.',
  b:['Sentence-level scoring into four confidence bands','Minimum word count enforced for honest results','Anthropic API behind a PHP service layer'],
  s:['PHP','Composer','Anthropic SDK','JavaScript']},
 
-{id:'svc',n:'VPS SERVICE MONITORING SUITE',c:'Ubuntu 24.04 LTS · eslph.tech',t:['linux'],
- shot:null,link:null,tags:['Linux','Automation'],
- sum:'Three Bash scripts that watch my production server and tell me before it breaks.',
- d:'Running from /opt/svc-checks/ on my production VPS: a service health check covering systemd units, PM2 apps, network, HTTPS and resource use; a disk guard reporting inode usage and forecasting growth; and an SSL/DNS check validating records, certificate expiry, redirects and the renewal timer. Scheduled by cron with a systemd unit as a safe test target.',
+{n:'VPS Service Monitoring Suite',c:'Ubuntu 24.04 LTS · eslph.tech',y:'2026',t:['linux'],shot:null,link:null,
+ d:'Running from <b>/opt/svc-checks/</b> on my production VPS: a service health check covering systemd units, PM2 apps, network, HTTPS and resource use; a disk guard reporting inode usage and forecasting growth; and an SSL/DNS check validating records, certificate expiry, redirects and the renewal timer. Scheduled by cron with a systemd unit as a safe test target.',
  b:['Service health across systemd units and PM2 applications','Disk and inode usage with growth forecasting','Certificate expiry, DNS records and renewal-timer validation'],
  s:['Bash','systemd','cron','PM2','Ubuntu 24.04','OpenSSL']},
 
-{id:'fiesta',n:'THE LAST NIGHT OF THE FIESTA',c:'Two engines, one script',t:['web'],
- shot:null,link:null,tags:['Web','3D · Three.js'],
- sum:'A Filipino story game shipped twice — a 3D world, and a pixel novel for weak devices.',
+{n:'The Last Night of the Fiesta',c:'Two engines, one script',y:'2026',t:['web'],shot:null,link:null,
  d:'A browser story game set in Barrio San Isidro on the eve of the town fiesta. Shipped in two engines from one script: a low-poly 3D world you walk through in Three.js, and a pixel-art visual novel for weaker devices. Five endings, bilingual English and Filipino.',
- b:['Two rendering engines sharing one narrative script','Five endings driven by player choices','Bilingual English and Filipino, with its own art and audio modules'],
+ b:['Two rendering engines sharing a single narrative script','Five endings driven by player choices','Bilingual English and Filipino, with its own art and audio modules'],
  s:['Three.js','JavaScript','WebGL','Canvas','i18n']},
 
-{id:'2lg',n:"2LG'S WATER REFILLING STATION",c:"2LG's Water Refilling Station",t:['desktop'],
- shot:'shots/2lg.jpg',link:null,tags:['Windows','Offline'],
- sum:'The whole business in one folder you can back up by copying it.',
+{n:"2LG's Water Refilling Station",c:"2LG's Water Refilling Station",y:'2026',t:['desktop'],
+ shot:'shots/2lg.jpg',link:null,
  d:'Refills, deliveries, container tracking and customer records. Data lives in a folder the owner chooses on first run, so the entire business record is portable and backed up by copying one directory.',
- b:['Refills, deliveries, container tracking and customers','Portable folder storage — back up by copying a directory','No server, no internet, nothing to renew'],
+ b:['Refills, deliveries, container tracking and customers','Portable folder storage — backed up by copying a directory','No server, no internet, nothing to renew'],
  s:['Electron','Node.js','JavaScript','ExcelJS','JSON store']},
 
-{id:'jrmc',n:'JRMC WATER STATION',c:'JRMC Water Station',t:['desktop'],
- shot:'shots/jrmc.jpg',link:null,tags:['Windows','Offline'],
- sum:'Built once, sold twice — the clearest sign a system actually works.',
- d:'The refilling-station system deployed for a second client: the same engine running their refills, deliveries, container tracking and customer records, writing to their own Excel workbook.',
- b:['Second paying deployment of the same engine','Own Excel workbook and isolated records','Same offline, folder-based architecture'],
+{n:'JRMC Water Station',c:'JRMC Water Station',y:'2026',t:['desktop'],shot:'shots/jrmc.jpg',link:null,
+ d:'The refilling-station system deployed for a second client: the same engine running their refills, deliveries, container tracking and customer records, writing to their own Excel workbook. <b>Built once, sold twice</b> — the clearest sign a system actually works.',
+ b:['Second paying deployment of the same engine','Its own Excel workbook and isolated records','The same offline, folder-based architecture'],
  s:['Electron','Node.js','JavaScript','ExcelJS']},
 
-{id:'sitepay',n:'SITEPAY CONSTRUCTION PAYROLL',c:'Portable, server-free payroll',t:['web'],
- shot:'shots/sitepay.jpg',link:null,tags:['Web','Portable store'],
- sum:'Payroll for a crew that changes every week, on a store you can sync to Drive.',
+{n:'SitePay Construction Payroll',c:'Portable, server-free payroll',y:'2026',t:['web'],
+ shot:'shots/sitepay.jpg',link:null,
  d:'Payroll for construction firms with a large, rotating crew: worker records, daily time entry, rate handling and payout computation. Every record is a plain file inside a folder the firm chooses, so payroll travels with the site office and needs no database server on location.',
- b:['Built for rosters that change week to week','Portable file store — syncs to Drive, no DB server on site','Worker records, time entry, rates and payout computation'],
+ b:['Built for rosters that change week to week','Portable file store — syncs to Drive, no database server on site','Worker records, time entry, rates and payout computation'],
  s:['PHP','JavaScript','HTML5','CSS3','JSON store']},
 
-{id:'airbnb',n:'AIRBNB OPERATIONS MANAGER',c:'Desktop for staff, phones for cleaners',t:['web'],
- shot:'shots/airbnb.jpg',link:null,tags:['Web','PWA','Local network'],
- sum:'A nightly job packages the day, copies it to the cloud and emails it — unprompted.',
+{n:'Airbnb Operations Manager',c:'Desktop for staff, phones for cleaners',y:'2026',t:['web'],
+ shot:'shots/airbnb.jpg',link:null,
  d:'Bookings, expenses and housekeeping records for a short-let operation. Staff work on the office PC while cleaners use it from phones over the same Wi-Fi via a service-worker PWA. A nightly cron packages the day’s records, copies them to cloud storage and emails them.',
  b:['Desktop for staff, phones for cleaners, over one local network','Nightly cron packaging, cloud copy and SMTP dispatch','Service-worker PWA with offline capability'],
  s:['PHP','JavaScript','Service Workers','Web App Manifest','Cron','SMTP']},
 
-{id:'attendance',n:'FACE-RECOGNITION ATTENDANCE',c:'With a REST API for downstream systems',t:['web','ai'],
- shot:'shots/attendance.jpg',link:null,tags:['Web','Biometric','REST API'],
- sum:'Faces in, records out — and an API so payroll stops re-typing them.',
+{n:'Face-Recognition Attendance',c:'With a REST API for downstream systems',y:'2026',t:['web','ai'],
+ shot:'shots/attendance.jpg',link:null,
  d:'Attendance capture using face recognition instead of sign-in sheets, with an administrator console, user records and a REST API layer so downstream systems consume attendance data rather than re-keying it.',
  b:['Face recognition replacing manual sign-in sheets','REST API so payroll and HR read records directly','Administrator console with exportable reports'],
  s:['PHP','MySQL','JavaScript','Face recognition','REST API']},
 
-{id:'gcash',n:'GCASH NOTES',c:'No internet permission at all',t:['mobile'],
- shot:'shots/gcash.jpg',link:null,tags:['Android','Offline'],
- sum:'A wallet ledger that never touches the network, by design.',
+{n:'GCash Notes',c:'No internet permission at all',y:'2026',t:['mobile'],shot:'shots/gcash.jpg',link:null,
  d:'A transaction ledger for the GCash e-wallet with daily, monthly and yearly totals. Accounts, transactions and receipt screenshots stay on the phone — the app requests no internet permission and never connects to GCash.',
  b:['Daily, monthly and yearly totals that reconcile to the entries','Receipt screenshots stored locally','Requests no internet permission whatsoever'],
  s:['Flutter','Dart','Material Design','Local storage']},
 
-{id:'onechurch',n:'ONECHURCH',c:'One map. One mission.',t:['web'],
- shot:'shots/onechurch.jpg',link:null,tags:['Web','TypeScript','Postgres'],
- sum:'A searchable living map of congregations, outreaches and services.',
+{n:'OneChurch',c:'One map. One mission.',y:'2026',t:['web'],shot:'shots/onechurch.jpg',link:null,
  d:'Congregations publish their outreaches, services and announcements to a searchable map. Server-rendered with Supabase, including authentication and row-level data access over PostgreSQL.',
- b:['Searchable map of congregations and active outreaches','Server-side rendering with row-level access control','Auth and data over Supabase PostgreSQL'],
+ b:['Searchable map of congregations and active outreaches','Server-side rendering with row-level access control','Authentication and data over Supabase PostgreSQL'],
  s:['Next.js','React','TypeScript','Supabase','PostgreSQL','@supabase/ssr']},
 
-{id:'portfolio',n:'PORTFOLIO PLATFORM',c:'This site',t:['web'],
- shot:'shots/portfolio.jpg',link:'https://quimanjan16.github.io',tags:['Web','Live'],
- sum:'A live register of every system, built and hosted by me.',
- d:'A single-page portfolio with a filterable project register, a 3D block field and interactive case studies. Built, deployed and hosted by me on GitHub Pages.',
- b:['Filterable register with full stack behind each system','Three.js block field and a scroll-driven runner','Self-built, self-deployed, self-hosted'],
+{n:'Portfolio Platform',c:'This site',y:'2026',t:['web'],shot:'shots/portfolio.jpg',
+ link:'https://quimanjan16.github.io',
+ d:'A single-page portfolio with a filterable project register, a cursor-tracked preview and full case studies. Built, deployed and hosted by me on GitHub Pages.',
+ b:['Filterable register with the full stack behind each system','Three.js field and cursor-tracked interface previews','Self-built, self-deployed, self-hosted'],
  s:['HTML5','CSS3','JavaScript','Three.js','GitHub Pages']},
 ];
 
-const STACK = [
- ['LANGUAGES',['TypeScript','JavaScript','Dart','PHP','Python','C#','SQL','HTML5','CSS3'],5],
- ['WEB',['React','Next.js','Three.js','Tailwind CSS','Framer Motion','Service Workers'],3],
- ['MOBILE',['React Native','Expo','Flutter','Material Design','APK builds'],3],
- ['DESKTOP',['Electron','electron-builder','WinForms','Windows installers'],1],
- ['BACKEND',['Node.js','PHP','REST APIs','Apache','PM2','Cron'],2],
- ['DATABASES',['MySQL','PostgreSQL','Supabase','IndexedDB','Portable JSON stores'],2],
- ['AI & ML',['Anthropic API','Google ML Kit','Facial recognition','Gesture recognition'],2],
- ['INFRA',['Ubuntu','Proxmox VE','Tailscale','Docker','Caddy','Bash','systemd'],3],
- ['TOOLING',['Git','GitHub Pages','Vercel','XAMPP','n8n','VS Code'],1],
+const CAP=[
+ ['Languages',[['TypeScript',1],['JavaScript',1],['PHP',1],['Python',1],['Dart',0],['C#',0],['SQL',0],['HTML5',0],['CSS3',0]]],
+ ['Frameworks',[['React',1],['Next.js',1],['React Native',1],['Flutter',1],['Electron',1],['Three.js',0],['Tailwind CSS',0],['Express',0]]],
+ ['Data',[['MySQL',1],['PostgreSQL',1],['Supabase',0],['IndexedDB',0],['Portable JSON stores',0],['Schema & ERD design',0]]],
+ ['Infrastructure',[['Ubuntu',1],['Proxmox VE',1],['Tailscale',0],['Docker',0],['Caddy',0],['PM2',0],['Bash & systemd',0]]],
+ ['AI & recognition',[['Anthropic API',1],['Google ML Kit',1],['Facial recognition',0],['Gesture recognition',0],['On-device OCR',0]]],
+ ['Practice',[['Git',1],['Written documentation',1],['Installers & turnover',0],['Staff training',0],['Automated backups',0],['n8n automation',0]]],
 ];
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const tagCls=(t,i)=>/offline|live|no network|local network/i.test(t)?'tag g':(i===0?'tag':'tag c');
 
-/* stars */
-(function(){let h='';for(let i=0;i<80;i++){h+=`<i style="left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${(Math.random()*3.4).toFixed(2)}s"></i>`;}$('#stars').innerHTML=h;})();
+$('#idx').innerHTML=P.map((p,i)=>`<button class="item rv" data-i="${i}" data-t="${p.t.join(' ')}">
+  <span class="no">${String(i+1).padStart(2,'0')}</span>
+  <span class="t">${esc(p.n)}</span>
+  <span class="c">${esc(p.c)}</span>
+  <span class="y">${p.link?'<em></em>':''}${esc(p.y)}<span class="ar">&rarr;</span></span>
+</button>`).join('');
 
-$('#grid').innerHTML=P.map((p,i)=>`<button class="card rv" data-i="${i}" data-t="${p.t.join(' ')}">
-  ${p.link?'<span class="live">LIVE</span>':''}
-  <span class="shot${p.shot?'':' none'}">${p.shot
-    ? `<img src="${esc(p.shot)}" alt="${esc(p.n)} interface" loading="lazy">`
-    : `<span>? &nbsp;INTERFACE</span>`}</span>
-  <span class="body">
-    <h3>${esc(p.n)}</h3>
-    <span class="cl">${esc(p.c)}</span>
-    <span class="sum">${esc(p.sum)}</span>
-    <span class="tags">${p.tags.map((t,j)=>`<span class="${tagCls(t,j)}">${esc(t)}</span>`).join('')}</span>
-    <span class="more">OPEN <i>▸</i></span>
-  </span></button>`).join('');
-
-$('#rows').innerHTML=STACK.map(([k,v,hot])=>`<div class="row"><div class="k">${esc(k)}</div>
-  <div class="v">${v.map((x,i)=>`<span class="pill${i<hot?' k':''}">${esc(x)}</span>`).join('')}</div></div>`).join('');
+$('#cols').innerHTML=CAP.map(([k,v])=>`<div class="col"><h3>${esc(k)}</h3>
+  <ul>${v.map(([x,hot])=>`<li class="${hot?'k':''}">${esc(x)}</li>`).join('')}</ul></div>`).join('');
 
 /* filters */
-const cards=[...document.querySelectorAll('.card')];
-function apply(f){
-  let n=0;
-  cards.forEach(c=>{const ok=f==='all'||c.dataset.t.split(' ').includes(f);c.hidden=!ok;if(ok)n++;});
-  $('#count').textContent=n+' SHOWN';
-  document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.f===f)));
-}
-document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>apply(c.dataset.f)));
-cards.forEach(c=>c.addEventListener('click',()=>open_(+c.dataset.i)));
+const items=[...document.querySelectorAll('.item')];
+document.querySelectorAll('.fl').forEach(b=>b.addEventListener('click',()=>{
+  const f=b.dataset.f;let n=0;
+  items.forEach(it=>{const ok=f==='all'||it.dataset.t.split(' ').includes(f);it.hidden=!ok;if(ok)n++;});
+  $('#tally').textContent=n+(n===1?' project':' projects');
+  document.querySelectorAll('.fl').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.f===f)));
+}));
 
-/* modal */
-const modal=$('#modal');let lastFocus=null;
+/* cursor preview */
+const peek=$('#peek');let px=0,py=0,tx=0,ty=0,raf=null;
+function follow(){tx+=(px-tx)*.14;ty+=(py-ty)*.14;
+  peek.style.left=tx+'px';peek.style.top=ty+'px';raf=requestAnimationFrame(follow);}
+items.forEach(it=>{
+  const p=P[+it.dataset.i];
+  it.addEventListener('pointerenter',e=>{
+    peek.innerHTML=p.shot?`<img src="${esc(p.shot)}" alt="">`:`<div class="ph">Interface &mdash; ${esc(p.t[0])}</div>`;
+    px=e.clientX;py=e.clientY;tx=px;ty=py;peek.classList.add('on');
+    if(!raf)raf=requestAnimationFrame(follow);
+  });
+  it.addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY;});
+  it.addEventListener('pointerleave',()=>{peek.classList.remove('on');
+    cancelAnimationFrame(raf);raf=null;});
+  it.addEventListener('click',()=>open_(+it.dataset.i));
+});
+
+/* case study */
+const box=$('#case');let lastFocus=null;
 function open_(i){
   const p=P[i];lastFocus=document.activeElement;
-  modal.innerHTML=`<div class="sheet">
-    <button class="x" id="mx" aria-label="Close">X</button>
-    ${p.shot?`<div class="pic"><img src="${esc(p.shot)}" alt="${esc(p.n)} interface"></div>`:''}
-    <div class="in">
-      <h3 id="mt">${esc(p.n)}</h3>
-      <div class="cl">${esc(p.c)}</div>
-      <p class="d">${p.d}</p>
-      <ul>${p.b.map(x=>`<li>${x}</li>`).join('')}</ul>
-      <div class="st">${p.s.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</div>
-      ${p.link?`<a class="go" href="${esc(p.link)}" target="_blank" rel="noopener">▶ OPEN IT LIVE</a>`:''}
-    </div></div>`;
-  modal.classList.add('on');document.body.style.overflow='hidden';
-  $('#mx').focus();$('#mx').addEventListener('click',close_);
+  box.innerHTML=`<div class="doc">
+    <button class="x" id="cx">Close</button>
+    <div class="no">${String(i+1).padStart(2,'0')} &nbsp;/&nbsp; ${String(P.length).padStart(2,'0')}</div>
+    <h3 id="ct">${esc(p.n)}</h3>
+    <div class="cl">${esc(p.c)} &nbsp;&middot;&nbsp; ${esc(p.y)}</div>
+    ${p.shot?`<div class="shot"><img src="${esc(p.shot)}" alt="${esc(p.n)} interface"></div>`
+            :`<div class="shot none">Interface &mdash; ${esc(p.t[0])}</div>`}
+    <p class="d">${p.d}</p>
+    <div class="hl">${p.b.map(x=>`<div>${x}</div>`).join('')}</div>
+    <div class="st"><span class="lbl">Stack</span><div class="ch">${p.s.map(x=>`<span class="p">${esc(x)}</span>`).join('')}</div></div>
+    ${p.link?`<a class="go" href="${esc(p.link)}" target="_blank" rel="noopener">Open it live &rarr;</a>`:''}
+  </div>`;
+  box.classList.add('on');document.body.style.overflow='hidden';
+  peek.classList.remove('on');
+  $('#cx').focus();$('#cx').addEventListener('click',close_);
 }
-function close_(){modal.classList.remove('on');document.body.style.overflow='';lastFocus&&lastFocus.focus();}
-modal.addEventListener('click',e=>{if(e.target===modal)close_();});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('on'))close_();});
+function close_(){box.classList.remove('on');document.body.style.overflow='';lastFocus&&lastFocus.focus();}
+box.addEventListener('click',e=>{if(e.target===box)close_();});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&box.classList.contains('on'))close_();});
 
-/* scroll: runner, world, coins */
-const runner=$('#runner'),coinEl=$('#coins'),worldEl=$('#world'),goal=$('#goal');
-const WORLDS=[['#work','1-1'],['#stack','1-2'],['#how','1-3'],['#contact','1-4']];
-function onScroll(){
-  const h=document.documentElement.scrollHeight-innerHeight;
-  const pct=h>0?Math.min(1,scrollY/h):0;
-  runner.style.left=(14+pct*(innerWidth-110))+'px';
-  let w='1-1';
-  for(const [sel,id] of WORLDS){const el=document.querySelector(sel);
-    if(el&&el.getBoundingClientRect().top<innerHeight*0.5)w=id;}
-  worldEl.textContent=w;
-  /* coins = project blocks scrolled past */
-  let seen=0;
-  cards.forEach(c=>{if(!c.hidden&&c.getBoundingClientRect().top<innerHeight*0.85)seen++;});
-  coinEl.textContent=String(seen).padStart(2,'0');
-  goal.textContent = pct>0.97 ? 'COURSE CLEAR!' : (pct>0.02 ? 'GO!' : 'PRESS ↓ TO START');
-}
-addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
-
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.06});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-/* counters */
+/* nav + reveal + counters */
+const nav=$('#nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.05});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i,6)*55)+'ms';io.observe(el);});
 const cio=new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting)return;cio.unobserve(e.target);
-  const el=e.target,to=+el.dataset.to,sfx=el.dataset.suffix||'';const t0=performance.now();
-  (function tick(t){const k=Math.min(1,(t-t0)/900);
-    el.textContent=Math.round(to*(1-Math.pow(1-k,3)))+sfx;if(k<1)requestAnimationFrame(tick);})(t0);
+  const el=e.target,to=+el.dataset.to,sfx=el.dataset.suffix||'',t0=performance.now();
+  (function tick(t){const k=Math.min(1,(t-t0)/1400);
+    el.textContent=Math.round(to*(1-Math.pow(1-k,4)))+sfx;if(k<1)requestAnimationFrame(tick);})(t0);
 }),{threshold:.5});
 document.querySelectorAll('[data-to]').forEach(el=>cio.observe(el));
 
-/* three.js floating blocks */
+/* three.js — a slow, shallow point wave */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches||typeof THREE==='undefined')return;
   const cv=$('#bg');
-  const renderer=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:false});
-  renderer.setPixelRatio(1); // chunky on purpose
-  const scene=new THREE.Scene();
-  const cam=new THREE.PerspectiveCamera(58,1,.1,160);cam.position.z=44;
-  scene.add(new THREE.AmbientLight(0xffffff,.65));
-  const dl=new THREE.DirectionalLight(0xffe8a8,.9);dl.position.set(6,10,8);scene.add(dl);
-
-  const COL=[0xffcf3f,0x2b3672,0x4de8ff,0x3ddc84,0xff5e5b];
-  const blocks=[];
-  for(let i=0;i<17;i++){
-    const s=1.3+Math.random()*1.7;
-    const m=new THREE.Mesh(new THREE.BoxGeometry(s,s,s),
-      new THREE.MeshLambertMaterial({color:COL[i%COL.length],transparent:true,opacity:.17}));
-    m.position.set((Math.random()-.5)*62,(Math.random()-.5)*40,(Math.random()-.5)*34);
-    m.rotation.set(Math.random()*3,Math.random()*3,0);
-    m.userData={sx:.0016+Math.random()*.004,sy:.0012+Math.random()*.003,f:Math.random()*6};
-    blocks.push(m);scene.add(m);
-    const e=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),
-      new THREE.LineBasicMaterial({color:0xffffff,transparent:true,opacity:.1}));
-    m.add(e);
+  const r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+  r.setPixelRatio(Math.min(devicePixelRatio,2));
+  const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(52,1,.1,300);
+  cam.position.set(0,16,46);cam.lookAt(0,0,0);
+  const CX=108,CY=64,g=new THREE.BufferGeometry();
+  const pos=new Float32Array(CX*CY*3),base=[];
+  let k=0;
+  for(let i=0;i<CX;i++)for(let j=0;j<CY;j++){
+    const x=(i-CX/2)*1.35,z=(j-CY/2)*1.35;
+    pos[k*3]=x;pos[k*3+1]=0;pos[k*3+2]=z;base.push([x,z]);k++;
   }
-  let mx=0,my=0,tx=0,ty=0;
+  g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const pts=new THREE.Points(g,new THREE.PointsMaterial({color:0xc9a961,size:.21,
+    transparent:true,opacity:.5,sizeAttenuation:true}));
+  sc.add(pts);
+  let mx=0,my=0,ax=0,ay=0;
   addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;},{passive:true});
-  function size(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);cam.aspect=w/h;
-    cam.position.z = w<560?66:w<860?56:44;cam.updateProjectionMatrix();}
+  function size(){const w=innerWidth,h=innerHeight;r.setSize(w,h,false);cam.aspect=w/h;
+    cam.position.z=w<760?66:46;cam.updateProjectionMatrix();}
   addEventListener('resize',size);size();
   (function loop(t){
     requestAnimationFrame(loop);
-    tx+=(mx-tx)*.04;ty+=(my-ty)*.04;
-    blocks.forEach(m=>{m.rotation.x+=m.userData.sx;m.rotation.y+=m.userData.sy;
-      m.position.y+=Math.sin(t*0.0006+m.userData.f)*0.004;});
-    cam.position.x=tx*7;cam.position.y=-ty*5;cam.lookAt(0,0,0);
-    renderer.render(scene,cam);
+    const a=pts.geometry.attributes.position.array;
+    for(let i=0;i<base.length;i++){
+      const [x,z]=base[i];
+      a[i*3+1]=Math.sin((x*0.09)+t*0.00028)*1.5+Math.cos((z*0.11)-t*0.00021)*1.5;
+    }
+    pts.geometry.attributes.position.needsUpdate=true;
+    ax+=(mx-ax)*.03;ay+=(my-ay)*.03;
+    pts.rotation.y=ax*.16;cam.position.x=ax*6;cam.position.y=16-ay*5;cam.lookAt(0,0,0);
+    r.render(sc,cam);
   })(0);
 })();
 </script>

@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Vincent Joed G. Quimanjan — full stack developer in Bacoor, Cavite. Twelve web, Android and Windows systems delivered for schools, small businesses and a government office.">
+<meta name="description" content="Vincent Joed G. Quimanjan — full stack developer in Bacoor, Cavite. Twenty-one systems delivered across web, Android, Windows and Linux.">
 <meta name="author" content="Vincent Joed G. Quimanjan">
+<meta name="theme-color" content="#050a16">
+<link rel="icon" href="logo.png">
 <meta property="og:title" content="Vince Quimanjan — Full Stack Developer">
-<meta property="og:description" content="Twelve systems across web, Android and Windows. React, Next.js, PHP, MySQL, Flutter, Electron.">
+<meta property="og:description" content="Twenty-one systems across web, Android, Windows and Linux. React, Next.js, Flutter, Electron, PHP, Python.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <style>html{-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -15,578 +17,656 @@
 <title>Vince Quimanjan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ground:#f4f4ef; --surface:#fffffc; --raise:#ecece4;
-  --ink:#141d1b; --muted:#56635f; --faint:#87938e;
-  --line:rgba(20,29,27,.15); --line2:rgba(20,29,27,.3);
-  --accent:#0b6350; --accent-ink:#ffffff; --accent-soft:#dceae5;
-  --signal:#b9481b; --signal-soft:#f6e2d8;
-  --violet:#4a4fa8; --violet-soft:#e2e3f4;
-  --focus:#0b6350;
-  --shadow:0 1px 2px rgba(20,29,27,.07);
-  --lift:0 10px 30px -12px rgba(11,99,80,.4);
-  --f-disp:"Archivo",system-ui,sans-serif;
-  --f-body:"Public Sans",system-ui,sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
-  --aurora-a:rgba(11,99,80,.22); --aurora-b:rgba(185,72,27,.16); --aurora-c:rgba(74,79,168,.16);
-  --spot:rgba(11,99,80,.13);
+  --bg:#050a16; --bg2:#081122; --surface:#0d1729; --raise:#142039; --sunk:#030713;
+  --ink:#e9eefb; --muted:#93a4c8; --faint:#6b7c9e;
+  --line:rgba(140,170,230,.14); --line2:rgba(140,170,230,.30);
+  --blue:#4d7cff; --blue-soft:rgba(77,124,255,.14);
+  --cyan:#22d3ee; --cyan-soft:rgba(34,211,238,.13);
+  --gold:#f0b429; --gold-soft:rgba(240,180,41,.13);
+  --d:"Sora",system-ui,sans-serif; --b:"Public Sans",system-ui,sans-serif;
+  --m:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --lift:0 24px 60px -24px rgba(0,0,0,.85);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --ground:#0d1413; --surface:#141d1b; --raise:#1b2725;
-  --ink:#e7efec; --muted:#9dada8; --faint:#71827d;
-  --line:rgba(231,239,236,.14); --line2:rgba(231,239,236,.28);
-  --accent:#49cfae; --accent-ink:#06201a; --accent-soft:#12312a;
-  --signal:#f08b5c; --signal-soft:#331d13;
-  --violet:#9ba2f2; --violet-soft:#1d2140;
-  --focus:#49cfae;
-  --shadow:0 1px 2px rgba(0,0,0,.4);
-  --lift:0 12px 34px -12px rgba(73,207,174,.34);
-  --aurora-a:rgba(73,207,174,.20); --aurora-b:rgba(240,139,92,.15); --aurora-c:rgba(155,162,242,.16);
-  --spot:rgba(73,207,174,.12);
-}}
-:root[data-theme="dark"]{
-  --ground:#0d1413; --surface:#141d1b; --raise:#1b2725;
-  --ink:#e7efec; --muted:#9dada8; --faint:#71827d;
-  --line:rgba(231,239,236,.14); --line2:rgba(231,239,236,.28);
-  --accent:#49cfae; --accent-ink:#06201a; --accent-soft:#12312a;
-  --signal:#f08b5c; --signal-soft:#331d13;
-  --violet:#9ba2f2; --violet-soft:#1d2140;
-  --focus:#49cfae;
-  --shadow:0 1px 2px rgba(0,0,0,.4);
-  --lift:0 12px 34px -12px rgba(73,207,174,.34);
-  --aurora-a:rgba(73,207,174,.20); --aurora-b:rgba(240,139,92,.15); --aurora-c:rgba(155,162,242,.16);
-  --spot:rgba(73,207,174,.12);
-}
+/* deliberately single-theme: a dark navy instrument panel */
 *{box-sizing:border-box}
-body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);
-  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.page{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:0}
-h1,h2,h3{font-family:var(--f-disp);margin:0;text-wrap:balance;letter-spacing:-.02em}
-a{color:var(--accent)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:3px}
-.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-.lbl{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--b);
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--d);margin:0;letter-spacing:-.03em;text-wrap:balance}
+a{color:var(--cyan);text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.page{max-width:1180px;margin:0 auto;padding-inline:24px}
+.mono{font-family:var(--m);font-variant-numeric:tabular-nums}
+.lbl{font-family:var(--m);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
 
-/* scroll progress */
-#bar{position:fixed;top:0;left:0;height:3px;width:0%;z-index:50;
-  background:linear-gradient(90deg,var(--accent),var(--signal));transition:width .12s linear}
+/* ── background canvas ── */
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.85}
+@media(max-width:860px){#bg{opacity:.3}}
+.veil{position:fixed;inset:0;z-index:1;pointer-events:none;background-color:rgba(5,10,22,.35);
+  background:radial-gradient(1100px 620px at 78% -6%,rgba(77,124,255,.16),transparent 62%),
+             radial-gradient(900px 540px at 12% 104%,rgba(34,211,238,.10),transparent 60%)}
+main,header,footer{position:relative;z-index:2}
 
-/* hero + aurora */
-.hero{position:relative;border-bottom:1px solid var(--line2);background:var(--surface);overflow:hidden}
-.aurora{position:absolute;inset:-30% -10%;z-index:0;filter:blur(70px);opacity:.95;pointer-events:none}
-.aurora i{position:absolute;display:block;border-radius:50%;animation:drift 22s ease-in-out infinite}
-.aurora i:nth-child(1){width:52%;height:78%;left:52%;top:-16%;background:var(--aurora-a)}
-.aurora i:nth-child(2){width:44%;height:70%;left:8%;top:22%;background:var(--aurora-b);animation-delay:-7s;animation-duration:27s}
-.aurora i:nth-child(3){width:40%;height:64%;left:70%;top:40%;background:var(--aurora-c);animation-delay:-14s;animation-duration:31s}
-@keyframes drift{
-  0%,100%{transform:translate3d(0,0,0) scale(1)}
-  33%{transform:translate3d(-7%,6%,0) scale(1.12)}
-  66%{transform:translate3d(6%,-5%,0) scale(.94)}
-}
-.spot{position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(420px circle at var(--mx,70%) var(--my,30%),var(--spot),transparent 68%);
-  transition:background .2s ease}
-.hero .page,.meterwrap{position:relative;z-index:1}
-.hero .page{padding-block:56px 42px}
-.kicker{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;margin-bottom:24px}
-.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;
-  box-shadow:0 0 0 0 var(--accent);animation:pulse 2.6s ease-out infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent);opacity:1}
-  70%{box-shadow:0 0 0 9px transparent;opacity:.85}100%{box-shadow:0 0 0 0 transparent;opacity:1}}
-h1{font-size:clamp(2.3rem,6.2vw,3.9rem);line-height:1.02;font-weight:800}
-h1 .g{background:linear-gradient(100deg,var(--accent),var(--violet) 45%,var(--signal));
+/* ── scroll progress ── */
+#bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));box-shadow:0 0 14px var(--cyan)}
+
+/* ── the walker ── */
+.rail{position:fixed;left:26px;top:0;bottom:0;width:2px;z-index:50;
+  background:linear-gradient(180deg,transparent,var(--line),transparent);pointer-events:none}
+.walker{position:fixed;left:7px;z-index:51;width:42px;pointer-events:none;
+  transition:top .12s linear}
+.walker .me{width:42px;height:42px;border-radius:50%;overflow:hidden;
+  border:2px solid var(--cyan);box-shadow:0 0 0 4px rgba(34,211,238,.16),0 8px 20px rgba(0,0,0,.6);
+  animation:bob 1.05s ease-in-out infinite}
+.walker .me img{width:100%;height:100%;object-fit:cover;display:block}
+.walker .shadow{width:26px;height:5px;margin:5px auto 0;border-radius:50%;
+  background:rgba(34,211,238,.3);filter:blur(2px);animation:squash 1.05s ease-in-out infinite}
+.walker .say{position:absolute;left:54px;top:7px;white-space:nowrap;
+  font-family:var(--m);font-size:11.5px;letter-spacing:.06em;color:var(--cyan);
+  background:rgba(5,10,22,.86);border:1px solid var(--line2);border-radius:5px;
+  padding:5px 10px;opacity:0;transform:translateX(-6px);transition:opacity .35s,transform .35s;
+  backdrop-filter:blur(6px)}
+.walker.talk .say{opacity:1;transform:none}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-6px) rotate(3deg)}}
+@keyframes squash{0%,100%{transform:scaleX(1);opacity:.3}50%{transform:scaleX(.6);opacity:.14}}
+@media(max-width:900px){.rail,.walker{display:none}}
+
+/* ── hero ── */
+.hero{padding-block:124px 86px}
+.kick{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-bottom:30px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);
+  box-shadow:0 0 0 0 var(--cyan);animation:pulse 2.4s ease-out infinite;flex:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,238,.7)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(2.6rem,7vw,5rem);line-height:.98;font-weight:800}
+h1 .g{background:linear-gradient(100deg,var(--blue),var(--cyan) 55%,var(--gold));
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  background-size:220% 100%;animation:slide 9s ease-in-out infinite}
-@keyframes slide{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.thesis{margin:22px 0 0;font-size:clamp(1.1rem,2.6vw,1.35rem);color:var(--muted);max-width:60ch;line-height:1.5}
+  background-size:230% 100%;animation:sweep 11s ease-in-out infinite}
+@keyframes sweep{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.thesis{margin-top:26px;font-size:clamp(1.08rem,2.4vw,1.4rem);color:var(--muted);
+  max-width:60ch;line-height:1.55}
 .thesis b{color:var(--ink);font-weight:600}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.btn{position:relative;display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:5px;
-  font-family:var(--f-disp);font-weight:600;font-size:16px;text-decoration:none;border:1px solid var(--line2);
-  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;overflow:hidden}
-.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.btn.sec{background:transparent;color:var(--ink)}
-.btn:hover{transform:translateY(-2px)}
-.btn.pri:hover{box-shadow:var(--lift)}
-.btn.sec:hover{background:var(--raise)}
+.cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:38px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;
+  border-radius:9px;font-family:var(--d);font-weight:600;font-size:15.5px;
+  border:1px solid var(--line2);overflow:hidden;
+  transition:transform .2s cubic-bezier(.2,.9,.3,1.2),box-shadow .2s,border-color .2s}
+.btn.pri{background:linear-gradient(135deg,var(--blue),#3860e8);border-color:transparent;color:#fff}
+.btn:hover{transform:translateY(-3px)}
+.btn.pri:hover{box-shadow:0 16px 36px -14px var(--blue)}
+.btn.gho:hover{border-color:var(--cyan);color:var(--cyan)}
 .btn.pri::after{content:"";position:absolute;inset:0;transform:translateX(-120%);
-  background:linear-gradient(105deg,transparent,rgba(255,255,255,.34),transparent)}
-.btn.pri:hover::after{animation:sheen .8s ease}
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.3),transparent)}
+.btn.pri:hover::after{animation:sheen .85s ease}
 @keyframes sheen{to{transform:translateX(120%)}}
 
-.meterwrap{max-width:1080px;margin:0 auto;padding-inline:20px}
-.meters{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-  border-block:1px solid var(--line);margin-top:40px}
-.meter{background:var(--surface);padding:18px 16px;transition:background .2s ease}
-.meter:hover{background:var(--accent-soft)}
-.meter b{display:block;font-family:var(--f-disp);font-size:1.75rem;line-height:1;font-weight:700;color:var(--accent)}
-.meter span{display:block;margin-top:7px;font-size:13px;color:var(--muted);line-height:1.35}
-@media(max-width:620px){.meters{grid-template-columns:repeat(2,1fr)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:56px}
+.stat{background:var(--surface);padding:24px 22px;transition:background .25s}
+.stat:hover{background:var(--raise)}
+.stat b{display:block;font-family:var(--d);font-size:2.4rem;font-weight:800;line-height:1;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;
+  background-clip:text;color:transparent}
+.stat span{display:block;margin-top:10px;font-size:13px;color:var(--muted);line-height:1.4}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 
-section{padding-block:52px}
-.head{margin-bottom:26px}
-.head h2{font-size:clamp(1.5rem,3.6vw,2rem);font-weight:700;margin-top:8px;position:relative;display:inline-block}
-.head h2::after{content:"";position:absolute;left:0;bottom:-7px;height:3px;width:100%;
-  background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px}
-.head p{margin:14px 0 0;color:var(--muted);max-width:64ch}
+/* ── sections ── */
+section{padding-block:88px}
+.head{margin-bottom:40px}
+.head h2{font-size:clamp(1.8rem,4.2vw,2.7rem);font-weight:700;margin-top:12px}
+.head p{margin-top:16px;color:var(--muted);max-width:64ch}
 
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;align-items:center}
-.chip{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.04em;padding:7px 13px;border-radius:999px;
-  border:1px solid var(--line2);background:transparent;color:var(--muted);cursor:pointer;
-  transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease}
-.chip:hover{transform:translateY(-1px);border-color:var(--accent);color:var(--accent)}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
-.count{margin-left:auto;font-family:var(--f-mono);font-size:12.5px;color:var(--faint)}
+/* ── filters ── */
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px;align-items:center}
+.chip{font-family:var(--m);font-size:12.5px;letter-spacing:.04em;padding:9px 16px;border-radius:999px;
+  border:1px solid var(--line2);color:var(--muted);transition:all .18s}
+.chip:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--cyan);border-color:var(--cyan);color:#041018;font-weight:700}
+.count{margin-left:auto;font-family:var(--m);font-size:12.5px;color:var(--faint)}
 
-.reg{display:grid;gap:10px}
-.proj{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:8px;
-  padding:20px 22px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr auto;gap:8px 24px;
-  align-items:start;overflow:hidden;
-  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-.proj::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);
-  transform:scaleY(0);transform-origin:top;transition:transform .25s ease}
-.proj:hover{transform:translateY(-3px);box-shadow:var(--lift);border-color:var(--line2)}
-.proj:hover::before{transform:scaleY(1)}
-.proj[hidden]{display:none!important}
-.proj.in{animation:pop .32s ease both}
-@keyframes pop{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-.proj h3{font-size:1.24rem;font-weight:700}
-.client{margin:5px 0 0;font-family:var(--f-mono);font-size:12.5px;color:var(--signal);letter-spacing:.02em}
-.proj p.desc{margin:11px 0 0;color:var(--muted);font-size:15.5px;max-width:68ch;line-height:1.5}
-.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;grid-column:1/-1;align-items:center}
-.stack .sl{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--faint);margin-right:4px}
-.tech{font-family:var(--f-mono);font-size:11.5px;padding:4px 9px;border-radius:3px;
-  background:var(--raise);color:var(--muted);border:1px solid var(--line);
-  transition:color .15s ease,border-color .15s ease,background .15s ease}
-.proj:hover .tech{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-.tags{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
-.plat{font-family:var(--f-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
-  padding:4px 10px;border-radius:3px;background:var(--accent-soft);color:var(--accent);
-  border:1px solid var(--accent);font-weight:500;white-space:nowrap}
-.plat.m{background:var(--signal-soft);color:var(--signal);border-color:var(--signal)}
-.plat.d{background:var(--violet-soft);color:var(--violet);border-color:var(--violet)}
-@media(max-width:600px){
-  .proj{grid-template-columns:1fr}
-  .tags{flex-direction:row;flex-wrap:wrap;align-items:flex-start;order:-1}
-}
+/* ── project grid ── */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:660px){.grid{grid-template-columns:1fr}}
+.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;text-align:left;width:100%;display:flex;flex-direction:column;
+  transform-style:preserve-3d;transition:border-color .25s,box-shadow .25s;cursor:pointer}
+.card[hidden]{display:none!important}
+.card:hover{border-color:var(--line2);box-shadow:var(--lift)}
+.card .shot{aspect-ratio:16/10;background:var(--sunk);overflow:hidden;position:relative;flex:none}
+.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);opacity:.92}
+.card:hover .shot img{transform:scale(1.06);opacity:1}
+.card .shot.none{display:flex;align-items:center;justify-content:center}
+.card .shot.none span{font-family:var(--m);font-size:12px;color:var(--faint);letter-spacing:.1em}
+.card .glow{position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(77,124,255,.16),transparent 65%)}
+.card:hover .glow{opacity:1}
+.card .body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:1.17rem;font-weight:700;line-height:1.25}
+.card .cl{margin-top:7px;font-family:var(--m);font-size:11.5px;color:var(--gold);letter-spacing:.02em}
+.card .sum{margin-top:11px;font-size:14.5px;color:var(--muted);line-height:1.5}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{font-family:var(--m);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  padding:4px 9px;border-radius:4px;background:var(--blue-soft);color:#9db6ff;
+  border:1px solid rgba(77,124,255,.3)}
+.tag.c{background:var(--cyan-soft);color:#7fe4f5;border-color:rgba(34,211,238,.32)}
+.tag.g{background:var(--gold-soft);color:#f2c761;border-color:rgba(240,180,41,.32)}
+.card .more{margin-top:auto;padding-top:16px;display:flex;align-items:center;gap:8px;
+  font-family:var(--m);font-size:11.5px;color:var(--cyan);letter-spacing:.08em;text-transform:uppercase}
+.card .more i{font-style:normal;transition:transform .25s}
+.card:hover .more i{transform:translateX(5px)}
+.live{position:absolute;top:14px;right:14px;z-index:2;font-family:var(--m);font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;
+  background:rgba(5,10,22,.82);border:1px solid rgba(34,211,238,.5);color:var(--cyan);
+  backdrop-filter:blur(6px)}
 
-.svc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:720px){.svc{grid-template-columns:1fr}}
-.track{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:26px;
-  border-top:3px solid var(--accent);box-shadow:var(--shadow);
-  transition:transform .2s ease,box-shadow .2s ease}
-.track:hover{transform:translateY(-3px);box-shadow:var(--lift)}
-.track.b{border-top-color:var(--signal)}
-.track h3{font-size:1.3rem;font-weight:700;margin-bottom:8px}
-.track>p{margin:0 0 16px;color:var(--muted);font-size:15.5px}
-.track ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
-.track li{display:flex;gap:11px;font-size:15.5px;color:var(--muted);line-height:1.45}
-.track li::before{content:"";width:6px;height:6px;margin-top:8px;flex:none;
-  background:var(--accent);transform:rotate(45deg)}
-.track.b li::before{background:var(--signal)}
-
-/* full stack table */
-.stackgrid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.row{display:grid;grid-template-columns:180px 1fr;gap:0;background:var(--surface);
-  transition:background .18s ease}
+/* ── stack ── */
+.rows{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden}
+.row{display:grid;grid-template-columns:190px 1fr;background:var(--surface);transition:background .2s}
 .row:hover{background:var(--raise)}
-.row .cat{padding:16px 18px;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--signal);border-right:1px solid var(--line);display:flex;align-items:center}
-.row .items{padding:14px 18px;display:flex;flex-wrap:wrap;gap:7px}
-@media(max-width:620px){
-  .row{grid-template-columns:1fr}
-  .row .cat{border-right:none;border-bottom:1px solid var(--line);padding-bottom:10px}
-}
-.cap{font-family:var(--f-mono);font-size:13px;padding:6px 12px;border:1px solid var(--line2);
-  border-radius:4px;background:var(--ground);color:var(--muted);
-  transition:transform .15s ease,color .15s ease,border-color .15s ease,background .15s ease}
-.cap:hover{transform:translateY(-2px);color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
-.cap.k{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);font-weight:500}
+.row .k{padding:20px 22px;font-family:var(--m);font-size:11.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gold);border-right:1px solid var(--line);
+  display:flex;align-items:center}
+.row .v{padding:17px 22px;display:flex;flex-wrap:wrap;gap:8px}
+@media(max-width:700px){.row{grid-template-columns:1fr}
+  .row .k{border-right:none;border-bottom:1px solid var(--line);padding-bottom:12px}}
+.pill{font-family:var(--m);font-size:13px;padding:7px 13px;border-radius:7px;
+  background:var(--bg2);border:1px solid var(--line2);color:var(--muted);
+  transition:all .18s;cursor:default}
+.pill:hover{transform:translateY(-3px);color:var(--cyan);border-color:var(--cyan);
+  box-shadow:0 8px 20px -10px var(--cyan)}
+.pill.k{color:#9db6ff;border-color:rgba(77,124,255,.42);background:var(--blue-soft)}
 
-.contact{background:var(--surface);border-top:1px solid var(--line2);position:relative;overflow:hidden}
-.contact .page{padding-block:48px;position:relative;z-index:1}
-.cbox{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end}
-.cbox h2{font-size:clamp(1.5rem,3.6vw,2.05rem);font-weight:700}
-.cbox p{margin:12px 0 0;color:var(--muted);max-width:52ch}
-.links{display:grid;gap:10px;min-width:min(260px,100%)}
-.link{display:flex;align-items:center;gap:12px;padding:13px 17px;border:1px solid var(--line2);
-  border-radius:5px;text-decoration:none;color:var(--ink);background:var(--ground);
-  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
-.link:hover{transform:translateX(4px);border-color:var(--accent);box-shadow:var(--lift)}
-.link .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);min-width:54px}
-.link .v{font-weight:600;font-size:15.5px;word-break:break-word}
-footer{border-top:1px solid var(--line)}
-footer .page{padding-block:24px 34px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
-footer p{margin:0;font-size:13.5px;color:var(--faint)}
+/* ── process ── */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 24px;
+  border-top:3px solid var(--blue);transition:transform .25s,box-shadow .25s}
+.step:nth-child(2){border-top-color:var(--cyan)}
+.step:nth-child(3){border-top-color:var(--gold)}
+.step:nth-child(4){border-top-color:#a78bfa}
+.step:hover{transform:translateY(-6px);box-shadow:var(--lift)}
+.step .n{font-family:var(--m);font-size:12px;color:var(--faint);letter-spacing:.14em}
+.step h3{font-size:1.2rem;font-weight:700;margin:12px 0 9px}
+.step p{font-size:14.5px;color:var(--muted);line-height:1.5}
+
+/* ── contact ── */
+footer{border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(77,124,255,.05))}
+footer .page{padding-block:80px 60px}
+.fin{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-end}
+.fin h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700;max-width:18ch}
+.fin p{margin-top:16px;color:var(--muted);max-width:46ch}
+.links{display:grid;gap:11px;min-width:min(300px,100%)}
+.link{display:flex;align-items:center;gap:14px;padding:15px 19px;border:1px solid var(--line2);
+  border-radius:10px;background:var(--surface);transition:all .22s}
+.link:hover{transform:translateX(6px);border-color:var(--cyan);box-shadow:0 12px 30px -16px var(--cyan)}
+.link .k{font-family:var(--m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);min-width:62px}
+.link .v{font-weight:600;font-size:15px;color:var(--ink);word-break:break-word}
+.sig{margin-top:56px;padding-top:26px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  font-family:var(--m);font-size:12.5px;color:var(--faint)}
+
+/* ── modal ── */
+#modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+  padding:24px;background:rgba(2,5,12,.88);backdrop-filter:blur(10px)}
+#modal.on{display:flex;animation:fade .25s ease both}
+@keyframes fade{from{opacity:0}}
+.sheet{background:var(--surface);border:1px solid var(--line2);border-radius:18px;
+  max-width:1020px;width:100%;max-height:90vh;overflow-y:auto;position:relative;
+  box-shadow:0 40px 100px -30px #000;animation:rise .35s cubic-bezier(.2,.9,.3,1.1) both}
+@keyframes rise{from{transform:translateY(26px) scale(.97);opacity:0}}
+.sheet .x{position:sticky;float:right;top:14px;right:14px;z-index:3;width:38px;height:38px;
+  border-radius:50%;background:rgba(5,10,22,.9);border:1px solid var(--line2);
+  display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted);
+  margin:14px 14px 0 0}
+.sheet .x:hover{color:var(--ink);border-color:var(--cyan)}
+.sheet .pic{width:100%;aspect-ratio:16/10;background:var(--sunk);overflow:hidden;
+  border-bottom:1px solid var(--line)}
+.sheet .pic img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.sheet .in{padding:32px 36px 36px}
+@media(max-width:640px){.sheet .in{padding:24px 22px 28px}}
+.sheet h3{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700}
+.sheet .cl{margin-top:10px;font-family:var(--m);font-size:13px;color:var(--gold)}
+.sheet .d{margin-top:20px;color:var(--muted);font-size:16px;line-height:1.62}
+.sheet ul{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.sheet li{display:flex;gap:13px;font-size:15px;color:var(--muted);line-height:1.5}
+.sheet li::before{content:"";width:7px;height:7px;margin-top:8px;flex:none;
+  background:var(--cyan);transform:rotate(45deg)}
+.sheet li b{color:var(--ink);font-weight:600}
+.sheet .st{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:8px}
+.sheet .go{display:inline-flex;align-items:center;gap:9px;margin-top:24px;padding:13px 22px;
+  border-radius:9px;background:linear-gradient(135deg,var(--blue),#3860e8);color:#fff;
+  font-family:var(--d);font-weight:600;font-size:15px;transition:transform .2s,box-shadow .2s}
+.sheet .go:hover{transform:translateY(-3px);box-shadow:0 16px 36px -14px var(--blue)}
+
+/* ── reveal ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
 
 @media(prefers-reduced-motion:reduce){
-  *{transition:none!important;animation:none!important}
-  .proj::before{transform:scaleY(1)}
-}
-@media print{
-  #bar,.aurora,.spot,.filters{display:none!important}
-  body{background:#fff;color:#141d1b;font-size:10pt}
-  .hero,.contact,.surface{background:#fff}
-  .proj,.track,.row,.meter{break-inside:avoid;box-shadow:none}
-  .proj[hidden]{display:grid!important}
-  section{padding-block:18px}
-  h1{font-size:30pt}
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  #bg{display:none}
 }
 </style>
 
 <div id="bar"></div>
+<canvas id="bg"></canvas>
+<div class="veil"></div>
+<div class="rail" aria-hidden="true"></div>
+<div class="walker" id="walker" aria-hidden="true">
+  <div class="me"><img src="photo.jpg" alt=""></div>
+  <div class="shadow"></div>
+  <div class="say" id="say"></div>
+</div>
 
-<header class="hero" id="hero">
-  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="spot" id="spot" aria-hidden="true"></div>
+<header class="hero">
   <div class="page">
-    <div class="kicker">
+    <div class="kick rv">
       <span class="dot"></span>
       <span class="lbl">Vincent Joed G. Quimanjan</span>
       <span class="lbl">BSIT &middot; Fellowship Baptist College</span>
       <span class="lbl">Bacoor, Cavite &middot; PH</span>
     </div>
-    <h1>Twenty-one systems.<br>Four platforms.<br><span class="g">Real organizations.</span></h1>
-    <p class="thesis">Web applications, Android apps and Windows desktop software for schools, small businesses and government offices &mdash; <b>built end to end</b>, from database design through interface, installer, turnover and staff training.</p>
-    <div class="actions">
-      <a class="btn pri" href="https://www.facebook.com/VinxQui/">Message me on Facebook</a>
-      <a class="btn sec" href="mailto:Quimanjan90@gmail.com">Quimanjan90@gmail.com</a>
+    <h1 class="rv">Twenty-one systems.<br>Four platforms.<br><span class="g">Real organizations.</span></h1>
+    <p class="thesis rv">Web applications, Android apps, Windows software and the Linux that runs them &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
+    <div class="cta rv">
+      <a class="btn pri" href="#work">See the work <span aria-hidden="true">&darr;</span></a>
+      <a class="btn gho" href="mailto:Quimanjan90@gmail.com">Quimanjan90@gmail.com</a>
     </div>
-  </div>
-  <div class="meterwrap">
-    <div class="meters">
-      <div class="meter"><b>21</b><span>Systems built and delivered</span></div>
-      <div class="meter"><b>11</b><span>Named client organizations</span></div>
-      <div class="meter"><b>4</b><span>Web, Android, Windows, Linux</span></div>
-      <div class="meter"><b>30+</b><span>Technologies worked in</span></div>
+    <div class="stats rv">
+      <div class="stat"><b data-to="21">0</b><span>Systems built and delivered</span></div>
+      <div class="stat"><b data-to="11">0</b><span>Named client organizations</span></div>
+      <div class="stat"><b data-to="4">0</b><span>Web, Android, Windows, Linux</span></div>
+      <div class="stat"><b data-to="30" data-suffix="+">0</b><span>Technologies worked in</span></div>
     </div>
   </div>
 </header>
 
-<div class="page">
-
-<section>
-  <div class="head">
-    <span class="lbl">The register</span>
-    <h2>Every system I&rsquo;ve shipped</h2>
-    <p>Real projects for real organizations, not coursework demos &mdash; each with the exact stack it was built on. Filter by platform.</p>
-  </div>
-
-  <div class="filters">
-    <button class="chip" data-f="all" aria-pressed="true">All 21</button>
-    <button class="chip" data-f="web" aria-pressed="false">Web</button>
-    <button class="chip" data-f="mobile" aria-pressed="false">Android / iOS</button>
-    <button class="chip" data-f="desktop" aria-pressed="false">Windows desktop</button>
-    <span class="count" id="count">21 shown</span>
-  </div>
-
-  <div class="reg" id="reg">
-
-    <article class="proj" data-tags="mobile">
-      <div><h3>Bistro de Ysabelle &mdash; Tablet POS</h3>
-        <p class="client">Bistro de Ysabelle &middot; Amron</p>
-        <p class="desc">Offline fast-food point of sale built for an Android tablet, with a <b>77-item priced catalogue</b> including size variants. Opens straight to the order screen &mdash; the large Add Transaction button sits above all navigation on every screen, because at a counter the next tap is always a sale. Shipped as a signed Android build.</p></div>
-      <div class="tags"><span class="plat m">Android tablet</span><span class="plat">Offline</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">JavaScript</span><span class="tech">Node.js</span><span class="tech">Android build</span><span class="tech">Local storage</span><span class="tech">Service workers</span></div>
-    </article>
-
-    <article class="proj" data-tags="mobile">
-      <div><h3>Moon Bean Caf&eacute; &mdash; Tablet POS</h3>
-        <p class="client">Moon Bean Caf&eacute;</p>
-        <p class="desc">Tablet caf&eacute; POS running fully offline. Six primary actions &mdash; transactions, orders, products, inventory, expenses and reports &mdash; over <b>IndexedDB</b>, with the File System Access API writing to a folder the owner picks on desktop and JSON backup exports on Android. A service worker caches the app so it opens with no connection at all.</p></div>
-      <div class="tags"><span class="plat m">Android tablet</span><span class="plat">PWA</span><span class="plat">Offline</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">JavaScript</span><span class="tech">IndexedDB</span><span class="tech">File System Access API</span><span class="tech">Service workers</span><span class="tech">Android build</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>Court &amp; Pitch</h3>
-        <p class="client">Live at sport.eslph.tech</p>
-        <p class="desc">Pickleball and soccer news platform with reader accounts, a personalised feed, saved articles, profiles and live scores. <b>Deployed and running in production</b> on my own Ubuntu VPS behind PM2, with hashed credentials and a documented MySQL schema.</p></div>
-      <div class="tags"><span class="plat">Web</span><span class="plat">Live</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">MySQL</span><span class="tech">bcryptjs</span><span class="tech">PM2</span><span class="tech">Ubuntu VPS</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>AI Checker &amp; Humanizer</h3>
-        <p class="desc">Scores a document sentence by sentence and sorts each one into four confidence bands, then offers a rewrite pass. Built on the <b>Anthropic API</b> behind a PHP service layer, with a minimum word count enforced because short samples cannot be judged honestly.</p></div>
-      <div class="tags"><span class="plat">Web</span><span class="plat m">AI API</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">PHP</span><span class="tech">Composer</span><span class="tech">Anthropic SDK</span><span class="tech">JavaScript</span></div>
-    </article>
-
-    <article class="proj" data-tags="desktop">
-      <div><h3>VPS Service Monitoring Suite</h3>
-        <p class="client">Ubuntu 24.04 LTS &middot; eslph.tech</p>
-        <p class="desc">Three Bash scripts running from <code>/opt/svc-checks/</code> on my production VPS: a service health check covering systemd units, PM2 apps, network, HTTPS and resource use; a disk guard reporting inode usage and forecasting growth; and an SSL/DNS check validating records, certificate expiry, redirects and the renewal timer. Scheduled by cron with a systemd unit as a safe test target.</p></div>
-      <div class="tags"><span class="plat d">Linux</span><span class="plat">Automation</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Bash</span><span class="tech">systemd</span><span class="tech">cron</span><span class="tech">PM2</span><span class="tech">Ubuntu 24.04</span><span class="tech">OpenSSL</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>The Last Night of the Fiesta</h3>
-        <p class="desc">A Filipino story game that runs in the browser, shipped in <b>two engines from one script</b>: a low-poly 3D world you walk through in Three.js, and a pixel-art visual novel for weaker devices. Five endings, bilingual English and Filipino, with its own art, audio and narrative modules.</p></div>
-      <div class="tags"><span class="plat">Web</span><span class="plat m">3D &middot; Three.js</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Three.js</span><span class="tech">JavaScript</span><span class="tech">WebGL</span><span class="tech">Canvas</span><span class="tech">i18n</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>BantayBuhay</h3>
-        <p class="desc">Emergency-response platform connecting three Python recognition services &mdash; facial recognition, gesture recognition and face registration &mdash; to a web application over REST. Incidents are recorded, matched to locations, dispatched to responders through a notification endpoint, and summarised in an analytics view. Ships with a documented public API.</p></div>
-      <div class="tags"><span class="plat">Web</span><span class="plat m">Python ML</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">TypeScript</span><span class="tech">Python</span><span class="tech">REST API</span><span class="tech">SQL</span><span class="tech">Radix UI</span><span class="tech">Recharts</span><span class="tech">Zod</span></div>
-    </article>
-
-    <article class="proj" data-tags="desktop">
-      <div><h3>WE &hearts; CHICKS Scheduling System</h3>
-        <p class="client">Office of the Representative, Sixth District, Negros Occidental</p>
-        <p class="desc">Staff encode invitations and requests; invitations populate a calendar automatically and every record is written to a live Excel workbook in a folder the office picks on first run. Delivered as a packaged Windows installer with a user guide.</p></div>
-      <div class="tags"><span class="plat d">Windows</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Electron</span><span class="tech">Node.js</span><span class="tech">JavaScript</span><span class="tech">HTML5</span><span class="tech">CSS3</span><span class="tech">ExcelJS</span><span class="tech">electron-builder</span></div>
-    </article>
-
-    <article class="proj" data-tags="desktop">
-      <div><h3>2LG&rsquo;s Water Refilling Station</h3>
-        <p class="client">2LG&rsquo;s Water Refilling Station</p>
-        <p class="desc">Refills, deliveries, container tracking and customer records. Data lives in a folder the owner chooses on first run, so the whole business record is portable and backed up by copying one directory.</p></div>
-      <div class="tags"><span class="plat d">Windows</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Electron</span><span class="tech">Node.js</span><span class="tech">JavaScript</span><span class="tech">HTML5</span><span class="tech">CSS3</span><span class="tech">JSON store</span></div>
-    </article>
-
-    <article class="proj" data-tags="desktop">
-      <div><h3>JRMC Water Station</h3>
-        <p class="client">JRMC Water Station</p>
-        <p class="desc">The refilling-station system deployed for a second client &mdash; the same engine running their refills, deliveries, container tracking and customer records, writing to their own Excel workbook.</p></div>
-      <div class="tags"><span class="plat d">Windows</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Electron</span><span class="tech">Node.js</span><span class="tech">JavaScript</span><span class="tech">ExcelJS</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>FBC Scheduling System</h3>
-        <p class="client">Fellowship Baptist College</p>
-        <p class="desc">Automatic scheduling that assigns teachers to classes and students to schedules, replacing the matrix the registrar used to build by hand each term.</p></div>
-      <div class="tags"><span class="plat">Web</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">TypeScript</span><span class="tech">MySQL</span><span class="tech">mysql2</span><span class="tech">Tailwind CSS</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>ESL Company Management System</h3>
-        <p class="desc">Multi-branch management for an English-language school company: admin dashboard, center-manager accounts with role-based access, equipment request workflow, and charted reporting across every centre.</p></div>
-      <div class="tags"><span class="plat">Web</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">MySQL</span><span class="tech">Recharts</span><span class="tech">Tailwind CSS</span><span class="tech">next-themes</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>ESL Branch Network</h3>
-        <p class="client">iTeach &middot; MS Wordbox &middot; SmartTalk &middot; South Negros &middot; TeachStation</p>
-        <p class="desc">The management platform packaged and deployed for five separate tutorial centres, each with its own branding, database and staff &mdash; one codebase, five isolated live deployments.</p></div>
-      <div class="tags"><span class="plat">Web</span><span class="plat">Multi-tenant</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">MySQL</span><span class="tech">Tailwind CSS</span><span class="tech">Deploy bundles</span></div>
-    </article>
-
-    <article class="proj" data-tags="web mobile">
-      <div><h3>MS Wordbox Laundry POS</h3>
-        <p class="client">MS Wordbox Laundry Shop</p>
-        <p class="desc">Point-of-sale and sales tracking with QR-code order tracking, so customers check load status from a phone instead of calling the shop. Ships with an Android build alongside the web app.</p></div>
-      <div class="tags"><span class="plat">Web</span><span class="plat m">Android</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">MySQL</span><span class="tech">Tailwind CSS</span><span class="tech">QR codes</span><span class="tech">APK build</span></div>
-    </article>
-
-    <article class="proj" data-tags="mobile">
-      <div><h3>Document Scanner with OCR</h3>
-        <p class="desc">Camera scanning with automatic edge detection and perspective correction, then on-device OCR. Detects whether a page is a table &mdash; an attendance sheet, say &mdash; or plain text, and rebuilds it as an editable grid or paragraph.</p></div>
-      <div class="tags"><span class="plat m">Android</span><span class="plat m">iOS</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">React Native</span><span class="tech">Expo</span><span class="tech">TypeScript</span><span class="tech">Google ML Kit</span><span class="tech">expo-print</span><span class="tech">expo-file-system</span><span class="tech">AsyncStorage</span></div>
-    </article>
-
-    <article class="proj" data-tags="mobile">
-      <div><h3>GCash Notes</h3>
-        <p class="desc">A notebook for recording GCash transactions with daily, monthly and yearly totals. Accounts, transactions and receipt screenshots stay on the phone; the app never connects to GCash.</p></div>
-      <div class="tags"><span class="plat m">Android</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Flutter</span><span class="tech">Dart</span><span class="tech">Material Design</span><span class="tech">Local storage</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>SitePay Construction Payroll</h3>
-        <p class="desc">Payroll for construction firms with a large, rotating crew. Every record is a plain JSON file inside a folder you choose, so the whole payroll is portable, backup-able and can sit directly inside Google Drive.</p></div>
-      <div class="tags"><span class="plat">Web</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">PHP</span><span class="tech">JavaScript</span><span class="tech">HTML5</span><span class="tech">CSS3</span><span class="tech">JSON store</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>Airbnb Operations Manager</h3>
-        <p class="desc">Bookings, expenses and housekeeping records for a small Airbnb. Staff work on the office PC while cleaners use it from their phones over the same Wi-Fi; a nightly package is saved locally, copied to the cloud and emailed.</p></div>
-      <div class="tags"><span class="plat">Web</span><span class="plat">PWA</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">PHP</span><span class="tech">JavaScript</span><span class="tech">Service Workers</span><span class="tech">Web App Manifest</span><span class="tech">Cron</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>OneChurch</h3>
-        <p class="desc">A living map of the local church. Congregations publish their outreaches, services and announcements; anyone can spin the globe, search a place, and see what is happening there.</p></div>
-      <div class="tags"><span class="plat">Web</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js</span><span class="tech">React</span><span class="tech">TypeScript</span><span class="tech">Supabase</span><span class="tech">PostgreSQL</span><span class="tech">@supabase/ssr</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>Face-Recognition Attendance</h3>
-        <p class="desc">Attendance capture using face recognition instead of sign-in sheets, with an admin console, user records and an API layer for pulling attendance into other systems.</p></div>
-      <div class="tags"><span class="plat">Web</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">PHP</span><span class="tech">MySQL</span><span class="tech">JavaScript</span><span class="tech">Face recognition</span><span class="tech">REST API</span></div>
-    </article>
-
-    <article class="proj" data-tags="web">
-      <div><h3>Portfolio Platform</h3>
-        <p class="desc">A one-page portfolio site with a working contact form, project records and view/like counters, running in demo mode until a database is connected.</p></div>
-      <div class="tags"><span class="plat">Web</span></div>
-      <div class="stack"><span class="sl">Stack</span><span class="tech">Next.js 14</span><span class="tech">React</span><span class="tech">Tailwind CSS</span><span class="tech">Framer Motion</span><span class="tech">Supabase</span><span class="tech">Vercel</span></div>
-    </article>
-
-  </div>
-</section>
-
-<section>
-  <div class="head">
-    <span class="lbl">Full stack</span>
-    <h2>Everything I work in</h2>
-    <p>Highlighted items are what I reach for first.</p>
-  </div>
-  <div class="stackgrid">
-    <div class="row"><div class="cat">Languages</div><div class="items">
-      <span class="cap k">TypeScript</span><span class="cap k">JavaScript</span><span class="cap k">Dart</span>
-      <span class="cap k">PHP</span><span class="cap">SQL</span><span class="cap">HTML5</span><span class="cap">CSS3</span>
-    </div></div>
-    <div class="row"><div class="cat">Web frameworks</div><div class="items">
-      <span class="cap k">React</span><span class="cap k">Next.js</span><span class="cap">Tailwind CSS</span>
-      <span class="cap">Framer Motion</span><span class="cap">next-themes</span><span class="cap">Service Workers</span>
-    </div></div>
-    <div class="row"><div class="cat">Mobile</div><div class="items">
-      <span class="cap k">React Native</span><span class="cap k">Expo</span><span class="cap k">Flutter</span>
-      <span class="cap">Material Design</span><span class="cap">APK / Play builds</span>
-    </div></div>
-    <div class="row"><div class="cat">Desktop</div><div class="items">
-      <span class="cap k">Electron</span><span class="cap">electron-builder</span><span class="cap">Windows installers</span>
-    </div></div>
-    <div class="row"><div class="cat">Backend</div><div class="items">
-      <span class="cap k">Node.js</span><span class="cap k">PHP</span><span class="cap">REST APIs</span>
-      <span class="cap">Apache</span><span class="cap">Cron jobs</span>
-    </div></div>
-    <div class="row"><div class="cat">Databases</div><div class="items">
-      <span class="cap k">MySQL</span><span class="cap">PostgreSQL</span><span class="cap">Supabase</span>
-      <span class="cap">Portable JSON stores</span><span class="cap">AsyncStorage</span>
-    </div></div>
-    <div class="row"><div class="cat">Libraries &amp; APIs</div><div class="items">
-      <span class="cap">Google ML Kit (OCR)</span><span class="cap">Recharts</span><span class="cap">ExcelJS</span>
-      <span class="cap">QR generation</span><span class="cap">Face recognition</span>
-    </div></div>
-    <div class="row"><div class="cat">Tooling</div><div class="items">
-      <span class="cap k">Git</span><span class="cap">XAMPP</span><span class="cap">VS Code</span>
-      <span class="cap">VPS deployment</span><span class="cap">Vercel</span><span class="cap">n8n automation</span>
-    </div></div>
-  </div>
-</section>
-
-<section>
-  <div class="head">
-    <span class="lbl">What I take on</span>
-    <h2>Two kinds of work</h2>
-  </div>
-  <div class="svc">
-    <div class="track">
-      <h3>Business systems</h3>
-      <p>Software an organization runs on every day.</p>
-      <ul>
-        <li>Point of sale, inventory and sales tracking</li>
-        <li>Payroll, timekeeping and attendance</li>
-        <li>Scheduling, bookings and dispatch</li>
-        <li>Records, reporting and exports to Excel</li>
-        <li>Admin dashboard, user roles and printable reports</li>
-        <li>Installer, setup, turnover and staff training</li>
-      </ul>
-    </div>
-    <div class="track b">
-      <h3>Academic &amp; research consulting</h3>
-      <p>Technical support for students, faculty and research teams.</p>
-      <ul>
-        <li>System prototyping for proposed studies</li>
-        <li>ERD, DFD, UML and data dictionaries</li>
-        <li>Data collection and survey tooling</li>
-        <li>Feasibility and scope review before you commit</li>
-        <li>Code walkthroughs so you can defend every part</li>
-        <li>Deployment that runs reliably on defense day</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-</div>
-
-<div class="contact">
+<main>
+<section id="work">
   <div class="page">
-    <div class="cbox">
+    <div class="head rv">
+      <span class="lbl">The register</span>
+      <h2>Every system I&rsquo;ve shipped</h2>
+      <p>Real projects for real organizations, not coursework demos. <b>Click any card</b> to open the interface and the full stack behind it.</p>
+    </div>
+    <div class="filters rv">
+      <button class="chip" data-f="all" aria-pressed="true">All 21</button>
+      <button class="chip" data-f="web" aria-pressed="false">Web</button>
+      <button class="chip" data-f="mobile" aria-pressed="false">Android / iOS</button>
+      <button class="chip" data-f="desktop" aria-pressed="false">Windows</button>
+      <button class="chip" data-f="linux" aria-pressed="false">Linux</button>
+      <button class="chip" data-f="ai" aria-pressed="false">AI / ML</button>
+      <span class="count" id="count">21 shown</span>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="page">
+    <div class="head rv">
+      <span class="lbl">Full stack</span>
+      <h2>Everything I work in</h2>
+      <p>Highlighted items are what I reach for first.</p>
+    </div>
+    <div class="rows rv" id="rows"></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="page">
+    <div class="head rv">
+      <span class="lbl">Process</span>
+      <h2>How a project runs</h2>
+    </div>
+    <div class="steps rv">
+      <div class="step"><div class="n">STEP 01</div><h3>Consult</h3><p>A free scoping conversation about the process you run today &mdash; and an honest answer on whether software is worth building at all.</p></div>
+      <div class="step"><div class="n">STEP 02</div><h3>Plan</h3><p>Written scope, timeline and deliverables agreed before any code, so nothing is a surprise later.</p></div>
+      <div class="step"><div class="n">STEP 03</div><h3>Build</h3><p>Weekly check-ins with something you can click, not a black box that appears at the end.</p></div>
+      <div class="step"><div class="n">STEP 04</div><h3>Turn over</h3><p>Installer or deployment, written documentation, and training for the staff who will actually use it.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="page">
+    <div class="fin rv">
       <div>
         <h2>Tell me what your office still does by hand.</h2>
-        <p>Describe the process and I&rsquo;ll scope it, tell you honestly whether software is worth it, and quote it &mdash; free, before you commit to anything. Student-friendly rates.</p>
+        <p>Describe the process and I&rsquo;ll scope it, tell you honestly whether software is worth it, and quote it &mdash; free, before you commit to anything.</p>
       </div>
       <div class="links">
-        <a class="link" href="https://www.facebook.com/VinxQui/"><span class="k">Facebook</span><span class="v">fb.com/VinxQui</span></a>
         <a class="link" href="mailto:Quimanjan90@gmail.com"><span class="k">Email</span><span class="v">Quimanjan90@gmail.com</span></a>
+        <a class="link" href="https://www.facebook.com/VinxQui/"><span class="k">Facebook</span><span class="v">fb.com/VinxQui</span></a>
+        <a class="link" href="https://github.com/Quimanjan16"><span class="k">GitHub</span><span class="v">github.com/Quimanjan16</span></a>
       </div>
     </div>
-  </div>
-</div>
-
-<footer>
-  <div class="page">
-    <p>Vincent Joed G. Quimanjan &mdash; Bacoor, Cavite, Philippines</p>
-    <p class="mono">Available for projects</p>
+    <div class="sig">
+      <span>Vincent Joed G. Quimanjan &mdash; Bacoor, Cavite, Philippines</span>
+      <span>Available for projects</span>
+    </div>
   </div>
 </footer>
 
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="mt"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-(function(){
-  var chips=[].slice.call(document.querySelectorAll('.chip'));
-  var items=[].slice.call(document.querySelectorAll('.proj'));
-  var count=document.getElementById('count');
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ────────────── data ────────────── */
+const P = [
+{id:'bantaybuhay',n:'BantayBuhay',c:'Real-time computer-vision emergency response',t:['web','ai'],
+ shot:'shots/bantaybuhay.jpg',link:null,tags:['Web','Python ML','Real-time'],
+ sum:'Live camera feeds watched by three Python recognition services that dispatch responders on their own.',
+ d:'Emergency-response platform connecting three Python recognition services — facial recognition, gesture recognition and face registration — to a web application over REST. Incidents are recorded, matched to a location, dispatched to the nearest responder through a notification endpoint, and summarised in an analytics view.',
+ b:['Three Python inference services behind one REST API','Documented public API with authenticated access','Incident to responder dispatch in a single flow'],
+ s:['Next.js','React','TypeScript','Python','REST API','SQL','Radix UI','Recharts','Zod']},
 
-  function apply(f){
-    var n=0;
-    items.forEach(function(el){
-      var show = f==='all' || (' '+el.getAttribute('data-tags')+' ').indexOf(' '+f+' ')>-1;
-      el.hidden=!show;
-      if(show){
-        n++;
-        if(!reduce){ el.classList.remove('in'); void el.offsetWidth; el.classList.add('in'); }
-      }
-    });
-    count.textContent=n+' shown';
-    chips.forEach(function(c){c.setAttribute('aria-pressed', String(c.getAttribute('data-f')===f));});
-  }
-  chips.forEach(function(c){
-    c.addEventListener('click',function(){apply(c.getAttribute('data-f'));});
+{id:'fbc',n:'SchedPlus — FBC Scheduling',c:'Fellowship Baptist College',t:['web'],
+ shot:'shots/fbc.jpg',link:null,tags:['Web','Constraint solver'],
+ sum:'Places an entire semester — 896 subjects, 1,717 weekly meetings — with zero double bookings.',
+ d:'A scheduling engine that reads every approved teacher-and-subject request for a term and places the whole semester: every section, every room, every teacher. The registrar used to build this matrix by hand each term. One click now does it, and nobody is ever booked in two places at once.',
+ b:['<b>896 of 896</b> subjects placed, <b>1,717</b> class meetings a week','<b>Zero</b> teacher, room or section double bookings','<b>48,287</b> student enrollments generated automatically','61 rooms across 4 buildings · 89 sections · 1,999 students','Scores each option for balanced weeks, few idle gaps and walking distance','bcrypt hashing, HTTP-only sessions, role-checked API routes'],
+ s:['Next.js','React','TypeScript','MySQL','Tailwind CSS','bcrypt']},
+
+{id:'wechicks',n:'WE ♥ CHICKS Scheduling',c:'Office of the Representative, Sixth District, Negros Occidental',t:['desktop'],
+ shot:'shots/wechicks.jpg',link:null,tags:['Windows','Offline'],
+ sum:'A calendar that writes its own Excel workbook — no server, no internet, no database engine.',
+ d:'Staff encode invitations and requests. Invitations populate a calendar automatically and every record is written to a live Excel workbook in a folder the office picks on first run. Delivered as a packaged Windows installer with a user guide.',
+ b:['Runs with no internet, no server and no database engine','Live Excel workbook in a format the office already reads','Packaged Windows installer with written user guide'],
+ s:['Electron','Node.js','JavaScript','ExcelJS','electron-builder']},
+
+{id:'esl',n:'ESL Company Management',c:'Multi-branch language school',t:['web'],
+ shot:'shots/esl.jpg',link:null,tags:['Web','Role-based'],
+ sum:'Head office sees every centre at once; each branch manager sees only their own.',
+ d:'Multi-branch back-office platform: an administrator dashboard across every centre, centre-manager accounts with role-based access control, an equipment request and approval workflow, and charted reporting aggregated over all branches.',
+ b:['Role-based access separating head office from branches','Equipment request and approval workflow','Charted reporting aggregated across every centre'],
+ s:['Next.js','React','MySQL','Recharts','Tailwind CSS','next-themes']},
+
+{id:'esl-branches',n:'ESL Branch Network',c:'iTeach · MS Wordbox · SmartTalk · South Negros · TeachStation',t:['web'],
+ shot:'shots/esl-branches.jpg',link:null,tags:['Web','Multi-tenant'],
+ sum:'One codebase, five separate tutorial centres, five isolated live deployments.',
+ d:'The management platform packaged and deployed for five separate tutorial centres, each with its own branding, database and staff. Same engine, isolated data, independent release versions.',
+ b:['Five live tenants, each on its own isolated database','Per-tenant branding and deployment bundles','One codebase to maintain, five businesses served'],
+ s:['Next.js','React','MySQL','Tailwind CSS','Deploy bundles']},
+
+{id:'laundry',n:'MS Wordbox Laundry POS',c:'MS Wordbox Laundry Shop',t:['web','mobile'],
+ shot:'shots/laundry.jpg',link:null,tags:['Web','Android','QR'],
+ sum:'A QR code on the receipt, so customers stop phoning the shop to ask if it is done.',
+ d:'Point-of-sale and sales tracking with QR-code order lookup, letting customers check load status from a phone instead of calling. Ships with an Android build alongside the web application.',
+ b:['QR order tracking customers check from their own phone','Daily sales reporting for the owner','Signed Android build alongside the web app'],
+ s:['Next.js','React','MySQL','Tailwind CSS','QR codes','APK build']},
+
+{id:'scanner',n:'Document Scanner with OCR',c:'On-device, no API keys',t:['mobile','ai'],
+ shot:'shots/scanner.jpg',link:null,tags:['Android','iOS','Offline AI'],
+ sum:'Photograph an attendance sheet, get back an editable spreadsheet — entirely on the phone.',
+ d:'Camera scanning with automatic edge detection and perspective correction, then OCR that runs entirely on the device. It classifies the page as a table or prose and reconstructs it into an editable grid — turning paper records into data a system can consume.',
+ b:['Table detection rebuilds attendance sheets as editable grids','OCR runs on-device — no API keys, no usage limits, no per-scan cost','Multi-page capture into a single document'],
+ s:['React Native','Expo','TypeScript','Google ML Kit','expo-print','AsyncStorage']},
+
+{id:'bistro',n:'Bistro de Ysabelle POS',c:'Bistro de Ysabelle · Amron',t:['mobile'],
+ shot:null,link:null,tags:['Android tablet','Offline'],
+ sum:'Offline fast-food POS on an Android tablet with a 77-item priced catalogue.',
+ d:'Tablet point of sale for a fast-food kitchen, built offline-first with a 77-item catalogue including size variants. It opens straight to the order screen, with the Add Transaction button placed above all navigation on every screen — because at a counter the next tap is always a sale.',
+ b:['77 priced items and size variants','Opens directly to the order screen, no dashboard in the way','Shipped as a signed Android build for tablets'],
+ s:['JavaScript','Node.js','Android build','Local storage','Service workers']},
+
+{id:'moonbean',n:'Moon Bean Café POS',c:'Moon Bean Café',t:['mobile'],
+ shot:null,link:null,tags:['Android tablet','PWA','Offline'],
+ sum:'A café till that works with the Wi-Fi off, storing everything on the tablet itself.',
+ d:'Tablet café POS running fully offline over IndexedDB, with the File System Access API writing to a folder the owner picks on desktop and JSON backup exports on Android. A service worker caches the app so it opens with no connection at all.',
+ b:['Six primary actions: transactions, orders, products, inventory, expenses, reports','IndexedDB storage with File System Access API folder saves','Service-worker cached — opens offline'],
+ s:['JavaScript','IndexedDB','File System Access API','Service workers','Android build']},
+
+{id:'sport',n:'Court & Pitch',c:'Live at sport.eslph.tech',t:['web'],
+ shot:null,link:'https://sport.eslph.tech',tags:['Web','Live in production'],
+ sum:'A pickleball and soccer news platform, deployed and running on my own VPS.',
+ d:'News platform with reader accounts, a personalised feed, saved articles, profiles and live scores. Deployed and running in production on my own Ubuntu VPS behind PM2, with hashed credentials and a documented MySQL schema.',
+ b:['Live in production — not a demo','Reader accounts with bcrypt-hashed credentials','Running behind PM2 on an Ubuntu VPS I administer'],
+ s:['Next.js','React','MySQL','bcryptjs','PM2','Ubuntu VPS']},
+
+{id:'aichecker',n:'AI Checker & Humanizer',c:'Built on the Anthropic API',t:['web','ai'],
+ shot:null,link:null,tags:['Web','AI API'],
+ sum:'Scores a document sentence by sentence, then offers a rewrite pass.',
+ d:'Sorts every sentence of a document into four confidence bands, then offers a humanising rewrite. Built on the Anthropic API behind a PHP service layer, with a minimum word count enforced because short samples cannot be judged honestly.',
+ b:['Sentence-level scoring into four confidence bands','Minimum word count enforced for honest results','Anthropic API behind a PHP service layer'],
+ s:['PHP','Composer','Anthropic SDK','JavaScript']},
+
+{id:'svc',n:'VPS Service Monitoring Suite',c:'Ubuntu 24.04 LTS · eslph.tech',t:['linux'],
+ shot:null,link:null,tags:['Linux','Automation'],
+ sum:'Three Bash scripts that watch my production server and tell me before it breaks.',
+ d:'Running from /opt/svc-checks/ on my production VPS: a service health check covering systemd units, PM2 apps, network, HTTPS and resource use; a disk guard reporting inode usage and forecasting growth; and an SSL/DNS check validating records, certificate expiry, redirects and the renewal timer. Scheduled by cron with a systemd unit as a safe test target.',
+ b:['Service health across systemd units and PM2 applications','Disk and inode usage with growth forecasting','Certificate expiry, DNS records and renewal-timer validation'],
+ s:['Bash','systemd','cron','PM2','Ubuntu 24.04','OpenSSL']},
+
+{id:'fiesta',n:'The Last Night of the Fiesta',c:'Two engines, one script',t:['web'],
+ shot:null,link:null,tags:['Web','3D · Three.js'],
+ sum:'A Filipino story game shipped twice — a 3D world, and a pixel novel for weak devices.',
+ d:'A browser story game set in Barrio San Isidro on the eve of the town fiesta. Shipped in two engines from one script: a low-poly 3D world you walk through in Three.js, and a pixel-art visual novel for weaker devices. Five endings, bilingual English and Filipino.',
+ b:['Two rendering engines sharing one narrative script','Five endings driven by player choices','Bilingual English and Filipino, with its own art and audio modules'],
+ s:['Three.js','JavaScript','WebGL','Canvas','i18n']},
+
+{id:'2lg',n:"2LG's Water Refilling Station",c:"2LG's Water Refilling Station",t:['desktop'],
+ shot:'shots/2lg.jpg',link:null,tags:['Windows','Offline'],
+ sum:'The whole business in one folder you can back up by copying it.',
+ d:'Refills, deliveries, container tracking and customer records. Data lives in a folder the owner chooses on first run, so the entire business record is portable and backed up by copying one directory.',
+ b:['Refills, deliveries, container tracking and customers','Portable folder storage — back up by copying a directory','No server, no internet, nothing to renew'],
+ s:['Electron','Node.js','JavaScript','ExcelJS','JSON store']},
+
+{id:'jrmc',n:'JRMC Water Station',c:'JRMC Water Station',t:['desktop'],
+ shot:'shots/jrmc.jpg',link:null,tags:['Windows','Offline'],
+ sum:'Built once, sold twice — the clearest sign a system actually works.',
+ d:'The refilling-station system deployed for a second client: the same engine running their refills, deliveries, container tracking and customer records, writing to their own Excel workbook.',
+ b:['Second paying deployment of the same engine','Own Excel workbook and isolated records','Same offline, folder-based architecture'],
+ s:['Electron','Node.js','JavaScript','ExcelJS']},
+
+{id:'sitepay',n:'SitePay Construction Payroll',c:'Portable, server-free payroll',t:['web'],
+ shot:'shots/sitepay.jpg',link:null,tags:['Web','Portable store'],
+ sum:'Payroll for a crew that changes every week, on a store you can sync to Drive.',
+ d:'Payroll for construction firms with a large, rotating crew: worker records, daily time entry, rate handling and payout computation. Every record is a plain file inside a folder the firm chooses, so payroll travels with the site office and needs no database server on location.',
+ b:['Built for rosters that change week to week','Portable file store — syncs to Drive, no DB server on site','Worker records, time entry, rates and payout computation'],
+ s:['PHP','JavaScript','HTML5','CSS3','JSON store']},
+
+{id:'airbnb',n:'Airbnb Operations Manager',c:'Desktop for staff, phones for cleaners',t:['web'],
+ shot:'shots/airbnb.jpg',link:null,tags:['Web','PWA','Local network'],
+ sum:'A nightly job packages the day, copies it to the cloud and emails it — unprompted.',
+ d:'Bookings, expenses and housekeeping records for a short-let operation. Staff work on the office PC while cleaners use it from phones over the same Wi-Fi via a service-worker PWA. A nightly cron packages the day’s records, copies them to cloud storage and emails them.',
+ b:['Desktop for staff, phones for cleaners, over one local network','Nightly cron packaging, cloud copy and SMTP dispatch','Service-worker PWA with offline capability'],
+ s:['PHP','JavaScript','Service Workers','Web App Manifest','Cron','SMTP']},
+
+{id:'attendance',n:'Face-Recognition Attendance',c:'With a REST API for downstream systems',t:['web','ai'],
+ shot:'shots/attendance.jpg',link:null,tags:['Web','Biometric','REST API'],
+ sum:'Faces in, records out — and an API so payroll stops re-typing them.',
+ d:'Attendance capture using face recognition instead of sign-in sheets, with an administrator console, user records and a REST API layer so downstream systems consume attendance data rather than re-keying it.',
+ b:['Face recognition replacing manual sign-in sheets','REST API so payroll and HR read records directly','Administrator console with exportable reports'],
+ s:['PHP','MySQL','JavaScript','Face recognition','REST API']},
+
+{id:'gcash',n:'GCash Notes',c:'No internet permission at all',t:['mobile'],
+ shot:'shots/gcash.jpg',link:null,tags:['Android','Offline'],
+ sum:'A wallet ledger that never touches the network, by design.',
+ d:'A transaction ledger for the GCash e-wallet with daily, monthly and yearly totals. Accounts, transactions and receipt screenshots stay on the phone — the app requests no internet permission and never connects to GCash.',
+ b:['Daily, monthly and yearly totals that reconcile to the entries','Receipt screenshots stored locally','Requests no internet permission whatsoever'],
+ s:['Flutter','Dart','Material Design','Local storage']},
+
+{id:'onechurch',n:'OneChurch',c:'One map. One mission.',t:['web'],
+ shot:'shots/onechurch.jpg',link:null,tags:['Web','TypeScript','Postgres'],
+ sum:'A searchable living map of congregations, outreaches and services.',
+ d:'Congregations publish their outreaches, services and announcements to a searchable map. Server-rendered with Supabase, including authentication and row-level data access over PostgreSQL.',
+ b:['Searchable map of congregations and active outreaches','Server-side rendering with row-level access control','Auth and data over Supabase PostgreSQL'],
+ s:['Next.js','React','TypeScript','Supabase','PostgreSQL','@supabase/ssr']},
+
+{id:'portfolio',n:'Portfolio Platform',c:'This site',t:['web'],
+ shot:'shots/portfolio.jpg',link:'https://quimanjan16.github.io',tags:['Web','Live'],
+ sum:'A live register of every system, built and hosted by me.',
+ d:'A single-page portfolio with a filterable project register, 3D hero scene and interactive case studies. Built, deployed and hosted by me on GitHub Pages.',
+ b:['Filterable register with full stack behind each system','Three.js hero scene and scroll-driven interface','Self-built, self-deployed, self-hosted'],
+ s:['HTML5','CSS3','JavaScript','Three.js','GitHub Pages']},
+];
+
+const STACK = [
+ ['Languages',['TypeScript','JavaScript','Dart','PHP','Python','C#','SQL','HTML5','CSS3'],5],
+ ['Web',['React','Next.js','Three.js','Tailwind CSS','Framer Motion','Service Workers'],3],
+ ['Mobile',['React Native','Expo','Flutter','Material Design','APK builds'],3],
+ ['Desktop',['Electron','electron-builder','WinForms','Windows installers'],1],
+ ['Backend',['Node.js','PHP','REST APIs','Apache','PM2','Cron'],2],
+ ['Databases',['MySQL','PostgreSQL','Supabase','IndexedDB','Portable JSON stores'],2],
+ ['AI & ML',['Anthropic API','Google ML Kit','Facial recognition','Gesture recognition'],2],
+ ['Infrastructure',['Ubuntu','Proxmox VE','Tailscale','Docker','Caddy','Bash','systemd'],3],
+ ['Tooling',['Git','GitHub Pages','Vercel','XAMPP','n8n','VS Code'],1],
+];
+
+/* ────────────── render ────────────── */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const tagCls=(t,i)=>/offline|live|no network|local network/i.test(t)?'tag g':(i===0?'tag':'tag c');
+
+$('#grid').innerHTML=P.map((p,i)=>`<button class="card rv" data-i="${i}" data-t="${p.t.join(' ')}">
+  ${p.link?'<span class="live">Live</span>':''}
+  <span class="shot${p.shot?'':' none'}">${p.shot
+    ? `<img src="${esc(p.shot)}" alt="${esc(p.n)} interface" loading="lazy">`
+    : `<span>INTERFACE &middot; ${esc(p.tags[0].toUpperCase())}</span>`}<span class="glow"></span></span>
+  <span class="body">
+    <h3>${esc(p.n)}</h3>
+    <span class="cl">${esc(p.c)}</span>
+    <span class="sum">${esc(p.sum)}</span>
+    <span class="tags">${p.tags.map((t,j)=>`<span class="${tagCls(t,j)}">${esc(t)}</span>`).join('')}</span>
+    <span class="more">Open case study <i>&rarr;</i></span>
+  </span></button>`).join('');
+
+$('#rows').innerHTML=STACK.map(([k,v,hot])=>`<div class="row"><div class="k">${esc(k)}</div>
+  <div class="v">${v.map((x,i)=>`<span class="pill${i<hot?' k':''}">${esc(x)}</span>`).join('')}</div></div>`).join('');
+
+/* ── filters ── */
+let F='all';
+const cards=[...document.querySelectorAll('.card')];
+function apply(f){
+  F=f;let n=0;
+  cards.forEach(c=>{const ok=f==='all'||c.dataset.t.split(' ').includes(f);c.hidden=!ok;if(ok)n++;});
+  $('#count').textContent=n+' shown';
+  document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.f===f)));
+}
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>apply(c.dataset.f)));
+
+/* ── card pointer glow + 3D tilt ── */
+cards.forEach(card=>{
+  card.addEventListener('pointermove',e=>{
+    const r=card.getBoundingClientRect();
+    const px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+    card.style.setProperty('--mx',px*100+'%');
+    card.style.setProperty('--my',py*100+'%');
+    card.style.transform=`perspective(900px) rotateY(${(px-.5)*7}deg) rotateX(${(.5-py)*7}deg) translateY(-6px)`;
   });
-  apply('all');
-  items.forEach(function(el){el.classList.remove('in');});
+  card.addEventListener('pointerleave',()=>{card.style.transform='';});
+  card.addEventListener('click',()=>open_(+card.dataset.i));
+});
 
-  // scroll progress
-  var bar=document.getElementById('bar');
-  function onScroll(){
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    bar.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
-  }
-  window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',onScroll); onScroll();
+/* ── modal ── */
+const modal=$('#modal');let lastFocus=null;
+function open_(i){
+  const p=P[i];lastFocus=document.activeElement;
+  modal.innerHTML=`<div class="sheet">
+    <button class="x" id="mx" aria-label="Close">&times;</button>
+    ${p.shot?`<div class="pic"><img src="${esc(p.shot)}" alt="${esc(p.n)} interface"></div>`:''}
+    <div class="in">
+      <h3 id="mt">${esc(p.n)}</h3>
+      <div class="cl">${esc(p.c)}</div>
+      <p class="d">${p.d}</p>
+      <ul>${p.b.map(x=>`<li>${x}</li>`).join('')}</ul>
+      <div class="st">${p.s.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</div>
+      ${p.link?`<a class="go" href="${esc(p.link)}" target="_blank" rel="noopener">Open it live <span aria-hidden="true">&rarr;</span></a>`:''}
+    </div></div>`;
+  modal.classList.add('on');document.body.style.overflow='hidden';
+  $('#mx').focus();
+  $('#mx').addEventListener('click',close_);
+}
+function close_(){modal.classList.remove('on');document.body.style.overflow='';lastFocus&&lastFocus.focus();}
+modal.addEventListener('click',e=>{if(e.target===modal)close_();});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('on'))close_();});
 
-  // hero spotlight
-  var hero=document.getElementById('hero'), spot=document.getElementById('spot');
-  if(hero&&spot&&!reduce){
-    hero.addEventListener('pointermove',function(e){
-      var r=hero.getBoundingClientRect();
-      spot.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
-      spot.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
-    });
+/* ── scroll: progress, walker, reveal ── */
+const walker=$('#walker'),say=$('#say'),bar=$('#bar');
+const MARKS=[['#work','The work'],['#stack','What I build with'],['#how','How I work'],['#contact',"Let's talk"]];
+let said='';
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  const pct=h>0?scrollY/h:0;
+  bar.style.width=(pct*100)+'%';
+  walker.style.top=(72+pct*(innerHeight-190))+'px';
+  let cur='';
+  for(const [sel,label] of MARKS){
+    const el=document.querySelector(sel);
+    if(el&&el.getBoundingClientRect().top<innerHeight*0.55)cur=label;
   }
+  if(cur&&cur!==said){said=cur;say.textContent=cur;walker.classList.add('talk');
+    clearTimeout(say._t);say._t=setTimeout(()=>walker.classList.remove('talk'),2600);}
+}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ── counters ── */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const el=e.target,to=+el.dataset.to,sfx=el.dataset.suffix||'';let v=0;
+  const t0=performance.now();
+  (function tick(t){const k=Math.min(1,(t-t0)/1100);v=Math.round(to*(1-Math.pow(1-k,3)));
+    el.textContent=v+sfx;if(k<1)requestAnimationFrame(tick);})(t0);
+}),{threshold:.5});
+document.querySelectorAll('[data-to]').forEach(el=>cio.observe(el));
+
+/* ── three.js field ── */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||typeof THREE==='undefined')return;
+  const cv=$('#bg');
+  const renderer=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const cam=new THREE.PerspectiveCamera(60,1,.1,100);cam.position.z=15;
+
+  // particle field
+  const N=900,pos=new Float32Array(N*3);
+  for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*46;pos[i*3+1]=(Math.random()-.5)*30;pos[i*3+2]=(Math.random()-.5)*26;}
+  const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0x4d7cff,size:.08,transparent:true,opacity:.75}));
+  scene.add(pts);
+
+  // wireframe core
+  const core=new THREE.Mesh(new THREE.IcosahedronGeometry(5.4,1),
+    new THREE.MeshBasicMaterial({color:0x22d3ee,wireframe:true,transparent:true,opacity:.17}));
+  scene.add(core);
+  const core2=new THREE.Mesh(new THREE.IcosahedronGeometry(7.6,0),
+    new THREE.MeshBasicMaterial({color:0x4d7cff,wireframe:true,transparent:true,opacity:.09}));
+  scene.add(core2);
+
+  let mx=0,my=0,tx=0,ty=0;
+  addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5);},{passive:true});
+  function size(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);cam.aspect=w/h;
+    cam.position.z = w<560 ? 34 : w<860 ? 26 : 15;
+    cam.updateProjectionMatrix();}
+  addEventListener('resize',size);size();
+
+  (function loop(t){
+    requestAnimationFrame(loop);
+    tx+=(mx-tx)*.045;ty+=(my-ty)*.045;
+    core.rotation.y=t*0.00013+tx*.7;core.rotation.x=t*0.00009+ty*.5;
+    core2.rotation.y=-t*0.00008-tx*.4;core2.rotation.z=t*0.00006;
+    pts.rotation.y=t*0.000045+tx*.25;pts.rotation.x=ty*.18;
+    cam.position.x=tx*2.2;cam.position.y=-ty*1.6;cam.lookAt(0,0,0);
+    renderer.render(scene,cam);
+  })(0);
 })();
 </script>
 

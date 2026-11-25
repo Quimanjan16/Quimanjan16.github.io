@@ -159,6 +159,65 @@ h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin-top:26px}
   .item .c{display:none}
 }
 
+/* gallery view */
+.vw{display:flex;gap:2px;margin-left:auto;border:1px solid var(--line);padding:2px}
+.vw button{font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  padding:7px 13px;color:var(--faint);transition:all .3s var(--ease)}
+.vw button[aria-pressed="true"]{background:var(--gold);color:var(--ink)}
+.filters .tally{margin-left:0}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;perspective:1600px}
+@media(max-width:1040px){.gal{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media(max-width:640px){.gal{grid-template-columns:1fr}}
+.gc{--k:var(--gold);position:relative;text-align:left;display:block;width:100%;
+  background:var(--ink2);border:1px solid var(--line);overflow:hidden;
+  transform-style:preserve-3d;will-change:transform;
+  transition:border-color .5s var(--ease),box-shadow .6s var(--ease),transform .14s linear}
+.gc[hidden]{display:none!important}
+.gc:hover{border-color:color-mix(in srgb,var(--k) 55%,transparent);
+  box-shadow:0 30px 70px -34px #000,0 0 50px -26px var(--k)}
+.gc .im{display:block;position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--surface)}
+.gc .im img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;
+  filter:saturate(.82) brightness(.84);transform:scale(1.015);
+  transition:transform .9s var(--ease),filter .7s var(--ease)}
+.gc:hover .im img{transform:scale(1.07);filter:saturate(1) brightness(1)}
+.gc .im::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--k) 20%,transparent),transparent 42%,rgba(8,9,11,.72));
+  opacity:.9;transition:opacity .6s var(--ease)}
+.gc:hover .im::after{opacity:.55}
+.gc .im .ph{position:absolute;inset:0;display:flex!important;align-items:center;justify-content:center;
+  font-family:var(--m);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
+  background:repeating-linear-gradient(135deg,var(--surface) 0 12px,var(--ink2) 12px 24px)}
+.gc .nm{display:block;position:absolute;left:14px;top:12px;font-family:var(--m);font-size:10px;letter-spacing:.14em;
+  color:var(--fg);background:rgba(8,9,11,.6);backdrop-filter:blur(6px);padding:5px 9px;
+  border:1px solid rgba(244,242,238,.14);transform:translateZ(26px)}
+.gc .live{position:absolute;right:14px;top:12px;display:flex!important;align-items:center;gap:7px;
+  font-family:var(--m);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--k);
+  background:rgba(8,9,11,.6);backdrop-filter:blur(6px);padding:5px 10px;
+  border:1px solid color-mix(in srgb,var(--k) 40%,transparent);transform:translateZ(26px)}
+.gc .live i{width:5px;height:5px;border-radius:50%;background:var(--k);display:block;
+  animation:halo 2.8s var(--ease) infinite}
+.gc .bd{display:block;padding:18px 20px 20px;position:relative}
+.gc .bd .t{display:block;font-family:var(--s);font-size:1.42rem;font-weight:400;line-height:1.16;
+  transition:color .4s var(--ease)}
+.gc:hover .bd .t{color:color-mix(in srgb,var(--k) 68%,#fff)}
+.gc .bd .c{display:-webkit-box;margin-top:8px;font-size:12.5px;color:var(--faint);line-height:1.5;
+  -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gc .ch2{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+.gc .ch2 span{display:block;font-family:var(--m);font-size:9.5px;letter-spacing:.1em;padding:4px 8px;
+  border:1px solid var(--line);color:var(--muted)}
+.gc .ch2 span:first-child{border-color:color-mix(in srgb,var(--k) 42%,transparent);color:var(--k)}
+.gc .op{display:flex;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+  font-family:var(--m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
+  align-items:center;justify-content:space-between;transition:color .4s}
+.gc:hover .op{color:var(--k)}
+.gc .op b{font-weight:400;transform:translateX(-6px);opacity:0;transition:all .45s var(--ease)}
+.gc:hover .op b{transform:none;opacity:1}
+.gc .shine{display:block;position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s var(--ease);
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),
+    color-mix(in srgb,var(--k) 16%,transparent),transparent 62%)}
+.gc:hover .shine{opacity:1}
+@media(hover:none){.gc{transform:none!important}}
+
 /* cursor preview */
 #peek{--k:var(--gold);position:fixed;z-index:60;width:392px;aspect-ratio:16/10;pointer-events:none;opacity:0;
   transition:opacity .4s var(--ease);perspective:900px;will-change:transform}
@@ -349,6 +408,7 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
 <div id="grain"></div>
 <div id="peek"></div>
 <div id="cur"><i>OPEN</i></div><div id="dot"></div>
+<div id="flip" aria-hidden="true"></div>
 <div id="bar"></div>
 <nav id="rail" aria-label="Sections">
   <a href="#top" data-s="top"><i></i>Top</a>
@@ -374,7 +434,7 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
       <div>
         <span class="lbl rv">Systems developer &mdash; Bacoor, Cavite</span>
         <h1 class="rv">Software that<br>offices actually<br><em>run on.</em></h1>
-        <p class="sub rv"><b>Four years of full-stack development.</b> Twenty-four systems in daily use by a district representative&rsquo;s office, a private college and small businesses &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
+        <p class="sub rv"><b>Four years of full-stack development.</b> Twenty-seven systems in daily use by a district representative&rsquo;s office, a private college and small businesses &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
         <div class="meta rv">
           <div><dt class="lbl">Discipline</dt><dd>Web &middot; Android &middot; Windows &middot; Linux</dd></div>
           <div><dt class="lbl">Education</dt><dd>BSIT, Fellowship Baptist College</dd></div>
@@ -387,7 +447,7 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
     </div>
     <div class="figs rv">
       <div><b data-to="4">0</b><span>Years full-stack<br>development</span></div>
-      <div><b data-to="24">0</b><span>Systems<br>delivered</span></div>
+      <div><b data-to="27">0</b><span>Systems<br>delivered</span></div>
       <div><b data-to="13">0</b><span>Named client<br>organizations</span></div>
       <div><b data-to="4">0</b><span>Platforms<br>shipped on</span></div>
       <div><b data-to="30" data-suffix="+">0</b><span>Technologies<br>worked in</span></div>
@@ -400,7 +460,7 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
   <div class="wrap">
     <div class="sh rv"><span class="no">01</span><span class="ln"></span><span class="lbl">Selected work</span></div>
     <h2 class="rv">The register</h2>
-    <p class="lede rv">Every system below is in real use. <b>Select any line</b> to open the case study, the real interface and the full stack behind it &mdash; or press <b>&#8984;K</b> and search the whole register by name, client or technology.</p>
+    <p class="lede rv">Every system below is in real use. <b>Select anything</b> to open the case study, the real interface and the full stack behind it &mdash; or press <b>&#8984;K</b> and search the whole register by name, client or technology.</p>
     <div class="filters rv">
       <button class="fl" data-f="all" aria-pressed="true">All</button>
       <button class="fl" data-f="web" aria-pressed="false">Web</button>
@@ -408,9 +468,14 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
       <button class="fl" data-f="desktop" aria-pressed="false">Desktop</button>
       <button class="fl" data-f="linux" aria-pressed="false">Infrastructure</button>
       <button class="fl" data-f="ai" aria-pressed="false">AI &amp; ML</button>
-      <span class="tally" id="tally">24 projects</span>
+      <span class="tally" id="tally">27 projects</span>
+      <div class="vw" role="group" aria-label="View">
+        <button id="vg" aria-pressed="true">Gallery</button>
+        <button id="vi" aria-pressed="false">Index</button>
+      </div>
     </div>
-    <div class="idx" id="idx"></div>
+    <div class="gal" id="gal"></div>
+    <div class="idx" id="idx" hidden></div>
   </div>
 </section>
 
@@ -472,6 +537,24 @@ const P = [
  d:'A complete HR platform with <b>four separate roles</b> &mdash; HR, Employee, Accounting and Administrator &mdash; each seeing only its own work. It carries a person from the public careers page through application, onboarding, daily attendance, leave, payroll and finally offboarding, and <b>every change is written to an audit log</b> recording who made it and when.',
  b:['Four roles with separate permissions: HR, Employee, Accounting, Administrator','Public careers site &mdash; job openings, applications and an editable homepage','Attendance with proctoring, half-days and time-correction requests','Leave requests routed for approval; finance and salary loans','Payroll run end to end: salary computation, payslips, remittances','Onboarding and offboarding workflows with administrator approval','<b>Audit log on every change</b> &mdash; who, when and what','Turned over with a step-by-step client demonstration script'],
  s:['PHP','MySQL','JavaScript','Role-based access control','Audit logging','Payroll &amp; remittance rules']},
+
+{n:'FBC PayPoint',c:'Fellowship Baptist College · Kabankalan City',y:'2026',t:['web'],
+ shot:'shots/paypoint.jpg',link:null,
+ d:'Kiosk fee assessment and payment with promissory-note management, built as a capstone title-proposal prototype. <b>Three roles share one live database:</b> a student kiosk that opens on a tapped ID card or an ID number and PIN and shows the exact amount due, takes cash or cashless payment and prints the receipt and the exam permit; a cashier who searches a student, posts payments and reviews every transaction; and the VP for Finance, who works the promissory queue first come, first served.',
+ b:['Three roles &mdash; student kiosk, cashier, VP for Finance &mdash; on one live database','Kiosk sign-in by tapped ID card or ID number and PIN','Promissory requests approved first come, first served, then deducted automatically','Student must still settle the remaining balance before the permit prints','Receipt and examination permit printed at the kiosk','Falls back to offline demo mode when no database is configured'],
+ s:['JavaScript','Supabase','PostgreSQL','Realtime','Vercel','HTML5']},
+
+{n:'FBC DocuVault',c:'Fellowship Baptist College · Registrar’s Office',y:'2026',t:['web'],
+ shot:'shots/docuvault.jpg',link:null,
+ d:'A graduation-requirements tracker. Students keep their <b>Form 137, Form 138, NSTP serial number and PSA birth certificate</b> in one place and watch each one move through not yet submitted, for review, returned and verified. Anything else they own goes into My documents, private or shared with the registrar. The Registrar’s Office reviews what comes in and sees at a glance who is cleared, who is waiting and who is incomplete.',
+ b:['Form 137, Form 138, NSTP serial and PSA birth certificate tracked per student','Four review states: not yet submitted, for review, returned, verified','<b>PostgreSQL row-level security</b> &mdash; a student reads only their own record','Private storage bucket with per-folder upload, read and delete policies','Registrar clearance view: cleared, waiting for review, incomplete','Registrar access granted by email, not by a hard-coded role'],
+ s:['JavaScript','Supabase Auth','PostgreSQL','Row-level security','Supabase Storage','Realtime','Vercel']},
+
+{n:'FBC Wayfinder',c:'Fellowship Baptist College · campus kiosk',y:'2026',t:['web'],
+ shot:'shots/wayfinder.jpg',link:null,
+ d:'A campus navigation kiosk covering <b>43 mapped places</b> &mdash; a directory, walking routes between any two points, and live office status read from per-office weekday and Saturday opening hours. A single serverless function hands the app its database keys so they never sit in the repository, and if the database is unreachable the kiosk falls back to its built-in data and says so in the top bar instead of failing.',
+ b:['43 campus places with routes, directory and live office status','Opening hours editable per office &mdash; changes appear at the next page load','Serverless config endpoint keeps the database keys out of the repository','Degrades to built-in data and labels itself &ldquo;Offline data&rdquo;','Route searches logged as place and time only &mdash; no personal data'],
+ s:['JavaScript','Supabase','PostgreSQL','Vercel Functions','HTML5','Dark mode']},
 
 {n:'SchedPlus',c:'Fellowship Baptist College',y:'2026',t:['web'],shot:'shots/fbc.jpg',link:null,
  d:'A scheduling engine that reads every approved teacher-and-subject request for a term and places the whole semester: every section, every room, every teacher. The registrar used to build this matrix by hand each term. <b>One click now does it, and nobody is ever booked in two places at once.</b>',
@@ -590,7 +673,7 @@ const P = [
 {n:'Portfolio Platform',c:'This site',y:'2026',t:['web'],shot:'shots/portfolio.jpg',
  link:'https://quimanjan16.github.io',
  d:'A single-page portfolio with a searchable, filterable register of every system, real interface previews that track the cursor in 3D, and a WebGL field that changes formation as you scroll. Built, deployed and hosted by me on GitHub Pages.',
- b:['Command palette &mdash; search 24 systems by name, client or technology','Each row carries its own system&rsquo;s brand colour through the whole page','Interface previews rendered from the real dashboards, not stock mockups','WebGL point field that re-forms per section and follows scroll velocity','Self-built, self-deployed, self-hosted'],
+ b:['Command palette &mdash; search 27 systems by name, client or technology','Each row carries its own system&rsquo;s brand colour through the whole page','Interface previews rendered from the real dashboards, not stock mockups','WebGL point field that re-forms per section and follows scroll velocity','Self-built, self-deployed, self-hosted'],
  s:['HTML5','CSS3','JavaScript','Three.js','WebGL','GitHub Pages']},
 ];
 
@@ -609,7 +692,8 @@ const KEY={
  'shots/svc.jpg':'#34d399','shots/fiesta.jpg':'#f2c14e','shots/2lg.jpg':'#22a8c8',
  'shots/jrmc.jpg':'#2bb891','shots/sitepay.jpg':'#4a9ad4','shots/airbnb.jpg':'#c79a75',
  'shots/attendance.jpg':'#2dd4bf','shots/gcash.jpg':'#3b9afe','shots/onechurch.jpg':'#d8b64a',
- 'shots/hrms.jpg':'#2ddbd9','shots/surveying.jpg':'#6fae7a','shots/portfolio.jpg':'#c9a961'};
+ 'shots/hrms.jpg':'#2ddbd9','shots/surveying.jpg':'#6fae7a','shots/portfolio.jpg':'#c9a961',
+ 'shots/paypoint.jpg':'#d1596b','shots/docuvault.jpg':'#d9b35c','shots/wayfinder.jpg':'#63a8ff'};
 P.forEach(p=>{p.k=KEY[p.shot]||'#c9a961';});
 
 const CAP=[
@@ -632,18 +716,78 @@ $('#idx').innerHTML=P.map((p,i)=>`<button class="item rv" data-i="${i}" data-t="
 $('#cols').innerHTML=CAP.map(([k,v])=>`<div class="col"><h3>${esc(k)}</h3>
   <ul>${v.map(([x,hot])=>`<li class="${hot?'k':''}">${esc(x)}</li>`).join('')}</ul></div>`).join('');
 
+/* ═══ the gallery: real interfaces, 3D tilt, brand-coloured light ═══ */
+const PLAT={web:'Web',mobile:'Mobile',desktop:'Desktop',linux:'Infrastructure',ai:'AI &amp; ML'};
+$('#gal').innerHTML=P.map((p,i)=>`<button class="gc rv" data-i="${i}" data-t="${p.t.join(' ')}" style="--k:${p.k}">
+  <span class="im">
+    ${p.shot?`<img src="${esc(p.shot)}" alt="${esc(p.n)} interface" loading="${i<6?'eager':'lazy'}" decoding="async">`
+            :`<span class="ph">Interface &mdash; ${esc(PLAT[p.t[0]]||p.t[0])}</span>`}
+    <span class="nm">${String(i+1).padStart(2,'0')}</span>
+    ${p.link?'<span class="live"><i></i>Live</span>':''}
+  </span>
+  <span class="bd">
+    <span class="t">${esc(p.n)}</span>
+    <span class="c">${esc(p.c)}</span>
+    <span class="ch2">${p.t.map(t=>`<span>${PLAT[t]||t}</span>`).join('')}${
+      p.s.slice(0,2).map(x=>`<span>${esc(x)}</span>`).join('')}</span>
+    <span class="op">Case study<b>&rarr;</b></span>
+  </span>
+  <span class="shine"></span>
+</button>`).join('');
+
+const cards=$$('.gc');
 const items=$$('.item');
 let active=-1;                       /* hovered / keyboard-selected row */
 const field={k:[.79,.66,.38]};       /* colour the WebGL field lerps toward */
 const hex2rgb=h=>[parseInt(h.slice(1,3),16)/255,parseInt(h.slice(3,5),16)/255,parseInt(h.slice(5,7),16)/255];
 
-/* ═══ filters ═══ */
-$$('.fl').forEach(b=>b.addEventListener('click',()=>{
-  const f=b.dataset.f;let n=0;
-  items.forEach(it=>{const ok=f==='all'||it.dataset.t.split(' ').includes(f);it.hidden=!ok;if(ok)n++;});
+/* card tilt — the light and the plane both follow the pointer */
+cards.forEach(c=>{
+  const i=+c.dataset.i;
+  if(!RM&&matchMedia('(hover:hover)').matches){
+    c.addEventListener('pointermove',e=>{
+      const r=c.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      c.style.setProperty('--mx',(x*100)+'%');
+      c.style.setProperty('--my',(y*100)+'%');
+      c.style.transform=`rotateY(${(x-.5)*7}deg) rotateX(${(.5-y)*7}deg) translateY(-5px)`;
+      field.k=hex2rgb(P[i].k);
+    });
+    c.addEventListener('pointerleave',()=>{c.style.transform='';field.k=[.79,.66,.38];});
+  }
+  c.addEventListener('click',()=>open_(i,c));
+});
+
+/* ═══ filters — drive both views ═══ */
+let filt='all';
+function applyFilter(f){
+  filt=f;let n=0;
+  const ok=el=>f==='all'||el.dataset.t.split(' ').includes(f);
+  items.forEach(it=>{it.hidden=!ok(it);});
+  cards.forEach(c=>{const v=ok(c);c.hidden=!v;if(v)n++;});
   $('#tally').textContent=n+(n===1?' project':' projects');
   $$('.fl').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.f===f)));
-}));
+  cur=-1;items.forEach(x=>x.classList.remove('cur'));
+}
+$$('.fl').forEach(b=>b.addEventListener('click',()=>applyFilter(b.dataset.f)));
+
+/* ═══ view toggle ═══ */
+function view(g){
+  $('#gal').hidden=!g;$('#idx').hidden=g;
+  $('#vg').setAttribute('aria-pressed',String(g));
+  $('#vi').setAttribute('aria-pressed',String(!g));
+  if(!g)hidePeek();
+  try{localStorage.setItem('vq-view',g?'gal':'idx');}catch(e){}
+  (g?cards:items).forEach(el=>{
+    if(el.classList.contains('rv')&&!el.classList.contains('in')){
+      const r=el.getBoundingClientRect();
+      if(r.top<innerHeight*1.2&&r.bottom>-200){el.style.transitionDelay='0ms';el.classList.add('in');}
+    }
+  });
+}
+$('#vg').addEventListener('click',()=>view(true));
+$('#vi').addEventListener('click',()=>view(false));
+try{if(localStorage.getItem('vq-view')==='idx')view(false);}catch(e){}
 
 /* ═══ WOW 1 · 3D interface preview that follows the cursor ═══ */
 const peek=$('#peek');
@@ -692,7 +836,7 @@ function mark(n){
 }
 addEventListener('keydown',e=>{
   if($('#cmd').classList.contains('on')||$('#case').classList.contains('on'))return;
-  if(e.target.tagName==='INPUT')return;
+  if(e.target.tagName==='INPUT'||!$('#gal').hidden)return;
   if(e.key==='ArrowDown'||e.key==='j'){e.preventDefault();mark(cur+1);}
   else if(e.key==='ArrowUp'||e.key==='k'){e.preventDefault();mark(cur-1);}
   else if(e.key==='Enter'&&cur>=0){
@@ -737,7 +881,7 @@ function pick(n){
 function openCmd(){
   cmd.innerHTML=`<div class="pal">
     <input id="cq" type="text" autocomplete="off" spellcheck="false"
-      placeholder="Search 24 systems &mdash; name, client or technology&hellip;">
+      placeholder="Search 27 systems &mdash; name, client or technology&hellip;">
     <div class="res" id="cres" role="listbox"></div>
     <div class="hint"><span>&uarr;&darr; Navigate</span><span>&crarr; Open</span><span>Esc Close</span>
       <span id="ccount" style="margin-left:auto"></span></div>
@@ -784,7 +928,8 @@ function flip(from,shotEl){
 }
 function open_(i,row){
   const p=P[i];lastFocus=document.activeElement;
-  const from=peek.classList.contains('on')?peek.querySelector('.fr'):null;
+  const from=peek.classList.contains('on')?peek.querySelector('.fr')
+            :(row&&row.classList.contains('gc')?row.querySelector('.im'):null);
   box.style.setProperty('--k',p.k);
   box.innerHTML=`<div class="doc">
     <button class="x" id="cx">Close</button>

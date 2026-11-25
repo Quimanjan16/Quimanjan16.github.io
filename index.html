@@ -3,17 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Vincent Joed G. Quimanjan — systems developer in Bacoor, Cavite. Twenty-two systems in daily use across web, Android, Windows and Linux.">
+<meta name="description" content="Vincent Joed G. Quimanjan — systems developer in Bacoor, Cavite. Four years of full-stack development; twenty-four systems in daily use across web, Android, Windows and Linux.">
 <meta name="author" content="Vincent Joed G. Quimanjan">
 <meta name="theme-color" content="#08090b">
 <link rel="icon" href="logo.png">
 <meta property="og:title" content="Vince Quimanjan — Systems Developer">
-<meta property="og:description" content="Software that offices actually run on. Twenty-two systems across web, Android, Windows and Linux.">
+<meta property="og:description" content="Software that offices actually run on. Four years full-stack; twenty-four systems across web, Android, Windows and Linux.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="sprite.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>html{-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}</style>
-</head>
-<body>
 <title>Vince Quimanjan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +63,7 @@ nav .links a:hover{color:var(--fg)}
 @media(max-width:860px){nav .links{display:none}}
 .avail{display:flex;align-items:center;gap:9px;font-family:var(--m);font-size:10.5px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-left:auto}
-nav .links+.avail{margin-left:0}
+nav .links+.avail{margin-left:0}nav .kbd+.avail{margin-left:26px}
 .avail i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:block;
   box-shadow:0 0 0 0 var(--gold);animation:halo 2.8s var(--ease) infinite}
 @keyframes halo{0%{box-shadow:0 0 0 0 rgba(201,169,97,.55)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
@@ -96,10 +95,16 @@ h1 em{font-style:italic;color:var(--gold)}
   font-family:var(--m);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--faint)}
 
 /* figures */
-.figs{margin-top:104px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+.figs{margin-top:104px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-@media(max-width:760px){.figs{grid-template-columns:repeat(2,1fr)}
-  .figs div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:1080px){.figs{grid-template-columns:repeat(3,1fr)}
+  .figs div:nth-child(-n+3){border-bottom:1px solid var(--line)}
+  .figs div:nth-child(4){padding-left:0;border-left:0}}
+@media(max-width:700px){.figs{grid-template-columns:repeat(2,1fr)}
+  .figs div{border-bottom:1px solid var(--line)}
+  .figs div:nth-child(odd){padding-left:0;border-left:0}
+  .figs div:nth-child(even){padding-left:28px;border-left:1px solid var(--line)}
+  .figs div:last-child{border-bottom:0}}
 .figs div{padding:34px 28px 34px 0;position:relative}
 .figs div+div{padding-left:28px;border-left:1px solid var(--line)}
 .figs b{display:block;font-family:var(--s);font-size:clamp(2.4rem,4.4vw,3.6rem);font-weight:400;
@@ -128,33 +133,45 @@ h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin-top:26px}
 
 /* index list */
 .idx{display:grid}
-.item{display:grid;grid-template-columns:62px 1fr 190px 112px;gap:26px;align-items:center;
-  padding:30px 8px;border-bottom:1px solid var(--line);text-align:left;width:100%;
+.item{--k:var(--gold);display:grid;grid-template-columns:62px 1fr 1fr 74px;gap:26px;align-items:center;
+  padding:30px 8px;border-bottom:1px solid var(--line);text-align:left;width:100%;position:relative;
   transition:padding-left .55s var(--ease),background .55s var(--ease)}
+.item::before{content:"";position:absolute;left:0;top:-1px;bottom:-1px;width:2px;background:var(--k);
+  transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease)}
+.item:hover::before,.item.cur::before{transform:scaleY(1)}
 .item[hidden]{display:none!important}
-.item:hover{padding-left:24px;background:linear-gradient(90deg,rgba(201,169,97,.05),transparent 70%)}
+.item:hover,.item.cur{padding-left:24px;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--k) 11%,transparent),transparent 72%)}
 .item .no{font-family:var(--m);font-size:11px;color:var(--faint);letter-spacing:.1em;transition:color .4s}
-.item:hover .no{color:var(--gold)}
+.item:hover .no,.item.cur .no{color:var(--k)}
 .item .t{font-family:var(--s);font-size:clamp(1.3rem,2.5vw,1.95rem);line-height:1.15;
   transition:color .4s;min-width:0}
-.item:hover .t{color:var(--gold2)}
+.item:hover .t,.item.cur .t{color:color-mix(in srgb,var(--k) 72%,#fff)}
 .item .c{font-size:13.5px;color:var(--faint);line-height:1.45}
-.item .y{font-family:var(--m);font-size:11px;color:var(--faint);letter-spacing:.1em;text-align:right;
-  display:flex;align-items:center;justify-content:flex-end;gap:10px}
-.item .y em{font-style:normal;width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none}
+.item .e{display:flex;align-items:center;justify-content:flex-end;gap:12px}
+.item .e em{font-style:normal;width:5px;height:5px;border-radius:50%;background:var(--k);flex:none;
+  box-shadow:0 0 0 0 var(--k);animation:halo 2.8s var(--ease) infinite}
 .item .ar{font-family:var(--m);font-size:14px;color:var(--faint);opacity:0;transform:translateX(-8px);
   transition:all .45s var(--ease)}
-.item:hover .ar{opacity:1;transform:none;color:var(--gold)}
+.item:hover .ar,.item.cur .ar{opacity:1;transform:none;color:var(--k)}
 @media(max-width:900px){
-  .item{grid-template-columns:40px 1fr auto;gap:16px;padding:24px 4px}
-  .item .c{display:none}.item .y{font-size:10px}
+  .item{grid-template-columns:34px 1fr 42px;gap:14px;padding:24px 4px}
+  .item .c{display:none}
 }
 
 /* cursor preview */
-#peek{position:fixed;z-index:60;width:380px;aspect-ratio:16/10;pointer-events:none;opacity:0;
-  transform:translate(-50%,-50%) scale(.94) rotate(-2deg);transition:opacity .4s var(--ease),transform .5s var(--ease);
-  border:1px solid var(--line2);box-shadow:0 36px 80px -28px rgba(0,0,0,.9);overflow:hidden;background:var(--ink2)}
-#peek.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}
+#peek{--k:var(--gold);position:fixed;z-index:60;width:392px;aspect-ratio:16/10;pointer-events:none;opacity:0;
+  transition:opacity .4s var(--ease);perspective:900px;will-change:transform}
+#peek .fr{width:100%;height:100%;overflow:hidden;background:var(--ink2);
+  border:1px solid color-mix(in srgb,var(--k) 55%,transparent);
+  box-shadow:0 36px 90px -30px rgba(0,0,0,.95),0 0 60px -22px var(--k);
+  transform:scale(.93);transition:transform .5s var(--ease)}
+#peek.on{opacity:1}
+#peek.on .fr{transform:scale(1)}
+#peek .fr::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--k) 16%,transparent),transparent 55%)}
+#peek .lb{position:absolute;left:0;bottom:0;padding:7px 12px;background:var(--k);color:#08090b;
+  font-family:var(--m);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
 #peek img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
 #peek .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
   font-family:var(--m);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
@@ -245,10 +262,85 @@ footer .wrap{padding-block:124px 56px}
 .rv{opacity:0;transform:translateY(30px)}
 .rv.in{opacity:1;transform:none;transition:opacity 1s var(--ease),transform 1s var(--ease)}
 
+
+/* ── wow 1 · command palette ───────────────────────────── */
+.kbd{display:inline-flex;align-items:center;gap:5px;font-family:var(--m);font-size:10px;
+  letter-spacing:.1em;color:var(--faint);border:1px solid var(--line);padding:5px 9px;
+  transition:all .35s var(--ease);cursor:pointer}
+.kbd:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:620px){.kbd{display:none}}
+#cmd{position:fixed;inset:0;z-index:120;display:none;background:rgba(5,6,8,.78);backdrop-filter:blur(12px)}
+#cmd.on{display:block;animation:fi .28s var(--ease) both}
+#cmd .pal{max-width:680px;margin:11vh auto 0;background:var(--ink2);border:1px solid var(--line2);
+  box-shadow:0 50px 120px -40px #000;animation:up .36s var(--ease) both;overflow:hidden}
+#cmd input{width:100%;background:none;border:0;border-bottom:1px solid var(--line);
+  padding:26px 28px;font:inherit;font-size:19px;color:var(--fg);font-weight:300;outline:none}
+#cmd input::placeholder{color:var(--faint)}
+#cmd .res{max-height:52vh;overflow-y:auto}
+#cmd .rw{--k:var(--gold);display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;
+  padding:16px 28px;border-bottom:1px solid var(--line);cursor:pointer;width:100%;text-align:left;
+  border-left:2px solid transparent;transition:background .2s,border-color .2s}
+#cmd .rw[aria-selected="true"]{background:color-mix(in srgb,var(--k) 10%,transparent);border-left-color:var(--k)}
+#cmd .rw b{display:block;font-family:var(--s);font-size:1.22rem;font-weight:400;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#cmd .rw[aria-selected="true"] b{color:color-mix(in srgb,var(--k) 72%,#fff)}
+#cmd .rw s{display:block;margin-top:3px;font-size:12.5px;color:var(--faint);text-decoration:none;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#cmd .rw u{font-family:var(--m);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;
+  text-decoration:none;color:var(--k);white-space:nowrap}
+#cmd mark{background:none;color:var(--gold2)}
+#cmd .non{padding:36px 28px;color:var(--faint);font-family:var(--m);font-size:11px;letter-spacing:.17em;
+  text-transform:uppercase}
+#cmd .hint{display:flex;gap:22px;padding:14px 28px;font-family:var(--m);font-size:9.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--faint);border-top:1px solid var(--line)}
+
+/* ── wow 2 · magnetic cursor ───────────────────────────── */
+#cur{position:fixed;z-index:115;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;
+  border:1px solid var(--gold);border-radius:50%;pointer-events:none;opacity:0;
+  display:flex;align-items:center;justify-content:center;mix-blend-mode:screen;
+  transition:opacity .35s,width .4s var(--ease),height .4s var(--ease),margin .4s var(--ease),
+             background .4s,border-color .4s}
+#cur.on{opacity:.85}
+#cur.big{width:84px;height:84px;margin:-42px 0 0 -42px;background:rgba(201,169,97,.1)}
+#cur i{font-family:var(--m);font-size:8.5px;letter-spacing:.2em;color:var(--gold);font-style:normal;
+  opacity:0;transition:opacity .3s}
+#cur.row i{opacity:1}
+#cur.row{width:84px;height:84px;margin:-42px 0 0 -42px;background:rgba(201,169,97,.1)}
+#dot{position:fixed;z-index:116;left:0;top:0;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;
+  border-radius:50%;background:var(--gold);pointer-events:none;opacity:0;transition:opacity .35s}
+#dot.on{opacity:1}
+@media(hover:none),(max-width:980px){#cur,#dot{display:none}}
+
+/* ── wow 3 · progress rail ─────────────────────────────── */
+#rail{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:65;display:grid;gap:16px;
+  opacity:0;transition:opacity .6s var(--ease)}
+#rail.on{opacity:1}
+#rail a{display:flex;align-items:center;gap:11px;font-family:var(--m);font-size:9px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--faint);transition:color .4s}
+#rail a i{display:block;width:16px;height:1px;background:var(--line2);transition:all .45s var(--ease)}
+#rail a.on{color:var(--gold)}
+#rail a.on i{width:34px;background:var(--gold)}
+#rail a:hover{color:var(--muted)}
+@media(max-width:1380px){#rail{display:none}}
+#bar{position:fixed;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));
+  z-index:118;transition:width .12s linear}
+
+/* ── wow 4 · headline decode ───────────────────────────── */
+h1 .ch{display:inline-block;white-space:pre}
+h1 .ch.sc{color:var(--gold);opacity:.45}
+
+/* ── wow 5 · FLIP open ─────────────────────────────────── */
+#flip{position:fixed;z-index:119;pointer-events:none;overflow:hidden;opacity:0;
+  border:1px solid var(--line2);background:var(--ink2)}
+#flip img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.doc .shot{position:relative}
+.doc .shot.hold img{opacity:0}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .rv{opacity:1;transform:none}#bg,#grain{display:none}
+  .rv{opacity:1;transform:none}#bg,#grain,#cur,#dot{display:none}
+  h1 .ch.sc{color:inherit;opacity:1}
 }
 </style>
 
@@ -256,12 +348,23 @@ footer .wrap{padding-block:124px 56px}
 <div class="halo"></div>
 <div id="grain"></div>
 <div id="peek"></div>
+<div id="cur"><i>OPEN</i></div><div id="dot"></div>
+<div id="bar"></div>
+<nav id="rail" aria-label="Sections">
+  <a href="#top" data-s="top"><i></i>Top</a>
+  <a href="#work" data-s="work"><i></i>Work</a>
+  <a href="#capability" data-s="capability"><i></i>Stack</a>
+  <a href="#method" data-s="method"><i></i>Method</a>
+  <a href="#contact" data-s="contact"><i></i>Contact</a>
+</nav>
+<div id="cmd" role="dialog" aria-modal="true" aria-label="Search the register"></div>
 
 <nav id="nav"><div class="in">
   <a class="nm" href="#top">Vince <i>Quimanjan</i></a>
   <div class="links">
     <a href="#work">Work</a><a href="#capability">Capability</a><a href="#method">Method</a><a href="#contact">Contact</a>
   </div>
+  <button class="kbd" id="kopen" aria-label="Search projects">&#8984;K &nbsp;Search</button>
   <div class="avail"><i></i><span>Available for projects</span></div>
 </div></nav>
 
@@ -271,7 +374,7 @@ footer .wrap{padding-block:124px 56px}
       <div>
         <span class="lbl rv">Systems developer &mdash; Bacoor, Cavite</span>
         <h1 class="rv">Software that<br>offices actually<br><em>run on.</em></h1>
-        <p class="sub rv">Twenty-two systems in daily use by a district representative&rsquo;s office, a private college and small businesses &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
+        <p class="sub rv"><b>Four years of full-stack development.</b> Twenty-four systems in daily use by a district representative&rsquo;s office, a private college and small businesses &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
         <div class="meta rv">
           <div><dt class="lbl">Discipline</dt><dd>Web &middot; Android &middot; Windows &middot; Linux</dd></div>
           <div><dt class="lbl">Education</dt><dd>BSIT, Fellowship Baptist College</dd></div>
@@ -283,8 +386,9 @@ footer .wrap{padding-block:124px 56px}
       </div>
     </div>
     <div class="figs rv">
-      <div><b data-to="22">0</b><span>Systems<br>delivered</span></div>
-      <div><b data-to="12">0</b><span>Named client<br>organizations</span></div>
+      <div><b data-to="4">0</b><span>Years full-stack<br>development</span></div>
+      <div><b data-to="24">0</b><span>Systems<br>delivered</span></div>
+      <div><b data-to="13">0</b><span>Named client<br>organizations</span></div>
       <div><b data-to="4">0</b><span>Platforms<br>shipped on</span></div>
       <div><b data-to="30" data-suffix="+">0</b><span>Technologies<br>worked in</span></div>
     </div>
@@ -296,7 +400,7 @@ footer .wrap{padding-block:124px 56px}
   <div class="wrap">
     <div class="sh rv"><span class="no">01</span><span class="ln"></span><span class="lbl">Selected work</span></div>
     <h2 class="rv">The register</h2>
-    <p class="lede rv">Every system below is in real use. <b>Select any line</b> to open the case study, the interface and the full stack behind it.</p>
+    <p class="lede rv">Every system below is in real use. <b>Select any line</b> to open the case study, the real interface and the full stack behind it &mdash; or press <b>&#8984;K</b> and search the whole register by name, client or technology.</p>
     <div class="filters rv">
       <button class="fl" data-f="all" aria-pressed="true">All</button>
       <button class="fl" data-f="web" aria-pressed="false">Web</button>
@@ -304,7 +408,7 @@ footer .wrap{padding-block:124px 56px}
       <button class="fl" data-f="desktop" aria-pressed="false">Desktop</button>
       <button class="fl" data-f="linux" aria-pressed="false">Infrastructure</button>
       <button class="fl" data-f="ai" aria-pressed="false">AI &amp; ML</button>
-      <span class="tally" id="tally">22 projects</span>
+      <span class="tally" id="tally">24 projects</span>
     </div>
     <div class="idx" id="idx"></div>
   </div>
@@ -363,6 +467,12 @@ const P = [
  b:['Three Python inference services behind a single REST API','Documented public API with authenticated access','Incident to responder dispatch in one continuous flow'],
  s:['Next.js','React','TypeScript','Python','REST API','SQL','Radix UI','Recharts','Zod']},
 
+{n:'SMMS Human Resource Management',c:'SMMS · four-role HR platform',y:'2026',t:['web'],
+ shot:'shots/hrms.jpg',link:null,
+ d:'A complete HR platform with <b>four separate roles</b> &mdash; HR, Employee, Accounting and Administrator &mdash; each seeing only its own work. It carries a person from the public careers page through application, onboarding, daily attendance, leave, payroll and finally offboarding, and <b>every change is written to an audit log</b> recording who made it and when.',
+ b:['Four roles with separate permissions: HR, Employee, Accounting, Administrator','Public careers site &mdash; job openings, applications and an editable homepage','Attendance with proctoring, half-days and time-correction requests','Leave requests routed for approval; finance and salary loans','Payroll run end to end: salary computation, payslips, remittances','Onboarding and offboarding workflows with administrator approval','<b>Audit log on every change</b> &mdash; who, when and what','Turned over with a step-by-step client demonstration script'],
+ s:['PHP','MySQL','JavaScript','Role-based access control','Audit logging','Payroll &amp; remittance rules']},
+
 {n:'SchedPlus',c:'Fellowship Baptist College',y:'2026',t:['web'],shot:'shots/fbc.jpg',link:null,
  d:'A scheduling engine that reads every approved teacher-and-subject request for a term and places the whole semester: every section, every room, every teacher. The registrar used to build this matrix by hand each term. <b>One click now does it, and nobody is ever booked in two places at once.</b>',
  b:['<b>896 of 896</b> subjects placed · <b>1,717</b> class meetings a week','<b>Zero</b> teacher, room or section double bookings','<b>48,287</b> student enrollments generated automatically','61 rooms across 4 buildings · 89 sections · 1,999 students','Each option scored for balanced weeks, idle gaps and walking distance','bcrypt hashing, HTTP-only sessions, role-checked API routes'],
@@ -397,37 +507,37 @@ const P = [
  b:['Table detection rebuilds attendance sheets as editable grids','OCR runs on-device — no API keys, no limits, no per-scan cost','Multi-page capture into a single document'],
  s:['React Native','Expo','TypeScript','Google ML Kit','expo-print','AsyncStorage']},
 
-{n:'Bistro de Ysabelle POS',c:'Bistro de Ysabelle · Amron',y:'2026',t:['mobile'],shot:null,link:null,
+{n:'Bistro de Ysabelle POS',c:'Bistro de Ysabelle · Amron',y:'2026',t:['mobile'],shot:'shots/bistro.jpg',link:null,
  d:'Tablet point of sale for a fast-food kitchen, built offline-first in a deep burgundy and gold palette with a 77-item catalogue including size variants. It opens straight to the order screen, with the Add Transaction button above all navigation on every screen — because at a counter the next tap is always a sale.',
  b:['77 priced items and size variants','Opens directly to the order screen, no dashboard in the way','Shipped as a signed Android build for tablets'],
  s:['JavaScript','Node.js','Android build','Local storage','Service workers']},
 
-{n:'Moon Bean Café POS',c:'Moon Bean Café',y:'2026',t:['mobile'],shot:null,link:null,
+{n:'Moon Bean Café POS',c:'Moon Bean Café',y:'2026',t:['mobile'],shot:'shots/moonbean.jpg',link:null,
  d:'Tablet café POS running fully offline over IndexedDB, in Moon Bean’s own cream, caramel and espresso palette. The File System Access API writes to a folder the owner picks on desktop, with JSON backup exports on Android, and a service worker caches the app so it opens with no connection at all.',
  b:['Six primary actions: transactions, orders, products, inventory, expenses, reports','IndexedDB storage with File System Access API folder saves','Service-worker cached — opens with no connection'],
  s:['JavaScript','IndexedDB','File System Access API','Service workers','Android build']},
 
-{n:'Pahangin Resto Bar POS',c:'Pahangin Resto Bar',y:'2026',t:['mobile'],shot:null,link:null,
+{n:'Pahangin Resto Bar POS',c:'Pahangin Resto Bar',y:'2026',t:['mobile'],shot:'shots/pahangin.jpg',link:null,
  d:'Tablet point of sale for a resto bar, built on the same offline-first engine as the café and fast-food tills but restyled in its own espresso and antique-gold palette. Orders, inventory, expenses and reports, all held on the tablet.',
  b:['Third paying deployment of the same tablet POS engine','Its own espresso and antique-gold identity','Offline-first — the till does not stop when the Wi-Fi does'],
  s:['JavaScript','IndexedDB','Service workers','Android build','Local storage']},
 
-{n:'Court & Pitch',c:'Live at sport.eslph.tech',y:'2026',t:['web'],shot:null,link:'https://sport.eslph.tech',
+{n:'Court & Pitch',c:'Live at sport.eslph.tech',y:'2026',t:['web'],shot:'shots/sport.jpg',link:'https://sport.eslph.tech',
  d:'News platform with reader accounts, a personalised feed, saved articles, profiles and live scores. <b>Deployed and running in production</b> on my own Ubuntu VPS behind PM2, with hashed credentials and a documented MySQL schema.',
  b:['Live in production — not a demonstration','Reader accounts with bcrypt-hashed credentials','Running behind PM2 on an Ubuntu VPS I administer'],
  s:['Next.js','React','MySQL','bcryptjs','PM2','Ubuntu VPS']},
 
-{n:'AI Checker & Humanizer',c:'Built on the Anthropic API',y:'2026',t:['web','ai'],shot:null,link:null,
+{n:'AI Checker & Humanizer',c:'Built on the Anthropic API',y:'2026',t:['web','ai'],shot:'shots/aichecker.jpg',link:null,
  d:'Sorts every sentence of a document into four confidence bands, then offers a humanising rewrite. Built on the Anthropic API behind a PHP service layer, with a minimum word count enforced because short samples cannot be judged honestly.',
  b:['Sentence-level scoring into four confidence bands','Minimum word count enforced for honest results','Anthropic API behind a PHP service layer'],
  s:['PHP','Composer','Anthropic SDK','JavaScript']},
 
-{n:'VPS Service Monitoring Suite',c:'Ubuntu 24.04 LTS · eslph.tech',y:'2026',t:['linux'],shot:null,link:null,
+{n:'VPS Service Monitoring Suite',c:'Ubuntu 24.04 LTS · eslph.tech',y:'2026',t:['linux'],shot:'shots/svc.jpg',link:null,
  d:'Running from <b>/opt/svc-checks/</b> on my production VPS: a service health check covering systemd units, PM2 apps, network, HTTPS and resource use; a disk guard reporting inode usage and forecasting growth; and an SSL/DNS check validating records, certificate expiry, redirects and the renewal timer. Scheduled by cron with a systemd unit as a safe test target.',
  b:['Service health across systemd units and PM2 applications','Disk and inode usage with growth forecasting','Certificate expiry, DNS records and renewal-timer validation'],
  s:['Bash','systemd','cron','PM2','Ubuntu 24.04','OpenSSL']},
 
-{n:'The Last Night of the Fiesta',c:'Two engines, one script',y:'2026',t:['web'],shot:null,link:null,
+{n:'The Last Night of the Fiesta',c:'Two engines, one script',y:'2026',t:['web'],shot:'shots/fiesta.jpg',link:null,
  d:'A browser story game set in Barrio San Isidro on the eve of the town fiesta. Shipped in two engines from one script: a low-poly 3D world you walk through in Three.js, and a pixel-art visual novel for weaker devices. Five endings, bilingual English and Filipino.',
  b:['Two rendering engines sharing a single narrative script','Five endings driven by player choices','Bilingual English and Filipino, with its own art and audio modules'],
  s:['Three.js','JavaScript','WebGL','Canvas','i18n']},
@@ -471,12 +581,36 @@ const P = [
  b:['Searchable map of congregations and active outreaches','Server-side rendering with row-level access control','Authentication and data over Supabase PostgreSQL'],
  s:['Next.js','React','TypeScript','Supabase','PostgreSQL','@supabase/ssr']},
 
+{n:'Team Barbie Cup',c:'Surveying firm · Google Sites',y:'2026',t:['web'],shot:'shots/surveying.jpg',
+ link:null,
+ d:'A published website for a surveying firm, built on <b>Google Sites</b> so the team can keep editing it themselves after turnover. Three main pages plus an individual profile page for each of the eight members, with the structure, copy and layout designed to match how the firm actually presents itself.',
+ b:['Three main pages plus eight individual member profiles','Built on Google Sites so the client owns and edits it after turnover','Information architecture, copy and layout designed end to end'],
+ s:['Google Sites','Information architecture','Content design','Responsive layout']},
+
 {n:'Portfolio Platform',c:'This site',y:'2026',t:['web'],shot:'shots/portfolio.jpg',
  link:'https://quimanjan16.github.io',
- d:'A single-page portfolio with a filterable project register, a cursor-tracked preview and full case studies. Built, deployed and hosted by me on GitHub Pages.',
- b:['Filterable register with the full stack behind each system','Three.js field and cursor-tracked interface previews','Self-built, self-deployed, self-hosted'],
- s:['HTML5','CSS3','JavaScript','Three.js','GitHub Pages']},
+ d:'A single-page portfolio with a searchable, filterable register of every system, real interface previews that track the cursor in 3D, and a WebGL field that changes formation as you scroll. Built, deployed and hosted by me on GitHub Pages.',
+ b:['Command palette &mdash; search 24 systems by name, client or technology','Each row carries its own system&rsquo;s brand colour through the whole page','Interface previews rendered from the real dashboards, not stock mockups','WebGL point field that re-forms per section and follows scroll velocity','Self-built, self-deployed, self-hosted'],
+ s:['HTML5','CSS3','JavaScript','Three.js','WebGL','GitHub Pages']},
 ];
+
+
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ═══ each system carries its own interface's brand colour ═══ */
+const KEY={
+ 'shots/bantaybuhay.jpg':'#ef4444','shots/fbc.jpg':'#f3b13f','shots/wechicks.jpg':'#7fb0ff',
+ 'shots/esl.jpg':'#f5c842','shots/esl-branches.jpg':'#ffd166','shots/laundry.jpg':'#3aa0ff',
+ 'shots/scanner.jpg':'#d9743f','shots/bistro.jpg':'#e0566a','shots/moonbean.jpg':'#93a886',
+ 'shots/pahangin.jpg':'#c9a36b','shots/sport.jpg':'#ff4d63','shots/aichecker.jpg':'#8b6cf0',
+ 'shots/svc.jpg':'#34d399','shots/fiesta.jpg':'#f2c14e','shots/2lg.jpg':'#22a8c8',
+ 'shots/jrmc.jpg':'#2bb891','shots/sitepay.jpg':'#4a9ad4','shots/airbnb.jpg':'#c79a75',
+ 'shots/attendance.jpg':'#2dd4bf','shots/gcash.jpg':'#3b9afe','shots/onechurch.jpg':'#d8b64a',
+ 'shots/hrms.jpg':'#2ddbd9','shots/surveying.jpg':'#6fae7a','shots/portfolio.jpg':'#c9a961'};
+P.forEach(p=>{p.k=KEY[p.shot]||'#c9a961';});
 
 const CAP=[
  ['Languages',[['TypeScript',1],['JavaScript',1],['PHP',1],['Python',1],['Dart',0],['C#',0],['SQL',0],['HTML5',0],['CSS3',0]]],
@@ -487,62 +621,185 @@ const CAP=[
  ['Practice',[['Git',1],['Written documentation',1],['Installers & turnover',0],['Staff training',0],['Automated backups',0],['n8n automation',0]]],
 ];
 
-const $=s=>document.querySelector(s);
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
-$('#idx').innerHTML=P.map((p,i)=>`<button class="item rv" data-i="${i}" data-t="${p.t.join(' ')}">
+/* ═══ the register ═══ */
+$('#idx').innerHTML=P.map((p,i)=>`<button class="item rv" data-i="${i}" data-t="${p.t.join(' ')}" style="--k:${p.k}">
   <span class="no">${String(i+1).padStart(2,'0')}</span>
   <span class="t">${esc(p.n)}</span>
   <span class="c">${esc(p.c)}</span>
-  <span class="y">${p.link?'<em></em>':''}${esc(p.y)}<span class="ar">&rarr;</span></span>
+  <span class="e">${p.link?'<em title="Live"></em>':''}<span class="ar">&rarr;</span></span>
 </button>`).join('');
 
 $('#cols').innerHTML=CAP.map(([k,v])=>`<div class="col"><h3>${esc(k)}</h3>
   <ul>${v.map(([x,hot])=>`<li class="${hot?'k':''}">${esc(x)}</li>`).join('')}</ul></div>`).join('');
 
-/* filters */
-const items=[...document.querySelectorAll('.item')];
-document.querySelectorAll('.fl').forEach(b=>b.addEventListener('click',()=>{
+const items=$$('.item');
+let active=-1;                       /* hovered / keyboard-selected row */
+const field={k:[.79,.66,.38]};       /* colour the WebGL field lerps toward */
+const hex2rgb=h=>[parseInt(h.slice(1,3),16)/255,parseInt(h.slice(3,5),16)/255,parseInt(h.slice(5,7),16)/255];
+
+/* ═══ filters ═══ */
+$$('.fl').forEach(b=>b.addEventListener('click',()=>{
   const f=b.dataset.f;let n=0;
   items.forEach(it=>{const ok=f==='all'||it.dataset.t.split(' ').includes(f);it.hidden=!ok;if(ok)n++;});
   $('#tally').textContent=n+(n===1?' project':' projects');
-  document.querySelectorAll('.fl').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.f===f)));
+  $$('.fl').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.f===f)));
 }));
 
-/* cursor preview */
-const peek=$('#peek');let px=0,py=0,tx=0,ty=0,raf=null;
-function follow(){tx+=(px-tx)*.14;ty+=(py-ty)*.14;
-  peek.style.left=tx+'px';peek.style.top=ty+'px';raf=requestAnimationFrame(follow);}
+/* ═══ WOW 1 · 3D interface preview that follows the cursor ═══ */
+const peek=$('#peek');
+let px=0,py=0,tx=0,ty=0,lx=0,ly=0,raf=null;
+function follow(){
+  tx+=(px-tx)*.15;ty+=(py-ty)*.15;
+  const vx=Math.max(-26,Math.min(26,(px-tx)*.9)),vy=Math.max(-20,Math.min(20,(py-ty)*.9));
+  lx+=(vx-lx)*.12;ly+=(vy-ly)*.12;
+  peek.style.transform=`translate(-50%,-50%) translate(${tx}px,${ty}px) rotateY(${lx*.55}deg) rotateX(${-ly*.55}deg)`;
+  raf=requestAnimationFrame(follow);
+}
+function showPeek(i,e){
+  const p=P[i];active=i;
+  peek.style.setProperty('--k',p.k);
+  field.k=hex2rgb(p.k);
+  peek.innerHTML=`<div class="fr">${p.shot?`<img src="${esc(p.shot)}" alt="">`
+    :`<div class="ph">Interface &mdash; ${esc(p.t[0])}</div>`}
+    <span class="lb">${esc(p.t[0])}${p.link?' &middot; live':''}</span></div>`;
+  if(e){px=e.clientX;py=e.clientY;tx=px;ty=py;}
+  peek.classList.add('on');
+  if(!raf&&!RM)raf=requestAnimationFrame(follow);
+}
+function hidePeek(){
+  peek.classList.remove('on');active=-1;field.k=[.79,.66,.38];
+  cancelAnimationFrame(raf);raf=null;
+}
 items.forEach(it=>{
-  const p=P[+it.dataset.i];
-  it.addEventListener('pointerenter',e=>{
-    peek.innerHTML=p.shot?`<img src="${esc(p.shot)}" alt="">`:`<div class="ph">Interface &mdash; ${esc(p.t[0])}</div>`;
-    px=e.clientX;py=e.clientY;tx=px;ty=py;peek.classList.add('on');
-    if(!raf)raf=requestAnimationFrame(follow);
-  });
+  const i=+it.dataset.i;
+  it.addEventListener('pointerenter',e=>showPeek(i,e));
   it.addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY;});
-  it.addEventListener('pointerleave',()=>{peek.classList.remove('on');
-    cancelAnimationFrame(raf);raf=null;});
-  it.addEventListener('click',()=>open_(+it.dataset.i));
+  it.addEventListener('pointerleave',hidePeek);
+  it.addEventListener('click',()=>open_(i,it));
 });
 
-/* case study */
+/* ═══ keyboard navigation of the register ═══ */
+let cur=-1;
+function mark(n){
+  items.forEach(x=>x.classList.remove('cur'));
+  const vis=items.filter(x=>!x.hidden);if(!vis.length)return;
+  cur=(n+vis.length)%vis.length;
+  const el=vis[cur];el.classList.add('cur');
+  el.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'});
+  const r=el.getBoundingClientRect();
+  px=r.right-260;py=r.top+r.height/2;tx=px;ty=py;
+  showPeek(+el.dataset.i);
+}
+addEventListener('keydown',e=>{
+  if($('#cmd').classList.contains('on')||$('#case').classList.contains('on'))return;
+  if(e.target.tagName==='INPUT')return;
+  if(e.key==='ArrowDown'||e.key==='j'){e.preventDefault();mark(cur+1);}
+  else if(e.key==='ArrowUp'||e.key==='k'){e.preventDefault();mark(cur-1);}
+  else if(e.key==='Enter'&&cur>=0){
+    const el=items.filter(x=>!x.hidden)[cur];if(el){e.preventDefault();open_(+el.dataset.i,el);}}
+});
+
+/* ═══ WOW 2 · command palette (⌘K) ═══ */
+const cmd=$('#cmd');let sel=0,hits=[];
+function hay(p){return (p.n+' '+p.c+' '+p.s.join(' ')+' '+p.t.join(' ')).toLowerCase();}
+function hi(txt,q){
+  if(!q)return esc(txt);
+  const t=esc(txt),n=t.toLowerCase(),out=[];let at=0;
+  for(const tok of [...new Set(q.toLowerCase().split(/\s+/).filter(Boolean))]){
+    const k=n.indexOf(tok,at);if(k<0)continue;
+    out.push(t.slice(at,k),'<mark>',t.slice(k,k+tok.length),'</mark>');at=k+tok.length;
+  }
+  out.push(t.slice(at));return out.join('');
+}
+function paint(q){
+  const terms=q.toLowerCase().split(/\s+/).filter(Boolean);
+  hits=P.map((p,i)=>({p,i})).filter(({p})=>terms.every(t=>hay(p).includes(t)));
+  sel=0;
+  const r=$('#cres');
+  r.innerHTML=hits.length?hits.map(({p,i},n)=>`<button class="rw" role="option" data-i="${i}"
+      aria-selected="${n===0}" style="--k:${p.k}">
+      <span><b>${hi(p.n,q)}</b><s>${hi(p.c,q)}</s></span>
+      <u>${esc(p.s[0])}</u></button>`).join('')
+    :`<div class="non">Nothing matches &ldquo;${esc(q)}&rdquo;</div>`;
+  $('#ccount').textContent=hits.length+(hits.length===1?' result':' results');
+  r.querySelectorAll('.rw').forEach((b,n)=>{
+    b.addEventListener('mouseenter',()=>pick(n));
+    b.addEventListener('click',()=>{closeCmd();open_(+b.dataset.i);});
+  });
+}
+function pick(n){
+  if(!hits.length)return;
+  sel=(n+hits.length)%hits.length;
+  const rows=$('#cres').querySelectorAll('.rw');
+  rows.forEach((b,k)=>b.setAttribute('aria-selected',String(k===sel)));
+  rows[sel]&&rows[sel].scrollIntoView({block:'nearest'});
+}
+function openCmd(){
+  cmd.innerHTML=`<div class="pal">
+    <input id="cq" type="text" autocomplete="off" spellcheck="false"
+      placeholder="Search 24 systems &mdash; name, client or technology&hellip;">
+    <div class="res" id="cres" role="listbox"></div>
+    <div class="hint"><span>&uarr;&darr; Navigate</span><span>&crarr; Open</span><span>Esc Close</span>
+      <span id="ccount" style="margin-left:auto"></span></div>
+  </div>`;
+  cmd.classList.add('on');document.body.style.overflow='hidden';
+  const q=$('#cq');paint('');q.focus();
+  q.addEventListener('input',()=>paint(q.value.trim()));
+  q.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'){e.preventDefault();pick(sel+1);}
+    else if(e.key==='ArrowUp'){e.preventDefault();pick(sel-1);}
+    else if(e.key==='Enter'&&hits[sel]){e.preventDefault();const i=hits[sel].i;closeCmd();open_(i);}
+    else if(e.key==='Escape'){closeCmd();}
+  });
+}
+function closeCmd(){cmd.classList.remove('on');cmd.innerHTML='';document.body.style.overflow='';}
+cmd.addEventListener('click',e=>{if(e.target===cmd)closeCmd();});
+$('#kopen').addEventListener('click',openCmd);
+addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();
+    cmd.classList.contains('on')?closeCmd():openCmd();return;}
+  if(e.key==='/'&&!cmd.classList.contains('on')&&!$('#case').classList.contains('on')
+     &&e.target.tagName!=='INPUT'){e.preventDefault();openCmd();}
+});
+
+/* ═══ WOW 3 · FLIP — the preview flies into the case study ═══ */
 const box=$('#case');let lastFocus=null;
-function open_(i){
+function flip(from,shotEl){
+  if(RM||!from)return;
+  const a=from.getBoundingClientRect(),b=shotEl.getBoundingClientRect();
+  if(!a.width||!b.width)return;
+  const g=$('#flip'),img=from.querySelector('img');
+  if(!img)return;
+  g.innerHTML=`<img src="${img.getAttribute('src')}" alt="">`;
+  g.style.cssText=`left:${a.left}px;top:${a.top}px;width:${a.width}px;height:${a.height}px;opacity:1`;
+  shotEl.classList.add('hold');
+  g.animate([
+    {transform:'translate(0,0) scale(1,1)',opacity:1},
+    {transform:`translate(${b.left-a.left}px,${b.top-a.top}px) scale(${b.width/a.width},${b.height/a.height})`,
+     opacity:1,offset:.86},
+    {transform:`translate(${b.left-a.left}px,${b.top-a.top}px) scale(${b.width/a.width},${b.height/a.height})`,
+     opacity:0}
+  ],{duration:620,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'})
+   .addEventListener('finish',()=>{g.style.opacity='0';g.innerHTML='';shotEl.classList.remove('hold');});
+}
+function open_(i,row){
   const p=P[i];lastFocus=document.activeElement;
+  const from=peek.classList.contains('on')?peek.querySelector('.fr'):null;
+  box.style.setProperty('--k',p.k);
   box.innerHTML=`<div class="doc">
     <button class="x" id="cx">Close</button>
     <div class="no">${String(i+1).padStart(2,'0')} &nbsp;/&nbsp; ${String(P.length).padStart(2,'0')}</div>
     <h3 id="ct">${esc(p.n)}</h3>
-    <div class="cl">${esc(p.c)} &nbsp;&middot;&nbsp; ${esc(p.y)}</div>
-    ${p.shot?`<div class="shot"><img src="${esc(p.shot)}" alt="${esc(p.n)} interface"></div>`
+    <div class="cl">${p.c}${p.link?' &nbsp;&middot;&nbsp; Live':''}</div>
+    ${p.shot?`<div class="shot" id="csh"><img src="${esc(p.shot)}" alt="${esc(p.n)} interface"></div>`
             :`<div class="shot none">Interface &mdash; ${esc(p.t[0])}</div>`}
     <p class="d">${p.d}</p>
     <div class="hl">${p.b.map(x=>`<div>${x}</div>`).join('')}</div>
-    <div class="st"><span class="lbl">Stack</span><div class="ch">${p.s.map(x=>`<span class="p">${esc(x)}</span>`).join('')}</div></div>
+    <div class="st"><span class="lbl">Stack</span><div class="ch">${p.s.map(x=>`<span class="p">${x}</span>`).join('')}</div></div>
     ${p.link?`<a class="go" href="${esc(p.link)}" target="_blank" rel="noopener">Open it live &rarr;</a>`:''}
   </div>`;
   box.classList.add('on');document.body.style.overflow='hidden';
+  const sh=$('#csh');if(sh)requestAnimationFrame(()=>flip(from,sh));
   peek.classList.remove('on');
   $('#cx').focus();$('#cx').addEventListener('click',close_);
 }
@@ -550,51 +807,136 @@ function close_(){box.classList.remove('on');document.body.style.overflow='';las
 box.addEventListener('click',e=>{if(e.target===box)close_();});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&box.classList.contains('on'))close_();});
 
+/* ═══ WOW 4 · magnetic cursor + decoding headline ═══ */
+if(!RM&&matchMedia('(hover:hover)').matches){
+  const cu=$('#cur'),dt=$('#dot');
+  let cx=innerWidth/2,cy=innerHeight/2,dx=cx,dy=cy,sx=cx,sy=cy,mag=null;
+  addEventListener('pointermove',e=>{
+    cx=e.clientX;cy=e.clientY;cu.classList.add('on');dt.classList.add('on');
+    const t=e.target.closest('.item,.r,.go,.fl,.kbd,a,button');
+    const isRow=!!(t&&t.matches('.item,.r'));
+    mag=isRow?t:null;
+    cu.classList.toggle('row',isRow);
+    cu.classList.toggle('big',!!t&&!isRow);
+  },{passive:true});
+  addEventListener('pointerleave',()=>{cu.classList.remove('on');dt.classList.remove('on');});
+  (function tick(){
+    let gx=cx,gy=cy;
+    if(mag){const r=mag.getBoundingClientRect();gx=cx+(r.left+r.width/2-cx)*.06;gy=r.top+r.height/2;}
+    sx+=(gx-sx)*.16;sy+=(gy-sy)*.16;dx+=(cx-dx)*.55;dy+=(cy-dy)*.55;
+      if(document.body.style.overflow==='hidden'){mag=null;cu.classList.remove('row','big');}
+    cu.style.transform=`translate(${sx}px,${sy}px)`;
+    dt.style.transform=`translate(${dx}px,${dy}px)`;
+    requestAnimationFrame(tick);
+  })();
+
+  const h1=document.querySelector('h1');
+  const GLY='ABCDEFGHIJKLMNOPQRSTUVWXYZ/\\<>{}[]#$%&*+=';
+  const frag=[...h1.childNodes].map(n=>n.nodeName==='BR'?{br:1}
+    :{em:n.nodeName==='EM',txt:n.textContent});
+  h1.innerHTML=frag.map(f=>f.br?'<br>':
+    (f.em?'<em>':'')+[...f.txt].map(c=>`<span class="ch">${c===' '?'&nbsp;':esc(c)}</span>`).join('')
+    +(f.em?'</em>':'')).join('');
+  const chars=[...h1.querySelectorAll('.ch')].map(el=>({el,fin:el.textContent}));
+  chars.forEach(c=>{if(c.fin.trim())c.el.classList.add('sc');});
+  let done=0,t0=performance.now();
+  (function dec(t){
+    const k=(t-t0)/1500;
+    chars.forEach((c,n)=>{
+      if(!c.fin.trim())return;
+      const own=n/chars.length*.6;
+      if(k>own+.34){c.el.textContent=c.fin;c.el.classList.remove('sc');}
+      else if(k>own)c.el.textContent=GLY[(Math.random()*GLY.length)|0];
+    });
+    if(k<1.1)requestAnimationFrame(dec);
+    else chars.forEach(c=>{c.el.textContent=c.fin;c.el.classList.remove('sc');});
+  })(t0);
+}
+
+/* ═══ WOW 5 · progress rail + scroll bar ═══ */
+const bar=$('#bar'),rail=$('#rail'),railA=$$('#rail a');
+const secs=['top','work','capability','method','contact'].map(id=>document.getElementById(id));
+let scrollV=0,lastY=scrollY;
+addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.width=(h>0?scrollY/h*100:0)+'%';
+  rail.classList.toggle('on',scrollY>240);
+  scrollV=Math.min(1,Math.abs(scrollY-lastY)/34);lastY=scrollY;
+  let at=0;secs.forEach((el,n)=>{if(el&&el.getBoundingClientRect().top<innerHeight*.42)at=n;});
+  railA.forEach((a,n)=>a.classList.toggle('on',n===at));
+  window.__sec=at;
+},{passive:true});
+
 /* nav + reveal + counters */
 const nav=$('#nav');
 addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.05});
-document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i,6)*55)+'ms';io.observe(el);});
+$$('.rv').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i,6)*55)+'ms';io.observe(el);});
 const cio=new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting)return;cio.unobserve(e.target);
   const el=e.target,to=+el.dataset.to,sfx=el.dataset.suffix||'',t0=performance.now();
   (function tick(t){const k=Math.min(1,(t-t0)/1400);
     el.textContent=Math.round(to*(1-Math.pow(1-k,4)))+sfx;if(k<1)requestAnimationFrame(tick);})(t0);
 }),{threshold:.5});
-document.querySelectorAll('[data-to]').forEach(el=>cio.observe(el));
+$$('[data-to]').forEach(el=>cio.observe(el));
 
-/* three.js — a slow, shallow point wave */
+/* ═══ WOW 5b · the field re-forms per section and takes the project's colour ═══ */
 (function(){
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches||typeof THREE==='undefined')return;
+  if(RM||typeof THREE==='undefined')return;
   const cv=$('#bg');
   const r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
   r.setPixelRatio(Math.min(devicePixelRatio,2));
   const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(52,1,.1,300);
   cam.position.set(0,16,46);cam.lookAt(0,0,0);
-  const CX=108,CY=64,g=new THREE.BufferGeometry();
-  const pos=new Float32Array(CX*CY*3),base=[];
+
+  const CX=104,CY=62,N=CX*CY;
+  const pos=new Float32Array(N*3),base=[];
   let k=0;
   for(let i=0;i<CX;i++)for(let j=0;j<CY;j++){
-    const x=(i-CX/2)*1.35,z=(j-CY/2)*1.35;
-    pos[k*3]=x;pos[k*3+1]=0;pos[k*3+2]=z;base.push([x,z]);k++;
+    const x=(i-CX/2)*1.38,z=(j-CY/2)*1.38;
+    pos[k*3]=x;pos[k*3+1]=0;pos[k*3+2]=z;
+    base.push({x,z,r:Math.hypot(x,z),a:Math.atan2(z,x),s:Math.random()});k++;
   }
+  const g=new THREE.BufferGeometry();
   g.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  const pts=new THREE.Points(g,new THREE.PointsMaterial({color:0xc9a961,size:.21,
-    transparent:true,opacity:.5,sizeAttenuation:true}));
-  sc.add(pts);
-  let mx=0,my=0,ax=0,ay=0;
+  const mat=new THREE.PointsMaterial({color:new THREE.Color(0xc9a961),size:.21,
+    transparent:true,opacity:.5,sizeAttenuation:true});
+  const pts=new THREE.Points(g,mat);sc.add(pts);
+
+  /* five formations, one per section */
+  const FORM=[
+    (b,t)=>Math.sin(b.x*.09+t*.00028)*1.5+Math.cos(b.z*.11-t*.00021)*1.5,           // wave
+    (b,t)=>(Math.round(b.x/6)%2===Math.round(b.z/6)%2?1.9:-1.9)+Math.sin(t*.0006+b.s*6)*.55, // grid
+    (b,t)=>Math.sin(b.a*3+b.r*.12-t*.0005)*3.1,                                      // helix
+    (b,t)=>Math.sin(b.r*.2-t*.0007)*(5.2-b.r*.05),                                   // ripple
+    (b,t)=>(b.s-.5)*7.4*(.5+.5*Math.sin(t*.0004+b.s*9)),                             // scatter
+  ];
+  let secCur=0,blend=0,prev=0;
+  let mx=0,my=0,ax=0,ay=0,col=new THREE.Color(0xc9a961),tgt=new THREE.Color(0xc9a961);
   addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;},{passive:true});
   function size(){const w=innerWidth,h=innerHeight;r.setSize(w,h,false);cam.aspect=w/h;
     cam.position.z=w<760?66:46;cam.updateProjectionMatrix();}
   addEventListener('resize',size);size();
+
   (function loop(t){
     requestAnimationFrame(loop);
+    const want=window.__sec||0;
+    if(want!==secCur){prev=secCur;secCur=want;blend=0;}
+    blend=Math.min(1,blend+.016);
+    const e=blend<1?blend*blend*(3-2*blend):1;
+    const fA=FORM[prev],fB=FORM[secCur];
+    const turb=1+scrollV*1.9;
     const a=pts.geometry.attributes.position.array;
-    for(let i=0;i<base.length;i++){
-      const [x,z]=base[i];
-      a[i*3+1]=Math.sin((x*0.09)+t*0.00028)*1.5+Math.cos((z*0.11)-t*0.00021)*1.5;
+    for(let i=0;i<N;i++){
+      const b=base[i];
+      const y=blend<1?fA(b,t)*(1-e)+fB(b,t)*e:fB(b,t);
+      a[i*3+1]=y*turb;
     }
     pts.geometry.attributes.position.needsUpdate=true;
+    scrollV*=.93;
+    tgt.setRGB(field.k[0],field.k[1],field.k[2]);
+    col.lerp(tgt,.05);mat.color.copy(col);
+    mat.opacity=.5+(active>=0?.2:0);
     ax+=(mx-ax)*.03;ay+=(my-ay)*.03;
     pts.rotation.y=ax*.16;cam.position.x=ax*6;cam.position.y=16-ay*5;cam.lookAt(0,0,0);
     r.render(sc,cam);

@@ -437,7 +437,7 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
       <div>
         <span class="lbl rv">Systems developer &mdash; Bacoor, Cavite</span>
         <h1 class="rv">Software that<br>offices actually<br><em>run on.</em></h1>
-        <p class="sub rv"><b>Four years of full-stack development.</b> Twenty-seven systems in daily use by a district representative&rsquo;s office, a private college and small businesses &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
+        <p class="sub rv"><b>Four years of full-stack development.</b> Twenty-nine systems in daily use by a district representative&rsquo;s office, a private college and small businesses &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
         <div class="meta rv">
           <div><dt class="lbl">Discipline</dt><dd>Web &middot; Android &middot; Windows &middot; Linux</dd></div>
           <div><dt class="lbl">Education</dt><dd>BSIT, Fellowship Baptist College</dd></div>
@@ -450,8 +450,8 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
     </div>
     <div class="figs rv">
       <div><b data-to="4">0</b><span>Years full-stack<br>development</span></div>
-      <div><b data-to="27">0</b><span>Systems<br>delivered</span></div>
-      <div><b data-to="13">0</b><span>Named client<br>organizations</span></div>
+      <div><b data-to="29">0</b><span>Systems<br>delivered</span></div>
+      <div><b data-to="15">0</b><span>Named client<br>organizations</span></div>
       <div><b data-to="4">0</b><span>Platforms<br>shipped on</span></div>
       <div><b data-to="30" data-suffix="+">0</b><span>Technologies<br>worked in</span></div>
     </div>
@@ -471,7 +471,7 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
       <button class="fl" data-f="desktop" aria-pressed="false">Desktop</button>
       <button class="fl" data-f="linux" aria-pressed="false">Infrastructure</button>
       <button class="fl" data-f="ai" aria-pressed="false">AI &amp; ML</button>
-      <span class="tally" id="tally">27 projects</span>
+      <span class="tally" id="tally">29 projects</span>
       <div class="vw" role="group" aria-label="View">
         <button id="vg" aria-pressed="true">Gallery</button>
         <button id="vi" aria-pressed="false">Index</button>
@@ -529,35 +529,35 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const P = [
-{n:'BantayBuhay',c:'Real-time computer-vision emergency response',y:'2026',t:['web','ai'],
+{n:'BantayBuhay',c:'TALISIK Hackathon 2026 · Negros Island Region',y:'2026',t:['web','ai'],
  shot:'shots/bantaybuhay.jpg',link:null,
- d:'Emergency-response platform connecting three Python recognition services — facial recognition, gesture recognition and face registration — to a web application over REST. Incidents are recorded, matched to a location, dispatched to the nearest responder through a notification endpoint, and summarised in an analytics view.',
- b:['Three Python inference services behind a single REST API','Documented public API with authenticated access','Incident to responder dispatch in one continuous flow'],
+ d:'Turning passive CCTV into a response system. Python inference services &mdash; <b>SOS hand-signal detection</b> and <b>facial recognition of registered people</b> &mdash; sit behind a REST API feeding a web application. Incidents are recorded, matched to a location, dispatched to the nearest responder through a notification endpoint, and summarised in an analytics view. Built for the TALISIK Hackathon Challenge 2026 with Daisy Mae G. Pirante and Angelo P. Lacsao, then carried into a startup competition.',
+ b:['Gesture and facial recognition services behind a single REST API','Designed to run on CCTV a barangay already owns, rather than new hardware','Documented public API with authenticated access','Incident to responder dispatch in one continuous flow'],
  s:['Next.js','React','TypeScript','Python','REST API','SQL','Radix UI','Recharts','Zod']},
 
-{n:'SMMS Human Resource Management',c:'SMMS · four-role HR platform',y:'2026',t:['web'],
- shot:'shots/hrms.jpg',link:null,
- d:'A complete HR platform with <b>four separate roles</b> &mdash; HR, Employee, Accounting and Administrator &mdash; each seeing only its own work. It carries a person from the public careers page through application, onboarding, daily attendance, leave, payroll and finally offboarding, and <b>every change is written to an audit log</b> recording who made it and when.',
- b:['Four roles with separate permissions: HR, Employee, Accounting, Administrator','Public careers site &mdash; job openings, applications and an editable homepage','Attendance with proctoring, half-days and time-correction requests','Leave requests routed for approval; finance and salary loans','Payroll run end to end: salary computation, payslips, remittances','Onboarding and offboarding workflows with administrator approval','<b>Audit log on every change</b> &mdash; who, when and what','Turned over with a step-by-step client demonstration script'],
- s:['PHP','MySQL','JavaScript','Role-based access control','Audit logging','Payroll &amp; remittance rules']},
+{n:'Human Resource Management System',c:'St. Mary Magdalene School',y:'2026',t:['web'],
+ shot:'shots/hrms.jpg',link:'https://stmarymagdalenehrms.com',
+ d:'A <b>Laravel 12</b> HR platform, live on the school&rsquo;s own domain, with <b>four separate roles</b> &mdash; HR, Employee, Accounting and Administrator &mdash; each seeing only its own work behind a permission layer. It carries a person from the public careers page through application, onboarding, daily attendance, leave, payroll and finally offboarding, and <b>every change is written to an audit log</b> recording who made it and when.',
+ b:['Four roles with separate permissions: HR, Employee, Accounting, Administrator','Reads <b>ZKTeco biometric terminals</b> directly &mdash; attendance comes off the device, not a sign-in sheet','Public careers site &mdash; job openings, applications and an editable homepage','Attendance with proctoring, half-days and time-correction requests; leave routed for approval','Payroll end to end: salary computation, loans, deductions, remittances and <b>generated PDF payslips</b>','Offboarding and final pay &mdash; HR and Admin approve, Accounting confirms retirement and gratuity pay, the signed slip is emailed and the account closed','<b>Audit log on every change</b>, plus a <b>Pest test suite</b> over the codebase','Deployed and maintained by me on the client&rsquo;s own hosting, through rounds of client revisions'],
+ s:['Laravel 12','PHP 8.2','Blade','MySQL','Laravel Sanctum','spatie/laravel-permission','dompdf','PhpSpreadsheet','ZKTeco','Pest']},
 
 {n:'FBC PayPoint',c:'Fellowship Baptist College · Kabankalan City',y:'2026',t:['web'],
- shot:'shots/paypoint.jpg',link:null,
- d:'Kiosk fee assessment and payment with promissory-note management, built as a capstone title-proposal prototype. <b>Three roles share one live database:</b> a student kiosk that opens on a tapped ID card or an ID number and PIN and shows the exact amount due, takes cash or cashless payment and prints the receipt and the exam permit; a cashier who searches a student, posts payments and reviews every transaction; and the VP for Finance, who works the promissory queue first come, first served.',
- b:['Three roles &mdash; student kiosk, cashier, VP for Finance &mdash; on one live database','Kiosk sign-in by tapped ID card or ID number and PIN','Promissory requests approved first come, first served, then deducted automatically','Student must still settle the remaining balance before the permit prints','Receipt and examination permit printed at the kiosk','Falls back to offline demo mode when no database is configured'],
- s:['JavaScript','Supabase','PostgreSQL','Realtime','Vercel','HTML5']},
+ shot:'shots/paypoint.jpg',link:'https://fbc-paypoint.vercel.app',
+ d:'Kiosk fee assessment and payment with promissory-note management, built as a <b>title-proposal prototype</b> and deployed live. <b>Three roles share one database kept in sync by Supabase Realtime:</b> a student kiosk opening on an RFID tap or an ID number, showing the exact amount due; a cashier who searches a student, posts payments and reviews every transaction; and the VP for Finance, who works the promissory queue oldest first. <b>The hardware &mdash; RFID reader, bill acceptor, GCash and Maya &mdash; is simulated in the prototype</b>, and the kiosk&rsquo;s FBC Assistant is five fixed question-and-answer buttons sourced from the college site, not a language model.',
+ b:['Three roles &mdash; student kiosk, cashier, VP for Finance &mdash; synced live across devices','RFID tap by default, ID number as the secondary route in','Promissory requests approved oldest first, then deducted automatically','Student cannot pay below the amount due; receipt and exam permit print at the kiosk','Hardware and payment rails are simulated &mdash; this is a prototype, not a production till','Falls back to offline demo mode when no database is configured'],
+ s:['JavaScript','Supabase','PostgreSQL','Supabase Realtime','Vercel','HTML5']},
 
 {n:'FBC DocuVault',c:'Fellowship Baptist College · Registrar’s Office',y:'2026',t:['web'],
- shot:'shots/docuvault.jpg',link:null,
+ shot:'shots/docuvault.jpg',link:'https://fbc-docuvault.vercel.app',
  d:'A graduation-requirements tracker. Students keep their <b>Form 137, Form 138, NSTP serial number and PSA birth certificate</b> in one place and watch each one move through not yet submitted, for review, returned and verified. Anything else they own goes into My documents, private or shared with the registrar. The Registrar’s Office reviews what comes in and sees at a glance who is cleared, who is waiting and who is incomplete.',
  b:['Form 137, Form 138, NSTP serial and PSA birth certificate tracked per student','Four review states: not yet submitted, for review, returned, verified','<b>PostgreSQL row-level security</b> &mdash; a student reads only their own record','Private storage bucket with per-folder upload, read and delete policies','Registrar clearance view: cleared, waiting for review, incomplete','Registrar access granted by email, not by a hard-coded role'],
  s:['JavaScript','Supabase Auth','PostgreSQL','Row-level security','Supabase Storage','Realtime','Vercel']},
 
 {n:'FBC Wayfinder',c:'Fellowship Baptist College · campus kiosk',y:'2026',t:['web'],
- shot:'shots/wayfinder.jpg',link:null,
- d:'A campus navigation kiosk covering <b>43 mapped places</b> &mdash; a directory, walking routes between any two points, and live office status read from per-office weekday and Saturday opening hours. A single serverless function hands the app its database keys so they never sit in the repository, and if the database is unreachable the kiosk falls back to its built-in data and says so in the top bar instead of failing.',
- b:['43 campus places with routes, directory and live office status','Opening hours editable per office &mdash; changes appear at the next page load','Serverless config endpoint keeps the database keys out of the repository','Degrades to built-in data and labels itself &ldquo;Offline data&rdquo;','Route searches logged as place and time only &mdash; no personal data'],
- s:['JavaScript','Supabase','PostgreSQL','Vercel Functions','HTML5','Dark mode']},
+ shot:'shots/wayfinder.jpg',link:'https://fbc-wayfinder.vercel.app',
+ d:'A campus navigation kiosk for the Lobby entrance, built from the group&rsquo;s own hand-drawn site sketch and rotated so the map faces the way you are standing. Tap a room, pick a quick destination or search, and an amber line draws the walking route with a time estimate. Office status comes from per-office weekday and Saturday hours, and an idle timer resets it for the next person. <b>The live deployment runs on its built-in dataset and says &ldquo;Offline data&rdquo; in the top bar</b>; the Supabase schema ships with it but the live kiosk is not connected to it.',
+ b:['<b>33 of 43 places pinned</b> on the map, with routes, directory and office status','Live route drawing with walking time, plus quick picks for the common destinations','Light and dark mode, and an idle-reset timer for unattended kiosk use','Serverless config endpoint keeps the database keys out of the repository','Honest degradation &mdash; it labels itself &ldquo;Offline data&rdquo; rather than failing silently','Title-proposal prototype, deployed and usable'],
+ s:['JavaScript','Vercel Functions','HTML5','Dark mode','Supabase schema (not yet connected)']},
 
 {n:'SchedPlus',c:'Fellowship Baptist College',y:'2026',t:['web'],shot:'shots/fbc.jpg',link:null,
  d:'A scheduling engine that reads every approved teacher-and-subject request for a term and places the whole semester: every section, every room, every teacher. The registrar used to build this matrix by hand each term. <b>One click now does it, and nobody is ever booked in two places at once.</b>',
@@ -667,6 +667,18 @@ const P = [
  b:['Searchable map of congregations and active outreaches','Server-side rendering with row-level access control','Authentication and data over Supabase PostgreSQL'],
  s:['Next.js','React','TypeScript','Supabase','PostgreSQL','@supabase/ssr']},
 
+{n:'My Refuge',c:'Children’s feeding and education charity · Negros Occidental',y:'2026',t:['web'],
+ shot:'shots/refuge.jpg',link:'https://myrefuge.community',
+ d:'A charity site that replaced the client&rsquo;s old Wix pages, built and <b>still maintained in production</b> on their own VPS. Visitors read the programmes, browse events and a gallery, send a message and <b>donate by card</b>. The owner signs in to a dashboard for visitors, donations with charts and CSV export, events and messages. The look is the client&rsquo;s own pick &mdash; the bubbly and neo-brutalist mockups they chose, combined.',
+ b:['Public site: home, Who We Are, Programs, Events, Gallery, Contact, Donate','Card donations &mdash; built on PayMongo, then moved to PayPal at the client&rsquo;s request','Owner dashboard: donations with charts and CSV export, visitors, events, messages','<b>Security pass</b>: CSP headers, login and form rate limits, lockout, session revocation','<b>Zero-downtime deploys</b> &mdash; GitHub Actions builds a release branch, a systemd timer pulls it with a read-only deploy key and PM2 reloads it','Running on a Hostinger VPS I provisioned and administer'],
+ s:['Next.js 15','React 19','SQLite (node:sqlite)','PayPal','GitHub Actions','systemd','PM2','Ubuntu VPS']},
+
+{n:'ALAB Eco Briquettes',c:'Waste to Warmth · San Jose del Monte',y:'2026',t:['web'],
+ shot:'shots/alab.jpg',link:'https://alab-website-six.vercel.app',
+ d:'A product site for eco-friendly charcoal briquettes made from coconut shells and rice husks. Eight pages carry the product, the process, the sustainability programme and the full business plan, and visitors leave <b>1&ndash;5 star reviews</b> stored in Supabase through a Node serverless function. Behind a login sits an admin dashboard. The front end leans hard into the product: a draggable coconut that lands on an animated grill with a <b>shared visitor counter</b>, ember particles, a scroll-driven story and a three.js briquette.',
+ b:['Eight pages, including a complete business plan and a 203-respondent survey','Star ratings and feedback through a serverless endpoint, with a local-JSON fallback','Admin dashboard: KPIs, traffic, rating and referrer breakdowns, review moderation, CSV export','Passwords hashed with <b>scrypt</b>, signed session cookies, anonymous visitor tracking','Draggable coconut with a shared counter, ember particles and a three.js briquette'],
+ s:['React 18','Vite','React Router','Node serverless','Supabase','PostgreSQL','three.js','Vercel']},
+
 {n:'Team Barbie Cup',c:'Surveying firm · Google Sites',y:'2026',t:['web'],shot:'shots/surveying.jpg',
  link:null,
  d:'A published website for a surveying firm, built on <b>Google Sites</b> so the team can keep editing it themselves after turnover. Three main pages plus an individual profile page for each of the eight members, with the structure, copy and layout designed to match how the firm actually presents itself.',
@@ -676,7 +688,7 @@ const P = [
 {n:'Portfolio Platform',c:'This site',y:'2026',t:['web'],shot:'shots/portfolio.jpg',
  link:'https://quimanjan16.github.io',
  d:'A single-page portfolio with a searchable, filterable register of every system, real interface previews that track the cursor in 3D, and a WebGL field that changes formation as you scroll. Built, deployed and hosted by me on GitHub Pages.',
- b:['Command palette &mdash; search 27 systems by name, client or technology','Each row carries its own system&rsquo;s brand colour through the whole page','Interface previews rendered from the real dashboards, not stock mockups','WebGL point field that re-forms per section and follows scroll velocity','Self-built, self-deployed, self-hosted'],
+ b:['Command palette &mdash; search 29 systems by name, client or technology','Each row carries its own system&rsquo;s brand colour through the whole page','Interface previews rendered from the real dashboards, not stock mockups','WebGL point field that re-forms per section and follows scroll velocity','Self-built, self-deployed, self-hosted'],
  s:['HTML5','CSS3','JavaScript','Three.js','WebGL','GitHub Pages']},
 ];
 
@@ -696,7 +708,8 @@ const KEY={
  'shots/jrmc.jpg':'#2bb891','shots/sitepay.jpg':'#4a9ad4','shots/airbnb.jpg':'#c79a75',
  'shots/attendance.jpg':'#2dd4bf','shots/gcash.jpg':'#3b9afe','shots/onechurch.jpg':'#d8b64a',
  'shots/hrms.jpg':'#2ddbd9','shots/surveying.jpg':'#6fae7a','shots/portfolio.jpg':'#c9a961',
- 'shots/paypoint.jpg':'#d1596b','shots/docuvault.jpg':'#d9b35c','shots/wayfinder.jpg':'#63a8ff'};
+ 'shots/paypoint.jpg':'#d1596b','shots/docuvault.jpg':'#d9b35c','shots/wayfinder.jpg':'#63a8ff',
+ 'shots/refuge.jpg':'#45b29d','shots/alab.jpg':'#f28c38'};
 P.forEach(p=>{p.k=KEY[p.shot]||'#c9a961';});
 
 const CAP=[
@@ -884,7 +897,7 @@ function pick(n){
 function openCmd(){
   cmd.innerHTML=`<div class="pal">
     <input id="cq" type="text" autocomplete="off" spellcheck="false"
-      placeholder="Search 27 systems &mdash; name, client or technology&hellip;">
+      placeholder="Search 29 systems &mdash; name, client or technology&hellip;">
     <div class="res" id="cres" role="listbox"></div>
     <div class="hint"><span>&uarr;&darr; Navigate</span><span>&crarr; Open</span><span>Esc Close</span>
       <span id="ccount" style="margin-left:auto"></span></div>

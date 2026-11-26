@@ -76,7 +76,7 @@ nav .links+.avail{margin-left:0}nav .kbd+.avail{margin-left:26px}
 .hero{padding-block:188px 118px}
 .hero .grid{display:grid;grid-template-columns:1fr 330px;gap:72px;align-items:end}
 @media(max-width:980px){.hero .grid{grid-template-columns:1fr;gap:48px}.hero{padding-block:140px 86px}}
-h1{font-size:clamp(3.2rem,8.4vw,7.4rem)}
+h1{font-size:clamp(2.5rem,7.1vw,6.4rem)}
 h1 em{font-style:italic;color:var(--gold)}
 .sub{margin-top:36px;font-size:clamp(1.08rem,1.9vw,1.32rem);color:var(--muted);max-width:52ch;
   font-weight:300;line-height:1.62}
@@ -86,14 +86,33 @@ h1 em{font-style:italic;color:var(--gold)}
 .meta dt{font-family:var(--m);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
 .meta dd{margin:0;font-size:15px;color:var(--muted)}
 
-.portrait{position:relative}
-.portrait .f{position:relative;overflow:hidden;background:var(--surface);aspect-ratio:3/4;
-  border:1px solid var(--line)}
-.portrait img{width:100%;height:100%;object-fit:cover;display:block;
-  filter:grayscale(1) contrast(1.08) brightness(.96);transition:filter .9s var(--ease),transform 1.1s var(--ease)}
-.portrait:hover img{filter:grayscale(.15) contrast(1.04);transform:scale(1.035)}
-.portrait .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(201,169,97,.1),transparent 45%,rgba(8,9,11,.6));
-  pointer-events:none}
+.portrait{position:relative;--px:0;--py:0;--lx:0;--ly:14}
+.portrait .f{position:relative;background:none;border:0;overflow:visible;
+  transform:translate3d(calc(var(--px)*1px),calc(var(--py)*1px),0);
+  transition:transform .9s var(--ease);animation:drift 9s ease-in-out infinite}
+@keyframes drift{0%,100%{margin-top:0}50%{margin-top:-13px}}
+/* the aura sits behind the cut-out and breathes with it */
+.portrait .f::before{content:"";position:absolute;left:4%;right:4%;top:6%;bottom:2%;
+  border-radius:50% 50% 46% 46%;z-index:0;
+  background:radial-gradient(closest-side,rgba(201,169,97,.26),rgba(201,169,97,.07) 58%,transparent 76%);
+  filter:blur(14px);animation:breathe 9s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.07);opacity:1}}
+/* a grounding ellipse, so he is standing on something */
+.portrait .f::after{content:"";position:absolute;left:14%;right:14%;bottom:-10px;height:22px;
+  border-radius:50%;z-index:0;
+  background:radial-gradient(closest-side,rgba(201,169,97,.2),transparent 72%);filter:blur(7px)}
+.portrait img{position:relative;z-index:1;width:100%;height:auto;display:block;
+  filter:grayscale(.55) contrast(1.07) brightness(.97)
+    drop-shadow(calc(var(--lx)*1px) calc(var(--ly)*1px) 22px rgba(201,169,97,.5))
+    drop-shadow(0 26px 46px rgba(0,0,0,.72));
+  transition:filter 1s var(--ease),transform 1.1s var(--ease)}
+.portrait:hover img{filter:grayscale(0) contrast(1.03) brightness(1.02)
+    drop-shadow(calc(var(--lx)*1px) calc(var(--ly)*1px) 30px rgba(201,169,97,.72))
+    drop-shadow(0 30px 54px rgba(0,0,0,.78));
+  transform:scale(1.025)}
+@media(prefers-reduced-motion:reduce){
+  .portrait .f,.portrait .f::before{animation:none}
+}
 .portrait .cap{margin-top:16px;display:flex;justify-content:space-between;gap:14px;
   font-family:var(--m);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--faint)}
 
@@ -388,6 +407,7 @@ footer .wrap{padding-block:124px 56px}
   z-index:118;transition:width .12s linear}
 
 /* ── wow 4 · headline decode ───────────────────────────── */
+h1 .w{display:inline-block;white-space:nowrap}
 h1 .ch{display:inline-block;white-space:pre}
 h1 .ch.sc{color:var(--gold);opacity:.45}
 
@@ -435,16 +455,16 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
   <div class="wrap">
     <div class="grid">
       <div>
-        <span class="lbl rv">Systems developer &mdash; Bacoor, Cavite</span>
+        <span class="lbl rv">Full-stack developer &mdash; Sipalay City, Negros Occidental</span>
         <h1 class="rv">Software that<br>offices actually<br><em>run on.</em></h1>
         <p class="sub rv"><b>Four years of full-stack development.</b> Twenty-nine systems in daily use by a district representative&rsquo;s office, a private college and small businesses &mdash; <b>built end to end</b>, from the data model through the interface, the installer, turnover and training.</p>
         <div class="meta rv">
           <div><dt class="lbl">Discipline</dt><dd>Web &middot; Android &middot; Windows &middot; Linux</dd></div>
-          <div><dt class="lbl">Education</dt><dd>BSIT, Fellowship Baptist College</dd></div>
+          <div><dt class="lbl">Education</dt><dd>BSIT, Fellowship Baptist College &mdash; magna cum laude</dd></div>
         </div>
       </div>
       <div class="portrait rv">
-        <div class="f"><img src="photo.jpg" alt="Vincent Joed G. Quimanjan"><span class="tint"></span></div>
+        <div class="f"><img src="photo-cut.png" alt="Vincent Joed G. Quimanjan"></div>
         <div class="cap"><span>Vincent Joed G. Quimanjan</span><span>PH</span></div>
       </div>
     </div>
@@ -518,7 +538,7 @@ h1 .ch.sc{color:var(--gold);opacity:.45}
       <a class="r" href="https://www.facebook.com/VinxQui/"><span class="k">Facebook</span><span class="v">fb.com/VinxQui</span><span class="ar">&rarr;</span></a>
     </div>
     <div class="foot">
-      <span>Vincent Joed G. Quimanjan &mdash; Bacoor, Cavite, Philippines</span>
+      <span>Vincent Joed G. Quimanjan &mdash; Sipalay City, Negros Occidental, Philippines</span>
       <span>&copy; 2026</span>
     </div>
   </div>
@@ -995,9 +1015,13 @@ if(!RM&&matchMedia('(hover:hover)').matches){
   const GLY='ABCDEFGHIJKLMNOPQRSTUVWXYZ/\\<>{}[]#$%&*+=';
   const frag=[...h1.childNodes].map(n=>n.nodeName==='BR'?{br:1}
     :{em:n.nodeName==='EM',txt:n.textContent});
+  /* characters animate individually, but they are grouped into words so the
+     line can only ever break at a space */
+  const word=w=>`<span class="w">${[...w].map(c=>`<span class="ch">${esc(c)}</span>`).join('')}</span>`;
   h1.innerHTML=frag.map(f=>f.br?'<br>':
-    (f.em?'<em>':'')+[...f.txt].map(c=>`<span class="ch">${c===' '?'&nbsp;':esc(c)}</span>`).join('')
-    +(f.em?'</em>':'')).join('');
+    (f.em?'<em>':'')
+    + f.txt.split(/(\s+)/).map(t=>/^\s+$/.test(t)?t:word(t)).join('')
+    + (f.em?'</em>':'')).join('');
   const chars=[...h1.querySelectorAll('.ch')].map(el=>({el,fin:el.textContent}));
   chars.forEach(c=>{if(c.fin.trim())c.el.classList.add('sc');});
   let done=0,t0=performance.now();
@@ -1013,6 +1037,25 @@ if(!RM&&matchMedia('(hover:hover)').matches){
     else chars.forEach(c=>{c.el.textContent=c.fin;c.el.classList.remove('sc');});
   })(t0);
 }
+
+/* the portrait leans away from the cursor and its rim light leans toward it */
+(function(){
+  const pr=$('.portrait');if(!pr||RM||!matchMedia('(hover:hover)').matches)return;
+  let tx=0,ty=0,cx=0,cy=0,lx=0,ly=14,tlx=0,tly=14;
+  addEventListener('pointermove',e=>{
+    const dx=e.clientX/innerWidth-.5,dy=e.clientY/innerHeight-.5;
+    tx=-dx*22;ty=-dy*14;          /* the figure drifts opposite the cursor */
+    tlx=dx*26;tly=10+dy*18;        /* the light falls from where the cursor is */
+  },{passive:true});
+  (function tick(){
+    cx+=(tx-cx)*.055;cy+=(ty-cy)*.055;lx+=(tlx-lx)*.07;ly+=(tly-ly)*.07;
+    pr.style.setProperty('--px',cx.toFixed(2));
+    pr.style.setProperty('--py',cy.toFixed(2));
+    pr.style.setProperty('--lx',lx.toFixed(2));
+    pr.style.setProperty('--ly',ly.toFixed(2));
+    requestAnimationFrame(tick);
+  })();
+})();
 
 /* ═══ WOW 5 · progress rail + scroll bar ═══ */
 const bar=$('#bar'),rail=$('#rail'),railA=$$('#rail a');
